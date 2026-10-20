@@ -1,0 +1,425 @@
+[
+  {
+    "document_id": "python_02_strings",
+    "file": "documents/python_02_strings.txt",
+    "title": "3.1.2. Text",
+    "source_url": "https://docs.python.org/3.14/tutorial/introduction.html#text",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 1170,
+    "sha256": "898c8af02c04e632e920e3e1862d8ca20f5d935d9f35181ec42b10f76ead87c3",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/introduction.html#text"
+    ]
+  },
+  {
+    "document_id": "python_03_lists",
+    "file": "documents/python_03_lists.txt",
+    "title": "3.1.3. Lists",
+    "source_url": "https://docs.python.org/3.14/tutorial/introduction.html#lists",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 513,
+    "sha256": "7c7730fbb96abee6a7c0b67ade32b1417d2916ed7dddc96cb61dfe0f336daf80",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/introduction.html#lists"
+    ]
+  },
+  {
+    "document_id": "python_06_defining_functions",
+    "file": "documents/python_06_defining_functions.txt",
+    "title": "4.8. Defining Functions",
+    "source_url": "https://docs.python.org/3.14/tutorial/controlflow.html#defining-functions",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 785,
+    "sha256": "b8f6cbab2fe6fb1b43c7c61e7199ef9cdcfc49d829a913b936de39c8c1da3b96",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/controlflow.html#defining-functions"
+    ]
+  },
+  {
+    "document_id": "python_07_default_arguments",
+    "file": "documents/python_07_default_arguments.txt",
+    "title": "4.9.1. Default Argument Values",
+    "source_url": "https://docs.python.org/3.14/tutorial/controlflow.html#default-argument-values",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 271,
+    "sha256": "8159ddd0f82ee3e8fffef12c181fa19be4ed86139de3c63772a9b145bd7fbdd5",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/controlflow.html#default-argument-values"
+    ]
+  },
+  {
+    "document_id": "python_09_parameter_kinds",
+    "file": "documents/python_09_parameter_kinds.txt",
+    "title": "4.9.3. Special parameters",
+    "source_url": "https://docs.python.org/3.14/tutorial/controlflow.html#special-parameters",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 782,
+    "sha256": "9045adeab4f3c518b1fb9a4ef4b451d4d02dfdecb75d7cdf2f189cd69486f044",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/controlflow.html#special-parameters"
+    ]
+  },
+  {
+    "document_id": "python_10_list_comprehensions",
+    "file": "documents/python_10_list_comprehensions.txt",
+    "title": "5.1.3. List Comprehensions",
+    "source_url": "https://docs.python.org/3.14/tutorial/datastructures.html#list-comprehensions",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 535,
+    "sha256": "be0fbb1a77e21a396ecbe7ef3120cbfcb74f4156e42598c1ac8549396df13c10",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/datastructures.html#list-comprehensions"
+    ]
+  },
+  {
+    "document_id": "python_11_tuples",
+    "file": "documents/python_11_tuples.txt",
+    "title": "5.3. Tuples and Sequences",
+    "source_url": "https://docs.python.org/3.14/tutorial/datastructures.html#tuples-and-sequences",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 475,
+    "sha256": "0a7ff24d19deb95401255fba7679639f5469bd2f950ebc9932001b8a1c3cb716",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/datastructures.html#tuples-and-sequences"
+    ]
+  },
+  {
+    "document_id": "python_12_sets",
+    "file": "documents/python_12_sets.txt",
+    "title": "5.4. Sets",
+    "source_url": "https://docs.python.org/3.14/tutorial/datastructures.html#sets",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 270,
+    "sha256": "0f58c999faf4c2ee08b20ad2dda1c31849f6955f9ebc376276486aa5247ac1fb",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/datastructures.html#sets"
+    ]
+  },
+  {
+    "document_id": "python_13_dictionaries",
+    "file": "documents/python_13_dictionaries.txt",
+    "title": "5.5. Dictionaries",
+    "source_url": "https://docs.python.org/3.14/tutorial/datastructures.html#dictionaries",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 481,
+    "sha256": "a39fe9ef1db4a62468f143f70a73b01809758dfdbaab33d4351bd2fdfa808bab",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/datastructures.html#dictionaries"
+    ]
+  },
+  {
+    "document_id": "python_14_looping_techniques",
+    "file": "documents/python_14_looping_techniques.txt",
+    "title": "5.6. Looping Techniques",
+    "source_url": "https://docs.python.org/3.14/tutorial/datastructures.html#looping-techniques",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 364,
+    "sha256": "1f730c99a91ec463750c6ab051d66de5562c6a9ca234ce3c7ccc41bbe29fbf15",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/datastructures.html#looping-techniques"
+    ]
+  },
+  {
+    "document_id": "python_15_modules_as_scripts",
+    "file": "documents/python_15_modules_as_scripts.txt",
+    "title": "6.1.1. Executing modules as scripts",
+    "source_url": "https://docs.python.org/3.14/tutorial/modules.html#executing-modules-as-scripts",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 146,
+    "sha256": "f14fc22a64c24c2e9517eb119857dce6acd2cdacf815bd986633e0a0a1ecdb89",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/modules.html#executing-modules-as-scripts"
+    ]
+  },
+  {
+    "document_id": "python_16_packages",
+    "file": "documents/python_16_packages.txt",
+    "title": "6.4. Packages",
+    "source_url": "https://docs.python.org/3.14/tutorial/modules.html#packages",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 1197,
+    "sha256": "53d500989c7dc967cadfbd221b8b849bb5ea4d53f82bc76e1ba98c00bed6171c",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/modules.html#packages"
+    ]
+  },
+  {
+    "document_id": "python_18_file_objects",
+    "file": "documents/python_18_file_objects.txt",
+    "title": "7.2.1. Methods of File Objects",
+    "source_url": "https://docs.python.org/3.14/tutorial/inputoutput.html#methods-of-file-objects",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 596,
+    "sha256": "6f33e65deccfdf3c00316651a0bdebe1059eef26faa8877f7d20ff03b0af79ca",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/inputoutput.html#methods-of-file-objects"
+    ]
+  },
+  {
+    "document_id": "python_19_json",
+    "file": "documents/python_19_json.txt",
+    "title": "7.2.2. Saving structured data with json",
+    "source_url": "https://docs.python.org/3.14/tutorial/inputoutput.html#saving-structured-data-with-json",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 410,
+    "sha256": "9b38245fa2b1a48892d3a370f826b4836e68e157f9657fc442bc761150420176",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/inputoutput.html#saving-structured-data-with-json"
+    ]
+  },
+  {
+    "document_id": "python_20_handling_exceptions",
+    "file": "documents/python_20_handling_exceptions.txt",
+    "title": "8.3. Handling Exceptions",
+    "source_url": "https://docs.python.org/3.14/tutorial/errors.html#handling-exceptions",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 862,
+    "sha256": "c7e575b3aecd027aefa58625bc5983091dca91a7041647fb854a58a1ee0770af",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/errors.html#handling-exceptions"
+    ]
+  },
+  {
+    "document_id": "python_21_finally",
+    "file": "documents/python_21_finally.txt",
+    "title": "8.7. Defining Clean-up Actions",
+    "source_url": "https://docs.python.org/3.14/tutorial/errors.html#defining-clean-up-actions",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 454,
+    "sha256": "7a00419f937f133785e2a5e41d2d3e4ce1a6bd236990b7bb99057b1922386ce5",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/errors.html#defining-clean-up-actions"
+    ]
+  },
+  {
+    "document_id": "python_22_class_instance_variables",
+    "file": "documents/python_22_class_instance_variables.txt",
+    "title": "9.3.5. Class and Instance Variables",
+    "source_url": "https://docs.python.org/3.14/tutorial/classes.html#class-and-instance-variables",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 252,
+    "sha256": "021e17df0f3da7461470a89ddbcb2768934e647e9040f9225f44f8a88db106aa",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/classes.html#class-and-instance-variables"
+    ]
+  },
+  {
+    "document_id": "python_23_inheritance",
+    "file": "documents/python_23_inheritance.txt",
+    "title": "9.5. Inheritance",
+    "source_url": "https://docs.python.org/3.14/tutorial/classes.html#inheritance",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 677,
+    "sha256": "5e29a7b506da0e44f783b411ac1e2e5ab6e0e3ea7b035cc4aade546d14ceefea",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/classes.html#inheritance"
+    ]
+  },
+  {
+    "document_id": "python_24_generators",
+    "file": "documents/python_24_generators.txt",
+    "title": "9.9. Generators",
+    "source_url": "https://docs.python.org/3.14/tutorial/classes.html#generators",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 196,
+    "sha256": "88d3d884c21fae4e5285a5081ac56baefa85a32ebb32a52136154e5aa3ac650b",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/classes.html#generators"
+    ]
+  },
+  {
+    "document_id": "python_25_virtual_environments",
+    "file": "documents/python_25_virtual_environments.txt",
+    "title": "12.2. Creating Virtual Environments",
+    "source_url": "https://docs.python.org/3.14/tutorial/venv.html#creating-virtual-environments",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 330,
+    "sha256": "717fd5790ebc3f91e02635a0ea4e9f1feca7ab81f17bd5fbc9263e23739a3cf7",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/venv.html#creating-virtual-environments"
+    ]
+  },
+  {
+    "document_id": "python_26_string_trimming",
+    "file": "documents/python_26_string_trimming.txt",
+    "title": "Trimming whitespace from strings",
+    "source_url": "https://docs.python.org/3.14/library/stdtypes.html#str.strip",
+    "source_urls": [
+      "https://docs.python.org/3.14/library/stdtypes.html#str.strip",
+      "https://docs.python.org/3.14/library/stdtypes.html#str.lstrip",
+      "https://docs.python.org/3.14/library/stdtypes.html#str.rstrip"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 330,
+    "sha256": "dbb5d4cc972671c68b33b49f22bd376d02a6c58704dff9393ef2eb8444462e5c",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_27_scipy_optimization",
+    "file": "documents/python_27_scipy_optimization.txt",
+    "title": "Numerical optimization with scipy.optimize",
+    "source_url": "https://docs.scipy.org/doc/scipy/tutorial/optimize.html#optimization-scipy-optimize",
+    "source_urls": [
+      "https://docs.scipy.org/doc/scipy/tutorial/optimize.html#optimization-scipy-optimize",
+      "https://docs.scipy.org/doc/scipy/tutorial/optimize.html#local-minimization-of-multivariate-scalar-functions-minimize",
+      "https://docs.scipy.org/doc/scipy/tutorial/optimize.html#least-squares-minimization-least-squares",
+      "https://docs.scipy.org/doc/scipy/tutorial/optimize.html#linear-programming-linprog"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 472,
+    "sha256": "1905e475ebbfeadf3d3bb6088e9e8332e0d819fb89c92da36d017c7f46aead04",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_28_dataclasses",
+    "file": "documents/python_28_dataclasses.txt",
+    "title": "Data classes and generated methods",
+    "source_url": "https://docs.python.org/3.14/library/dataclasses.html#module-dataclasses",
+    "source_urls": [
+      "https://docs.python.org/3.14/library/dataclasses.html#module-dataclasses",
+      "https://docs.python.org/3.14/library/dataclasses.html#default-factory-functions",
+      "https://docs.python.org/3.14/library/dataclasses.html#frozen-instances"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 290,
+    "sha256": "62f6002a5af2d29c9c41246894fd48ac3eeb8beb48ff133a05ce0a6b4a56ee67",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_29_private_variables",
+    "file": "documents/python_29_private_variables.txt",
+    "title": "Non-public attributes and name mangling",
+    "source_url": "https://docs.python.org/3.14/tutorial/classes.html#private-variables",
+    "source_urls": [
+      "https://docs.python.org/3.14/tutorial/classes.html#private-variables"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 370,
+    "sha256": "d8355a981782fb331b2f5eb097c6f0eda72d584178267cde8737993ca5ec9277",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_30_list_implementation",
+    "file": "documents/python_30_list_implementation.txt",
+    "title": "How Python lists are represented in CPython",
+    "source_url": "https://docs.python.org/3.14/faq/design.html#how-are-lists-implemented-in-cpython",
+    "source_urls": [
+      "https://docs.python.org/3.14/faq/design.html#how-are-lists-implemented-in-cpython",
+      "https://docs.python.org/3.14/faq/programming.html#how-do-you-make-an-array-in-python"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 277,
+    "sha256": "7d6b80e0f5f494cf83aa5e84193a39d8103d4e9aa595635ff496f78d651112da",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_31_background_computation",
+    "file": "documents/python_31_background_computation.txt",
+    "title": "Submitting background work to executors",
+    "source_url": "https://docs.python.org/3.14/library/concurrent.futures.html#module-concurrent.futures",
+    "source_urls": [
+      "https://docs.python.org/3.14/library/concurrent.futures.html#module-concurrent.futures",
+      "https://docs.python.org/3.14/library/concurrent.futures.html#concurrent.futures.Executor.submit",
+      "https://docs.python.org/3.14/library/concurrent.futures.html#processpoolexecutor",
+      "https://docs.python.org/3.14/library/concurrent.futures.html#processpoolexecutor-example"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 898,
+    "sha256": "065ffc3ea66f792a58597ea746179aa28f841b7d769065ee023f8bc9b4c98ca2",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_32_asyncio_concurrency",
+    "file": "documents/python_32_asyncio_concurrency.txt",
+    "title": "Coroutines and concurrent asyncio tasks",
+    "source_url": "https://docs.python.org/3.14/library/asyncio-task.html#coroutines",
+    "source_urls": [
+      "https://docs.python.org/3.14/library/asyncio-task.html#coroutines",
+      "https://docs.python.org/3.14/library/asyncio-task.html#creating-tasks",
+      "https://docs.python.org/3.14/library/asyncio-task.html#running-tasks-concurrently"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 1123,
+    "sha256": "72cf887930d110579e88a2891fcece809dd1fdbb2fba030faa3e2f8f5f23ddcf",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_33_scientific_python",
+    "file": "documents/python_33_scientific_python.txt",
+    "title": "Numerical computing, data analysis and machine learning",
+    "source_url": "https://numpy.org/doc/stable/user/whatisnumpy.html",
+    "source_urls": [
+      "https://numpy.org/doc/stable/user/whatisnumpy.html",
+      "https://pandas.pydata.org/docs/getting_started/overview.html#package-overview",
+      "https://scikit-learn.org/stable/getting_started.html#getting-started"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 914,
+    "sha256": "5baec60fa855c9027dcc4c791e5ba3ea08dcfb39df111c8ea4734c6d29e990b7",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers.",
+    "download_source_urls": [
+      "https://raw.githubusercontent.com/numpy/numpy/main/doc/source/user/whatisnumpy.rst",
+      "https://pandas.pydata.org/docs/getting_started/overview.html#package-overview",
+      "https://scikit-learn.org/stable/getting_started.html#getting-started"
+    ]
+  },
+  {
+    "document_id": "python_34_list_aliasing_copying",
+    "file": "documents/python_34_list_aliasing_copying.txt",
+    "title": "Shared list references and independent copies",
+    "source_url": "https://docs.python.org/3.14/faq/programming.html#why-did-changing-list-y-also-change-list-x",
+    "source_urls": [
+      "https://docs.python.org/3.14/faq/programming.html#why-did-changing-list-y-also-change-list-x",
+      "https://docs.python.org/3.14/faq/programming.html#how-do-i-copy-an-object-in-python",
+      "https://docs.python.org/3.14/faq/programming.html#how-do-i-create-a-multidimensional-list",
+      "https://docs.python.org/3.14/library/stdtypes.html#sequence.copy"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 827,
+    "sha256": "e0aa6e2e26f19791f4cfec29b6211a5692e2af9c2d8cbff648d8e4b1fdff1c0f",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  },
+  {
+    "document_id": "python_35_append_extend",
+    "file": "documents/python_35_append_extend.txt",
+    "title": "Appending an object versus extending a mutable sequence",
+    "source_url": "https://docs.python.org/3.14/library/stdtypes.html#mutable-sequence-types",
+    "source_urls": [
+      "https://docs.python.org/3.14/library/stdtypes.html#mutable-sequence-types"
+    ],
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 465,
+    "sha256": "45282622d576edaa95aa1490fd1f615053a98c17f6e3e14925fb28c3b0ca9260",
+    "extraction": "Official documentation excerpts; HTML navigation removed; no generated answers."
+  }
+]

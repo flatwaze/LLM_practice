@@ -1,0 +1,146 @@
+Document ID: python_33_scientific_python
+Title: Numerical computing, data analysis and machine learning
+Source: https://numpy.org/doc/stable/user/whatisnumpy.html
+Source: https://pandas.pydata.org/docs/getting_started/overview.html#package-overview
+Source: https://scikit-learn.org/stable/getting_started.html#getting-started
+License: NumPy, pandas and scikit-learn BSD 3-Clause Licenses; see data/SOURCE_LICENSE.txt and data/licenses/.
+
+NumPy is the fundamental package for scientific computing in Python.
+It is a Python library that provides a multidimensional array object,
+various derived objects (such as masked arrays and matrices), and an
+assortment of routines for fast operations on arrays, including
+mathematical, logical, shape manipulation, sorting, selecting, I/O,
+discrete Fourier transforms, basic linear algebra, basic statistical
+operations, random simulation and much more.
+
+At the core of the NumPy package, is the numpy.ndarray object.  This
+encapsulates n-dimensional arrays of homogeneous data types, with
+many operations being performed in compiled code for performance.
+There are several important differences between NumPy arrays and the
+standard Python sequences:
+
+- NumPy arrays have a fixed size at creation, unlike Python lists
+  (which can grow dynamically). Changing the size of an numpy.ndarray will
+  create a new array and delete the original.
+
+- The elements in a NumPy array are all required to be of the same
+  data type, and thus will be the same size in memory.  The exception:
+  one can have arrays of (Python, including NumPy) objects, thereby
+  allowing for arrays of different sized elements.
+
+- NumPy arrays facilitate advanced mathematical and other types of
+  operations on large numbers of data.  Typically, such operations are
+  executed more efficiently and with less code than is possible using
+  Python's built-in sequences.
+
+- A growing plethora of scientific and mathematical Python-based
+  packages are using NumPy arrays; though these typically support
+  Python-sequence input, they convert such input to NumPy arrays prior
+  to processing, and they often output NumPy arrays.  In other words,
+  in order to efficiently use much (perhaps even most) of today's
+  scientific/mathematical Python-based software, just knowing how to
+  use Python's built-in sequence types is insufficient - one also
+  needs to know how to use NumPy arrays.
+
+
+
+Package overview
+
+pandas is a Python package that provides fast,
+flexible, and expressive data structures designed to make working with
+“relational” or “labeled” data both easy and intuitive. It aims to be the
+fundamental high-level building block for Python’s practical, real-world data
+analysis. Additionally, it seeks to become the
+most powerful and flexible open source data analysis/manipulation tool
+available in any language. It is already well on its way toward this goal.
+
+pandas is well suited for many different kinds of data:
+
+Tabular data with heterogeneously-typed columns, as in an SQL table or
+Excel spreadsheet
+
+Ordered and unordered (not necessarily fixed-frequency) time series data.
+
+Arbitrary matrix data (homogeneously typed or heterogeneous) with row and
+column labels
+
+Any other form of observational / statistical data sets. The data
+need not be labeled at all to be placed into a pandas data structure
+
+The two primary data structures of pandas, Series (1-dimensional)
+and DataFrame (2-dimensional), handle the vast majority of typical use
+cases in finance, statistics, social science, and many areas of
+engineering. For R users, DataFrame provides everything that R’s
+data.frame provides and much more. pandas is built on top of NumPy and is intended to integrate well within a scientific
+computing environment with many other 3rd party libraries.
+
+Here are just a few of the things that pandas does well:
+
+Easy handling of missing data (represented as NaN) in floating point as
+well as non-floating point data
+
+Size mutability: columns can be inserted and deleted from DataFrame and
+higher dimensional objects
+
+Automatic and explicit data alignment: objects can be explicitly
+aligned to a set of labels, or the user can simply ignore the labels and
+let Series, DataFrame, etc. automatically align the data for you in
+computations
+
+Powerful, flexible group by functionality to perform
+split-apply-combine operations on data sets, for both aggregating and
+transforming data
+
+Make it easy to convert ragged, differently-indexed data in other
+Python and NumPy data structures into DataFrame objects
+
+Intelligent label-based slicing, fancy indexing, and subsetting
+of large data sets
+
+Intuitive merging and joining data sets
+
+Flexible reshaping and pivoting of data sets
+
+Hierarchical labeling of axes (possible to have multiple labels per
+tick)
+
+Robust IO tools for loading data from flat files (CSV and delimited),
+Excel files, databases, and saving / loading data from the ultrafast HDF5
+format
+
+Time series-specific functionality: date range generation and frequency
+conversion, moving window statistics, date shifting, and lagging.
+
+Many of these principles are here to address the shortcomings frequently
+experienced using other languages / scientific research environments. For data
+scientists, working with data is typically divided into multiple stages:
+munging and cleaning data, analyzing / modeling it, then organizing the results
+of the analysis into a form suitable for plotting or tabular display. pandas
+is the ideal tool for all of these tasks.
+
+Some other notes
+
+pandas is fast. Many of the low-level algorithmic bits have been
+extensively tweaked in Cython code. However, as with
+anything else generalization usually sacrifices performance. So if you focus
+on one feature for your application you may be able to create a faster
+specialized tool.
+
+pandas is a dependency of statsmodels, making it an important part of the
+statistical computing ecosystem in Python.
+
+pandas has been used extensively in production in financial applications.
+
+Getting Started
+
+Scikit-learn is an open source machine learning library that supports
+supervised and unsupervised learning. It also provides various tools for
+model fitting, data preprocessing, model selection, model evaluation,
+and many other utilities.
+
+The purpose of this guide is to illustrate some of the main features of
+scikit-learn. It assumes basic working knowledge of machine learning
+practices (model fitting, predicting, cross-validation, etc.). Please refer to
+our installation instructions to install
+scikit-learn, or jump to the Next steps section for additional
+guidance on using scikit-learn.

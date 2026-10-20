@@ -1,0 +1,185 @@
+Document ID: python_31_background_computation
+Title: Submitting background work to executors
+Source: https://docs.python.org/3.14/library/concurrent.futures.html#module-concurrent.futures
+Source: https://docs.python.org/3.14/library/concurrent.futures.html#concurrent.futures.Executor.submit
+Source: https://docs.python.org/3.14/library/concurrent.futures.html#processpoolexecutor
+Source: https://docs.python.org/3.14/library/concurrent.futures.html#processpoolexecutor-example
+License: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/.
+
+concurrent.futures — Launching parallel tasks
+
+Added in version 3.2.
+
+Source code: Lib/concurrent/futures/thread.py,
+Lib/concurrent/futures/process.py,
+and Lib/concurrent/futures/interpreter.py
+
+The concurrent.futures module provides a high-level interface for
+asynchronously executing callables.
+
+The asynchronous execution can be performed with threads, using
+ThreadPoolExecutor or InterpreterPoolExecutor,
+or separate processes, using ProcessPoolExecutor.
+Each implements the same interface, which is defined
+by the abstract Executor class.
+
+concurrent.futures.Future must not be confused with
+asyncio.Future, which is designed for use with asyncio
+tasks and coroutines. See the asyncio’s Future
+documentation for a detailed comparison of the two.
+
+Availability: not WASI.
+
+This module does not work or is not available on WebAssembly. See
+WebAssembly platforms for more information.
+
+submit(fn, /, *args, **kwargs)
+
+Schedules the callable, fn, to be executed as fn(*args, **kwargs)
+and returns a Future object representing the execution of the
+callable.
+
+with ThreadPoolExecutor(max_workers=1) as executor:
+    future = executor.submit(pow, 323, 1235)
+    print(future.result())
+
+ProcessPoolExecutor
+
+The ProcessPoolExecutor class is an Executor subclass that
+uses a pool of processes to execute calls asynchronously.
+ProcessPoolExecutor uses the multiprocessing module, which
+allows it to side-step the Global Interpreter Lock but also means that
+only picklable objects can be executed and returned.
+
+The __main__ module must be importable by worker subprocesses. This means
+that ProcessPoolExecutor will not work in the interactive interpreter.
+
+Calling Executor or Future methods from a callable submitted
+to a ProcessPoolExecutor will result in deadlock.
+
+Note that the restrictions on functions and arguments needing to picklable as
+per multiprocessing.Process apply when using submit()
+and map() on a ProcessPoolExecutor. A function defined
+in a REPL or a lambda should not be expected to work.
+
+class concurrent.futures.ProcessPoolExecutor(max_workers=None, mp_context=None, initializer=None, initargs=(), max_tasks_per_child=None)
+
+An Executor subclass that executes calls asynchronously using a pool
+of at most max_workers processes.  If max_workers is None or not
+given, it will default to os.process_cpu_count().
+If max_workers is less than or equal to 0, then a ValueError
+will be raised.
+On Windows, max_workers must be less than or equal to 61. If it is not
+then ValueError will be raised. If max_workers is None, then
+the default chosen will be at most 61, even if more processors are
+available.
+mp_context can be a multiprocessing context or None. It will be
+used to launch the workers. If mp_context is None or not given, the
+default multiprocessing context is used.
+See Contexts and start methods.
+
+initializer is an optional callable that is called at the start of
+each worker process; initargs is a tuple of arguments passed to the
+initializer.  Should initializer raise an exception, all currently
+pending jobs will raise a BrokenProcessPool,
+as well as any attempt to submit more jobs to the pool.
+
+max_tasks_per_child is an optional argument that specifies the maximum
+number of tasks a single process can execute before it will exit and be
+replaced with a fresh worker process. By default max_tasks_per_child is
+None which means worker processes will live as long as the pool. When
+a max is specified, the “spawn” multiprocessing start method will be used by
+default in absence of a mp_context parameter. This feature is incompatible
+with the “fork” start method.
+
+Changed in version 3.3: When one of the worker processes terminates abruptly, a
+BrokenProcessPool error is now raised.
+Previously, behaviour
+was undefined but operations on the executor or its futures would often
+freeze or deadlock.
+
+Changed in version 3.7: The mp_context argument was added to allow users to control the
+start_method for worker processes created by the pool.
+
+Added the initializer and initargs arguments.
+
+Changed in version 3.11: The max_tasks_per_child argument was added to allow users to
+control the lifetime of workers in the pool.
+
+Changed in version 3.12: On POSIX systems, if your application has multiple threads and the
+multiprocessing context uses the "fork" start method:
+The os.fork() function called internally to spawn workers may raise a
+DeprecationWarning. Pass a mp_context configured to use a
+different start method. See the os.fork() documentation for
+further explanation.
+
+Changed in version 3.13: max_workers uses os.process_cpu_count() by default, instead of
+os.cpu_count().
+
+Changed in version 3.14: The default process start method (see
+Contexts and start methods) changed away from fork. If you
+require the fork start method for ProcessPoolExecutor you must
+explicitly pass mp_context=multiprocessing.get_context("fork").
+
+Changed in version 3.14.7: Fixed a deadlock (gh-115634) where the executor could hang after
+a worker process exited upon reaching its max_tasks_per_child
+limit while tasks remained queued.
+
+terminate_workers()
+
+Attempt to terminate all living worker processes immediately by calling
+Process.terminate on each of them.
+Internally, it will also call Executor.shutdown() to ensure that all
+other resources associated with the executor are freed.
+
+After calling this method the caller should no longer submit tasks to the
+executor.
+
+Added in version 3.14.
+
+kill_workers()
+
+Attempt to kill all living worker processes immediately by calling
+Process.kill on each of them.
+Internally, it will also call Executor.shutdown() to ensure that all
+other resources associated with the executor are freed.
+
+After calling this method the caller should no longer submit tasks to the
+executor.
+
+Added in version 3.14.
+
+ProcessPoolExecutor Example
+
+import concurrent.futures
+import math
+
+PRIMES = [
+    112272535095293,
+    112582705942171,
+    112272535095293,
+    115280095190773,
+    115797848077099,
+    1099726899285419]
+
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+
+    sqrt_n = int(math.floor(math.sqrt(n)))
+    for i in range(3, sqrt_n + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+def main():
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+            print('%d is prime: %s' % (number, prime))
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,285 @@
+Document ID: python_32_asyncio_concurrency
+Title: Coroutines and concurrent asyncio tasks
+Source: https://docs.python.org/3.14/library/asyncio-task.html#coroutines
+Source: https://docs.python.org/3.14/library/asyncio-task.html#creating-tasks
+Source: https://docs.python.org/3.14/library/asyncio-task.html#running-tasks-concurrently
+License: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/.
+
+Coroutines
+
+Source code: Lib/asyncio/coroutines.py
+
+Coroutines declared with the async/await syntax is the
+preferred way of writing asyncio applications.  For example, the following
+snippet of code prints “hello”, waits 1 second,
+and then prints “world”:
+
+>>> import asyncio
+
+>>> async def main():
+...     print('hello')
+...     await asyncio.sleep(1)
+...     print('world')
+
+>>> asyncio.run(main())
+hello
+world
+
+Note that simply calling a coroutine will not schedule it to
+be executed:
+
+>>> main()
+<coroutine object main at 0x1053bb7c8>
+
+To actually run a coroutine, asyncio provides the following mechanisms:
+
+The asyncio.run() function to run the top-level
+entry point “main()” function (see the above example.)
+
+Awaiting on a coroutine.  The following snippet of code will
+print “hello” after waiting for 1 second, and then print “world”
+after waiting for another 2 seconds:
+
+import asyncio
+import time
+
+async def say_after(delay, what):
+    await asyncio.sleep(delay)
+    print(what)
+
+async def main():
+    print(f"started at {time.strftime('%X')}")
+
+    await say_after(1, 'hello')
+    await say_after(2, 'world')
+
+    print(f"finished at {time.strftime('%X')}")
+
+asyncio.run(main())
+
+Expected output:
+
+started at 17:13:52
+hello
+world
+finished at 17:13:55
+
+The asyncio.create_task() function to run coroutines
+concurrently as asyncio Tasks.
+
+Let’s modify the above example and run two say_after coroutines
+concurrently:
+
+async def main():
+    task1 = asyncio.create_task(
+        say_after(1, 'hello'))
+
+    task2 = asyncio.create_task(
+        say_after(2, 'world'))
+
+    print(f"started at {time.strftime('%X')}")
+
+    # Wait until both tasks are completed (should take
+    # around 2 seconds.)
+    await task1
+    await task2
+
+    print(f"finished at {time.strftime('%X')}")
+
+Note that expected output now shows that the snippet runs
+1 second faster than before:
+
+started at 17:14:32
+hello
+world
+finished at 17:14:34
+
+The asyncio.TaskGroup class provides a more modern
+alternative to create_task().
+Using this API, the last example becomes:
+
+async def main():
+    async with asyncio.TaskGroup() as tg:
+        task1 = tg.create_task(
+            say_after(1, 'hello'))
+
+        task2 = tg.create_task(
+            say_after(2, 'world'))
+
+        print(f"started at {time.strftime('%X')}")
+
+    # The await is implicit when the context manager exits.
+
+    print(f"finished at {time.strftime('%X')}")
+
+The timing and output should be the same as for the previous version.
+
+Added in version 3.11: asyncio.TaskGroup.
+
+Creating tasks
+
+Source code: Lib/asyncio/tasks.py
+
+asyncio.create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
+
+Wrap the coro coroutine into a Task
+and schedule its execution.  Return the Task object.
+
+The full function signature is largely the same as that of the
+Task constructor (or factory) - all of the keyword arguments to
+this function are passed through to that interface.
+
+An optional keyword-only context argument allows specifying a
+custom contextvars.Context for the coro to run in.
+The current context copy is created when no context is provided.
+
+An optional keyword-only eager_start argument allows specifying
+if the task should execute eagerly during the call to create_task,
+or be scheduled later. If eager_start is not passed the mode set
+by loop.set_task_factory() will be used.
+
+The task is executed in the loop returned by get_running_loop(),
+RuntimeError is raised if there is no running loop in
+current thread.
+
+Note
+
+asyncio.TaskGroup.create_task() is a new alternative
+leveraging structural concurrency; it allows for waiting
+for a group of related tasks with strong safety guarantees.
+
+Important
+
+Save a reference to the result of this function, to avoid
+a task disappearing mid-execution. The event loop only keeps
+weak references to tasks. A task that isn’t referenced elsewhere
+may get garbage collected at any time, even before it’s done.
+For reliable “fire-and-forget” background tasks, gather them in
+a collection:
+
+background_tasks = set()
+
+for i in range(10):
+    task = asyncio.create_task(some_coro(param=i))
+
+    # Add task to the set. This creates a strong reference.
+    background_tasks.add(task)
+
+    # To prevent keeping references to finished tasks forever,
+    # make each task remove its own reference from the set after
+    # completion:
+    task.add_done_callback(background_tasks.discard)
+
+Note that this approach never awaits the tasks, so if a task
+fails, its exception is never retrieved and asyncio logs a
+“Task exception was never retrieved” message when the task is
+garbage collected.  To avoid this, use asyncio.TaskGroup
+which keeps a strong reference to each task, awaits them and
+propagates their exceptions:
+
+async with asyncio.TaskGroup() as tg:
+    for i in range(10):
+        tg.create_task(some_coro(param=i))
+
+Added in version 3.7.
+
+Changed in version 3.8: Added the name parameter.
+
+Changed in version 3.11: Added the context parameter.
+
+Changed in version 3.14: Added the eager_start parameter by passing on all kwargs.
+
+Running tasks concurrently
+
+awaitable asyncio.gather(*aws, return_exceptions=False)
+
+Run awaitable objects in the aws
+sequence concurrently.
+
+If any awaitable in aws is a coroutine, it is automatically
+scheduled as a Task.
+
+If all awaitables are completed successfully, the result is an
+aggregate list of returned values.  The order of result values
+corresponds to the order of awaitables in aws.
+
+If return_exceptions is False (default), the first
+raised exception is immediately propagated to the task that
+awaits on gather().  Other awaitables in the aws sequence
+won’t be cancelled and will continue to run.
+
+If return_exceptions is True, exceptions are treated the
+same as successful results, and aggregated in the result list.
+
+If gather() is cancelled, all submitted awaitables
+(that have not completed yet) are also cancelled.
+
+If any Task or Future from the aws sequence is cancelled, it is
+treated as if it raised CancelledError – the gather()
+call is not cancelled in this case.  This is to prevent the
+cancellation of one submitted Task/Future to cause other
+Tasks/Futures to be cancelled.
+
+Note
+
+A new alternative to create and run tasks concurrently and
+wait for their completion is asyncio.TaskGroup. TaskGroup
+provides stronger safety guarantees than gather for scheduling a nesting of subtasks:
+if a task (or a subtask, a task scheduled by a task)
+raises an exception, TaskGroup will, while gather will not,
+cancel the remaining scheduled tasks.
+
+Example:
+
+import asyncio
+
+async def factorial(name, number):
+    f = 1
+    for i in range(2, number + 1):
+        print(f"Task {name}: Compute factorial({number}), currently i={i}...")
+        await asyncio.sleep(1)
+        f *= i
+    print(f"Task {name}: factorial({number}) = {f}")
+    return f
+
+async def main():
+    # Schedule three calls *concurrently*:
+    L = await asyncio.gather(
+        factorial("A", 2),
+        factorial("B", 3),
+        factorial("C", 4),
+    )
+    print(L)
+
+asyncio.run(main())
+
+# Expected output:
+#
+#     Task A: Compute factorial(2), currently i=2...
+#     Task B: Compute factorial(3), currently i=2...
+#     Task C: Compute factorial(4), currently i=2...
+#     Task A: factorial(2) = 2
+#     Task B: Compute factorial(3), currently i=3...
+#     Task C: Compute factorial(4), currently i=3...
+#     Task B: factorial(3) = 6
+#     Task C: Compute factorial(4), currently i=4...
+#     Task C: factorial(4) = 24
+#     [2, 6, 24]
+
+Note
+
+If return_exceptions is false, cancelling gather() after it
+has been marked done won’t cancel any submitted awaitables.
+For instance, gather can be marked done after propagating an
+exception to the caller, therefore, calling gather.cancel()
+after catching an exception (raised by one of the awaitables) from
+gather won’t cancel any other awaitables.
+
+Changed in version 3.7: If the gather itself is cancelled, the cancellation is
+propagated regardless of return_exceptions.
+
+Changed in version 3.10: Removed the loop parameter.
+
+Deprecated since version 3.10: Deprecation warning is emitted if no positional arguments are provided
+or not all positional arguments are Future-like objects
+and there is no running event loop.

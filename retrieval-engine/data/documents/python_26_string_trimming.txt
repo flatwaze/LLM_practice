@@ -1,0 +1,79 @@
+Document ID: python_26_string_trimming
+Title: Trimming whitespace from strings
+Source: https://docs.python.org/3.14/library/stdtypes.html#str.strip
+Source: https://docs.python.org/3.14/library/stdtypes.html#str.lstrip
+Source: https://docs.python.org/3.14/library/stdtypes.html#str.rstrip
+License: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/.
+
+str.strip(chars=None, /)
+
+Return a copy of the string with the leading and trailing characters removed.
+The chars argument is a string specifying the set of characters to be removed.
+If omitted or None, the chars argument defaults to removing whitespace.
+The chars argument is not a prefix or suffix; rather, all combinations of its
+values are stripped.
+
+Whitespace characters are defined by str.isspace().
+
+For example:
+
+>>> '   spacious   '.strip()
+'spacious'
+>>> 'www.example.com'.strip('cmowz.')
+'example'
+
+The outermost leading and trailing chars argument values are stripped
+from the string. Characters are removed from the leading end until
+reaching a string character that is not contained in the set of
+characters in chars. A similar action takes place on the trailing end.
+
+For example:
+
+>>> comment_string = '#....... Section 3.2.1 Issue #32 .......'
+>>> comment_string.strip('.#! ')
+'Section 3.2.1 Issue #32'
+
+See also rstrip().
+
+str.lstrip(chars=None, /)
+
+Return a copy of the string with leading characters removed.  The chars
+argument is a string specifying the set of characters to be removed.  If omitted
+or None, the chars argument defaults to removing whitespace.  The chars
+argument is not a prefix; rather, all combinations of its values are stripped:
+
+>>> '   spacious   '.lstrip()
+'spacious   '
+>>> 'www.example.com'.lstrip('cmowz.')
+'example.com'
+
+See str.removeprefix() for a method that will remove a single prefix
+string rather than all of a set of characters.  For example:
+
+>>> 'Arthur: three!'.lstrip('Arthur: ')
+'ee!'
+>>> 'Arthur: three!'.removeprefix('Arthur: ')
+'three!'
+
+str.rstrip(chars=None, /)
+
+Return a copy of the string with trailing characters removed.  The chars
+argument is a string specifying the set of characters to be removed.  If omitted
+or None, the chars argument defaults to removing whitespace.  The chars
+argument is not a suffix; rather, all combinations of its values are stripped.
+For example:
+
+>>> '   spacious   '.rstrip()
+'   spacious'
+>>> 'mississippi'.rstrip('ipz')
+'mississ'
+
+See removesuffix() for a method that will remove a single suffix
+string rather than all of a set of characters.  For example:
+
+>>> 'Monty Python'.rstrip(' Python')
+'M'
+>>> 'Monty Python'.removesuffix(' Python')
+'Monty'
+
+See also strip().

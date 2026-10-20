@@ -1,0 +1,99 @@
+Document ID: python_35_append_extend
+Title: Appending an object versus extending a mutable sequence
+Source: https://docs.python.org/3.14/library/stdtypes.html#mutable-sequence-types
+License: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/.
+
+Mutable Sequence Types
+
+The operations in the following table are defined on mutable sequence types.
+The collections.abc.MutableSequence ABC is provided to make it
+easier to correctly implement these operations on custom sequence types.
+
+In the table s is an instance of a mutable sequence type, t is any
+iterable object and x is an arbitrary object that meets any type
+and value restrictions imposed by s (for example, bytearray only
+accepts integers that meet the value restriction 0 <= x <= 255).
+
+Operation | Result | Notes
+
+s[i] = x | item i of s is replaced by x
+
+del s[i] | removes item i of s
+
+s[i:j] = t | slice of s from i to j is replaced by the contents of the iterable t
+
+del s[i:j] | removes the elements of s[i:j] from the list (same as s[i:j] = [])
+
+s[i:j:k] = t | the elements of s[i:j:k] are replaced by those of t | (1)
+
+del s[i:j:k] | removes the elements of s[i:j:k] from the list
+
+s += t | extends s with the contents of t (for the most part the same as s[len(s):len(s)] = t)
+
+s *= n | updates s with its contents repeated n times | (2)
+
+Notes:
+
+If k is not equal to 1, t must have the same length as the slice it is replacing.
+
+The value n is an integer, or an object implementing
+__index__().  Zero and negative values of n clear
+the sequence.  Items in the sequence are not copied; they are referenced
+multiple times, as explained for s * n under Common Sequence Operations.
+
+Mutable Sequence Methods
+
+Mutable sequence types also support the following methods:
+
+sequence.append(value, /)
+
+Append value to the end of the sequence.
+This is equivalent to writing seq[len(seq):len(seq)] = [value].
+
+sequence.clear()
+
+Added in version 3.3.
+
+Remove all items from sequence.
+This is equivalent to writing del sequence[:].
+
+sequence.copy()
+
+Added in version 3.3.
+
+Create a shallow copy of sequence.
+This is equivalent to writing sequence[:].
+
+Hint
+
+The copy() method is not part of the
+MutableSequence ABC,
+but most concrete mutable sequence types provide it.
+
+sequence.extend(iterable, /)
+
+Extend sequence with the contents of iterable.
+For the most part, this is the same as writing
+seq[len(seq):len(seq)] = iterable.
+
+sequence.insert(index, value, /)
+
+Insert value into sequence at the given index.
+This is equivalent to writing sequence[index:index] = [value].
+
+sequence.pop(index=-1, /)
+
+Retrieve the item at index and also remove it from sequence.
+By default, the last item in sequence is removed and returned.
+
+sequence.remove(value, /)
+
+Remove the first item from sequence where sequence[i] == value.
+
+Raises ValueError if value is not found in sequence.
+
+sequence.reverse()
+
+Reverse the items of sequence in place.
+This method maintains economy of space when reversing a large sequence.
+To remind users that it operates by side-effect, it returns None.

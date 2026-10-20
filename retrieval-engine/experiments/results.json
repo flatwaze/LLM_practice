@@ -1,0 +1,196 @@
+[
+  {
+    "chunk_size": 100,
+    "overlap": 20,
+    "recall_at_3": 0.85,
+    "queries": [
+      {
+        "query_id": "q01",
+        "retrieved_document_ids": [
+          "python_26_string_trimming",
+          "python_18_file_objects",
+          "python_02_strings"
+        ],
+        "recall_at_3": 0.5
+      },
+      {
+        "query_id": "q02",
+        "retrieved_document_ids": [
+          "python_27_scipy_optimization",
+          "python_33_scientific_python",
+          "python_23_inheritance"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q03",
+        "retrieved_document_ids": [
+          "python_28_dataclasses",
+          "python_34_list_aliasing_copying",
+          "python_19_json"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q04",
+        "retrieved_document_ids": [
+          "python_29_private_variables",
+          "python_22_class_instance_variables",
+          "python_23_inheritance"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q05",
+        "retrieved_document_ids": [
+          "python_30_list_implementation",
+          "python_33_scientific_python",
+          "python_03_lists"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q06",
+        "retrieved_document_ids": [
+          "python_31_background_computation",
+          "python_32_asyncio_concurrency",
+          "python_24_generators"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q07",
+        "retrieved_document_ids": [
+          "python_32_asyncio_concurrency",
+          "python_31_background_computation",
+          "python_24_generators"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q08",
+        "retrieved_document_ids": [
+          "python_33_scientific_python",
+          "python_19_json",
+          "python_30_list_implementation"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q09",
+        "retrieved_document_ids": [
+          "python_34_list_aliasing_copying",
+          "python_35_append_extend",
+          "python_32_asyncio_concurrency"
+        ],
+        "recall_at_3": 0.5
+      },
+      {
+        "query_id": "q10",
+        "retrieved_document_ids": [
+          "python_30_list_implementation",
+          "python_34_list_aliasing_copying",
+          "python_03_lists"
+        ],
+        "recall_at_3": 0.5
+      }
+    ]
+  },
+  {
+    "chunk_size": 250,
+    "overlap": 50,
+    "recall_at_3": 0.9,
+    "queries": [
+      {
+        "query_id": "q01",
+        "retrieved_document_ids": [
+          "python_26_string_trimming",
+          "python_02_strings",
+          "python_18_file_objects"
+        ],
+        "recall_at_3": 0.5
+      },
+      {
+        "query_id": "q02",
+        "retrieved_document_ids": [
+          "python_27_scipy_optimization",
+          "python_33_scientific_python",
+          "python_34_list_aliasing_copying"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q03",
+        "retrieved_document_ids": [
+          "python_33_scientific_python",
+          "python_28_dataclasses",
+          "python_34_list_aliasing_copying"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q04",
+        "retrieved_document_ids": [
+          "python_29_private_variables",
+          "python_23_inheritance",
+          "python_22_class_instance_variables"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q05",
+        "retrieved_document_ids": [
+          "python_33_scientific_python",
+          "python_30_list_implementation",
+          "python_02_strings"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q06",
+        "retrieved_document_ids": [
+          "python_31_background_computation",
+          "python_32_asyncio_concurrency",
+          "python_20_handling_exceptions"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q07",
+        "retrieved_document_ids": [
+          "python_32_asyncio_concurrency",
+          "python_34_list_aliasing_copying",
+          "python_33_scientific_python"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q08",
+        "retrieved_document_ids": [
+          "python_33_scientific_python",
+          "python_13_dictionaries",
+          "python_03_lists"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q09",
+        "retrieved_document_ids": [
+          "python_34_list_aliasing_copying",
+          "python_35_append_extend",
+          "python_03_lists"
+        ],
+        "recall_at_3": 1.0
+      },
+      {
+        "query_id": "q10",
+        "retrieved_document_ids": [
+          "python_34_list_aliasing_copying",
+          "python_03_lists",
+          "python_06_defining_functions"
+        ],
+        "recall_at_3": 0.5
+      }
+    ]
+  }
+]

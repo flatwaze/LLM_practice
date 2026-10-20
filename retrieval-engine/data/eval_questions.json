@@ -1,0 +1,85 @@
+[
+  {
+    "query_id": "q01",
+    "query": "How can I remove leading and trailing whitespace from a string while keeping the result a string?",
+    "relevant_document_ids": [
+      "python_26_string_trimming",
+      "python_10_list_comprehensions"
+    ],
+    "original_query": "We want to delete all backspaces from the string."
+  },
+  {
+    "query_id": "q02",
+    "query": "Which Python library provides algorithms for numerical optimization?",
+    "relevant_document_ids": [
+      "python_27_scipy_optimization"
+    ],
+    "original_query": "Find the library that is good for numerical optimization."
+  },
+  {
+    "query_id": "q03",
+    "query": "How can I define a small data-holding class without writing boilerplate methods?",
+    "relevant_document_ids": [
+      "python_28_dataclasses"
+    ],
+    "original_query": "I want to describe classes briefly without overcomplicating my pipeline, what technics do I have?"
+  },
+  {
+    "query_id": "q04",
+    "query": "How can I mark class attributes as non-public and prevent accidental access, and what are the limitations?",
+    "relevant_document_ids": [
+      "python_29_private_variables"
+    ],
+    "original_query": "How to protect data described in my class."
+  },
+  {
+    "query_id": "q05",
+    "query": "How are Python lists stored and resized compared with a C-style array?",
+    "relevant_document_ids": [
+      "python_30_list_implementation"
+    ],
+    "original_query": "What the difference between list in python and array in C?"
+  },
+  {
+    "query_id": "q06",
+    "query": "How can I submit a CPU-intensive calculation to run in the background while the main program continues?",
+    "relevant_document_ids": [
+      "python_31_background_computation"
+    ],
+    "original_query": "We will send this calculations to the background."
+  },
+  {
+    "query_id": "q07",
+    "query": "How can I run several I/O-bound operations concurrently using async and await?",
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency"
+    ],
+    "original_query": "Analog for semophore."
+  },
+  {
+    "query_id": "q08",
+    "query": "Which Python libraries can I use for numerical computing, tabular data analysis, and machine learning?",
+    "relevant_document_ids": [
+      "python_33_scientific_python"
+    ],
+    "original_query": "Best libraries for DS and ML"
+  },
+  {
+    "query_id": "q09",
+    "query": "I append the same working list several times and then clear or modify it, so all stored rows change. How can I keep independent copies?",
+    "relevant_document_ids": [
+      "python_34_list_aliasing_copying",
+      "python_03_lists"
+    ],
+    "original_query": "I got an array that contains only empty arrays, I don't know what the issue is?"
+  },
+  {
+    "query_id": "q10",
+    "query": "For Python lists, how does += differ from append when adding another list?",
+    "relevant_document_ids": [
+      "python_35_append_extend",
+      "python_34_list_aliasing_copying"
+    ],
+    "original_query": "Difference between += and append."
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "document_id": "python_01_numbers",
+    "file": "original_documents/python_01_numbers.txt",
+    "title": "3.1.1. Numbers",
+    "source_url": "https://docs.python.org/3.14/tutorial/introduction.html#numbers",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 468,
+    "sha256": "98d85f2017780a38ed5c4bf35f1c51972c8c5a79c7ebe691a2239244d8214152"
+  },
+  {
+    "document_id": "python_04_for_loops",
+    "file": "original_documents/python_04_for_loops.txt",
+    "title": "4.2. for Statements",
+    "source_url": "https://docs.python.org/3.14/tutorial/controlflow.html#for-statements",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 195,
+    "sha256": "ebe4363050ca7db22a197b58c3af872c91524e6013a61060f05149fc1e0a7eaf"
+  },
+  {
+    "document_id": "python_05_range",
+    "file": "original_documents/python_05_range.txt",
+    "title": "4.3. The range() Function",
+    "source_url": "https://docs.python.org/3.14/tutorial/controlflow.html#the-range-function",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 325,
+    "sha256": "cd15e8a155461a5f95ab5535f5536c1fdb081d898e562bacb780f01b5b9f25d6"
+  },
+  {
+    "document_id": "python_08_keyword_arguments",
+    "file": "original_documents/python_08_keyword_arguments.txt",
+    "title": "4.9.2. Keyword Arguments",
+    "source_url": "https://docs.python.org/3.14/tutorial/controlflow.html#keyword-arguments",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 457,
+    "sha256": "c8af55c0b52d6ef9b5e555ee39f2b8f941c4a677765eaac6f12c0d68f2c7b90e"
+  },
+  {
+    "document_id": "python_17_f_strings",
+    "file": "original_documents/python_17_f_strings.txt",
+    "title": "7.1.1. Formatted String Literals",
+    "source_url": "https://docs.python.org/3.14/tutorial/inputoutput.html#formatted-string-literals",
+    "language": "en",
+    "retrieved_on": "2026-10-20",
+    "body_word_count": 266,
+    "sha256": "ca24adc7aeece36c6bdcb32dbb38870131a581a2932f1b81868b7e53839e2323"
+  }
+]

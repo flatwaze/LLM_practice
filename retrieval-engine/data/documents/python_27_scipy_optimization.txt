@@ -1,0 +1,84 @@
+Document ID: python_27_scipy_optimization
+Title: Numerical optimization with scipy.optimize
+Source: https://docs.scipy.org/doc/scipy/tutorial/optimize.html#optimization-scipy-optimize
+Source: https://docs.scipy.org/doc/scipy/tutorial/optimize.html#local-minimization-of-multivariate-scalar-functions-minimize
+Source: https://docs.scipy.org/doc/scipy/tutorial/optimize.html#least-squares-minimization-least-squares
+Source: https://docs.scipy.org/doc/scipy/tutorial/optimize.html#linear-programming-linprog
+License: SciPy BSD 3-Clause License; see data/SOURCE_LICENSE.txt and data/licenses/.
+
+Optimization (scipy.optimize)
+
+The scipy.optimize package provides several commonly used
+optimization algorithms. A detailed listing is available:
+scipy.optimize (can also be found by help(scipy.optimize)).
+
+Local minimization of multivariate scalar functions (minimize)
+
+The minimize function provides a common interface to unconstrained
+and constrained minimization algorithms for multivariate scalar functions
+in scipy.optimize. To demonstrate the minimization function, consider the
+problem of minimizing the Rosenbrock function of \(N\) variables:
+
+\[f\left(\mathbf{x}\right)=\sum_{i=1}^{N-1}100\left(x_{i+1}-x_{i}^{2}\right)^{2}+\left(1-x_{i}\right)^{2}.\]
+
+The minimum value of this function is 0 which is achieved when
+\(x_{i}=1.\)
+
+Note that the Rosenbrock function and its derivatives are included in
+scipy.optimize. The implementations shown in the following sections
+provide examples of how to define an objective function as well as its
+jacobian and hessian functions. Objective functions in scipy.optimize
+expect a numpy array as their first parameter which is to be optimized
+and must return a float value. The exact calling signature must be
+f(x, *args) where x represents a numpy array and args
+a tuple of additional arguments supplied to the objective function.
+
+Least-squares minimization (least_squares)
+
+SciPy is capable of solving robustified bound-constrained nonlinear
+least-squares problems:
+
+\begin{align}
+&\min_\mathbf{x} \frac{1}{2} \sum_{i = 1}^m \rho\left(f_i(\mathbf{x})^2\right) \\
+&\text{subject to }\mathbf{lb} \leq \mathbf{x} \leq \mathbf{ub}
+\end{align}
+
+Here \(f_i(\mathbf{x})\) are smooth functions from
+\(\mathbb{R}^n\) to \(\mathbb{R}\), we refer to them as residuals.
+The purpose of a scalar-valued function \(\rho(\cdot)\) is to reduce the
+influence of outlier residuals and contribute to robustness of the solution,
+we refer to it as a loss function. A linear loss function gives a standard
+least-squares problem. Additionally, constraints in a form of lower and upper
+bounds on some of \(x_j\) are allowed.
+
+All methods specific to least-squares minimization utilize a \(m \times n\)
+matrix of partial derivatives called Jacobian and defined as
+\(J_{ij} = \partial f_i / \partial x_j\). It is highly recommended to
+compute this matrix analytically and pass it to least_squares,
+otherwise, it will be estimated by finite differences, which takes a lot of
+additional time and can be very inaccurate in hard cases.
+
+Function least_squares can be used for fitting a function
+\(\varphi(t; \mathbf{x})\) to empirical data \(\{(t_i, y_i), i = 0, \ldots, m-1\}\).
+To do this, one should simply precompute residuals as
+\(f_i(\mathbf{x}) = w_i (\varphi(t_i; \mathbf{x}) - y_i)\), where \(w_i\)
+are weights assigned to each observation.
+
+Linear programming (linprog)
+
+The function linprog can minimize a linear objective function
+subject to linear equality and inequality constraints. This kind of
+problem is well known as linear programming. Linear programming solves
+problems of the following form:
+
+\[\begin{split}\min_x \ & c^T x \\
+\mbox{such that} \ & A_{ub} x \leq b_{ub},\\
+& A_{eq} x = b_{eq},\\
+& l \leq x \leq u ,\end{split}\]
+
+where \(x\) is a vector of decision variables; \(c\), \(b_{ub}\),
+\(b_{eq}\), \(l\), and \(u\) are vectors; and \(A_{ub}\) and
+\(A_{eq}\) are matrices.
+
+In this tutorial, we will try to solve a typical linear programming
+problem using linprog.
