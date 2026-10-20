@@ -1,4 +1,4 @@
-# Generated with LLM
+# README is generated with LLM.
 
 # Retrieval Engine
 
