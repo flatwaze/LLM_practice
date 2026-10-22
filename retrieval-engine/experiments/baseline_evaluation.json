@@ -1,0 +1,256 @@
+[
+  {
+    "query_id": "rag01",
+    "group": "factual",
+    "query": "Which string method removes whitespace from both ends without removing whitespace inside the string?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_26_string_trimming"
+    ],
+    "expected_answer": "Метод str.strip() без аргумента возвращает строку без начальных и конечных пробельных символов. Пробелы внутри строки он не удаляет.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "The method is **`.strip()`**.\n\nIn Python, `.strip()` removes all leading and trailing whitespace (including spaces, tabs, and newlines) but leaves any whitespace located between characters intact.\n\n**Example:**\n```python\ntext = \"  Hello World  \"\nprint(text.strip()) # Output: \"Hello World\"\n```\n\nFor specific ends, you can use `.lstrip()` for the left side or `.rstrip()` for the right side."
+    }
+  },
+  {
+    "query_id": "rag02",
+    "group": "factual",
+    "query": "Which SciPy function provides a common interface for minimizing a multivariate scalar function with or without constraints?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_27_scipy_optimization"
+    ],
+    "expected_answer": "Для этого предназначена scipy.optimize.minimize: она предоставляет общий интерфейс к алгоритмам минимизации скалярной функции нескольких переменных, включая задачи с ограничениями.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "The SciPy function that provides a common interface for minimizing a multivariate scalar function is **`scipy.optimize.minimize`**.\n\nIt serves as a wrapper for several different optimization algorithms, allowing users to switch between methods (such as BFGS, Nelder-Mead, or SLSQP) by changing the `method` argument. It supports both unconstrained problems and constrained problems (via the `constraints` and `bounds` parameters).\n\n**Example usage:**\n```python\nfrom scipy.optimize import minimize\n\n# Minimize function f(x) starting at x0\nresult = minimize(fun, x0, method='SLSQP', bounds=bounds, constraints=cons)\n```"
+    }
+  },
+  {
+    "query_id": "rag03",
+    "group": "factual",
+    "query": "How can a Python data-holding class get an automatically generated constructor and readable representation?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_28_dataclasses"
+    ],
+    "expected_answer": "Нужно применить декоратор @dataclass и описать поля аннотациями типов. Декоратор автоматически добавляет методы, в том числе __init__ и __repr__.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "The most efficient way to achieve this is by using the `@dataclass` decorator from the `dataclasses` module (introduced in Python 3.7). It automatically generates a constructor (`__init__`), a readable string representation (`__repr__`), and comparison methods.\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass User:\n    id: int\n    name: str\n    email: str\n\n# Usage\nuser = User(1, \"Alice\", \"alice@example.com\")\nprint(user)  # Output: User(id=1, name='Alice', email='alice@example.com')\n```\n\nAlternatively, for immutable objects, you can use `typing.NamedTuple` or `collections.namedtuple`."
+    }
+  },
+  {
+    "query_id": "rag04",
+    "group": "factual",
+    "query": "What is the difference between json.dumps(x) and json.dump(x, f)?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_19_json"
+    ],
+    "expected_answer": "json.dumps(x) возвращает JSON-представление объекта в виде строки. json.dump(x, f) записывает это представление в открытый текстовый файл f.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "`json.dumps(x)` (dump **s**tring) serializes a Python object into a **JSON-formatted string**. It returns that string to the caller, allowing you to manipulate it or print it.\n\n`json.dump(x, f)` serializes a Python object and writes it directly to a **file-like object** (such as an open file pointer `f`). It does not return a string; it performs an I/O operation to save the data to disk.\n\n**Example:**\n```python\nimport json\ndata = {\"key\": \"value\"}\n\n# Returns a string\njson_string = json.dumps(data) \n\n# Writes to a file\nwith open(\"data.json\", \"w\") as f:\n    json.dump(data, f)\n```"
+    }
+  },
+  {
+    "query_id": "rag05",
+    "group": "factual",
+    "query": "What happens when next() is called again on a generator that previously yielded a value?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_24_generators"
+    ],
+    "expected_answer": "Генератор продолжает выполнение с места предыдущей остановки. Между вызовами сохраняются его локальные переменные и состояние выполнения.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "When `next()` is called on a generator that has previously yielded a value, the generator resumes execution exactly where it left off—immediately after the `yield` statement. It continues executing the code until it encounters another `yield` statement (returning a new value) or reaches the end of the function.\n\nIf the generator has no more `yield` statements and completes its execution, it raises a `StopIteration` exception. This exception signals to callers (like a `for` loop) that the generator is exhausted."
+    }
+  },
+  {
+    "query_id": "rag06",
+    "group": "factual",
+    "query": "For separate empty lists a and b, how do a.append([1, 2]) and b.extend([1, 2]) differ?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_35_append_extend"
+    ],
+    "expected_answer": "append добавляет переданный список как один элемент, поэтому a станет [[1, 2]]. extend добавляет элементы переданного iterable по отдельности, поэтому b станет [1, 2].",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "`a.append([1, 2])` adds the list `[1, 2]` as a **single element** at the end of list `a`. The result is a nested list: `[[1, 2]]`.\n\n`b.extend([1, 2])` iterates over the provided list and adds **each individual element** to list `b`. The result is a flat list: `[1, 2]`.\n\n**Summary:**\n*   `append`: Adds the object as is (increases length by 1).\n*   `extend`: Unpacks the iterable and adds its elements (increases length by the number of elements in the iterable)."
+    }
+  },
+  {
+    "query_id": "rag07",
+    "group": "explanation_synthesis",
+    "query": "Why do repeated calls to a function with a list default argument share accumulated values, and how can independent lists be created both for function calls and for dataclass instances?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_07_default_arguments",
+      "python_28_dataclasses"
+    ],
+    "expected_answer": "Значение аргумента по умолчанию вычисляется один раз при определении функции, поэтому один изменяемый список используется повторно. В функции можно поставить значение None и создавать список внутри при L is None. Для поля dataclass используется field(default_factory=list): фабрика создаёт отдельный список, когда требуется значение по умолчанию.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "Default arguments in Python are evaluated only once at the time of function definition, not at each call. Since lists are mutable, every call to the function references the same list object in memory, causing values to accumulate.\n\n**For functions:** Use `None` as the default and initialize the list inside the function.\n```python\ndef add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list\n```\n\n**For dataclasses:** Use `field(default_factory=list)` to ensure a new list is created for every instance.\n```python\nfrom dataclasses import dataclass, field\n\n@dataclass\nclass MyClass:\n    items: list = field(default_factory=list)\n```"
+    }
+  },
+  {
+    "query_id": "rag08",
+    "group": "explanation_synthesis",
+    "query": "Why does changing one cell of A = [[None] * 2] * 3 affect several rows, and how can three independent rows be created?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_34_list_aliasing_copying"
+    ],
+    "expected_answer": "Умножение внешнего списка повторяет ссылки на один внутренний список, а не создаёт новые строки. Изменение общей строки видно через все три ссылки. Независимые строки можно создать выражением [[None] * 2 for _ in range(3)] или циклом, создающим новый список для каждой строки.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "The expression `[[None] * 2] * 3` creates a list containing three references to the **same** list object. Because all three rows point to the same memory address, modifying one cell updates that shared object, making the change appear in every row.\n\nTo create three independent rows, use a **list comprehension**. This ensures a new list object is instantiated for every iteration:\n\n```python\n# Correct way to create independent rows\nA = [[None] * 2 for _ in range(3)]\n```\n\nNow, changing `A[0][0]` will only affect the first row."
+    }
+  },
+  {
+    "query_id": "rag09",
+    "group": "explanation_synthesis",
+    "query": "How do the documented approaches to running several waiting coroutines concurrently and submitting a CPU-intensive callable to background processes differ? Name the APIs and explain what represents the submitted work.",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency",
+      "python_31_background_computation"
+    ],
+    "expected_answer": "Для совместного выполнения корутин их можно запланировать через asyncio.create_task либо TaskGroup; запланированная корутина представлена Task. Для выполнения обычной вычислительной функции в отдельных процессах используется ProcessPoolExecutor.submit, возвращающий concurrent.futures.Future. Результат такой работы получают через future.result(). Это разные механизмы: asyncio управляет корутинами, а ProcessPoolExecutor выполняет функции в процессах.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "To run several waiting coroutines concurrently, use **`asyncio.gather()`** or **`asyncio.TaskGroup`** (Python 3.11+). These APIs schedule coroutines on the single-threaded event loop; the submitted work is represented by **`Task`** objects (or the coroutines themselves), which are paused and resumed during I/O waits.\n\nTo run CPU-intensive callables in background processes, use **`loop.run_in_executor()`** with a **`ProcessPoolExecutor`**. This offloads work to separate OS processes to bypass the Global Interpreter Lock (GIL). The submitted work is represented by a **`Future`** object, which acts as a placeholder for the eventual result returned by the external process."
+    }
+  },
+  {
+    "query_id": "rag10",
+    "group": "explanation_synthesis",
+    "query": "Why does 'Arthur: three!'.lstrip('Arthur: ') produce 'ee!' rather than 'three!', and which method should remove the exact prefix instead?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_26_string_trimming"
+    ],
+    "expected_answer": "lstrip воспринимает аргумент как набор отдельных символов и удаляет их с начала строки до первого символа вне набора. Поэтому он захватывает также начало слова three и оставляет ee!. Для удаления ровно заданного префикса нужен removeprefix('Arthur: '), который даст three!.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "The `.lstrip()` method does not remove a specific substring; it removes **all characters** listed in the argument string from the start of the target string until it encounters a character not in that set. In `'Arthur: three!'`, the characters in `'Arthur: '` include `r`, `t`, and `h`. Therefore, it strips the initial \"Arthur: \" and continues stripping the \"thr\" from \"three!\", leaving only \"ee!\".\n\nTo remove an exact prefix, use the `.removeprefix()` method (introduced in Python 3.9):\n\n```python\n\"Arthur: three!\".removeprefix(\"Arthur: \") \n# Output: 'three!'\n```"
+    }
+  },
+  {
+    "query_id": "rag11",
+    "group": "exact_details",
+    "query": "What is the maximum permitted max_workers value for ProcessPoolExecutor on Windows, and what happens if a larger value is supplied?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_31_background_computation"
+    ],
+    "expected_answer": "На Windows max_workers не должен превышать 61. При передаче большего значения возникает ValueError.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "There is no hard-coded maximum value for `max_workers` in `ProcessPoolExecutor`. However, the practical limit is determined by your system's available RAM and the operating system's process limit.\n\nIf you supply a value larger than your system can handle:\n1. **Resource Exhaustion:** Each worker is a separate Python process with its own memory space. Too many workers will lead to an `OSError` (out of memory) or system instability.\n2. **Performance Degradation:** Excessive workers cause \"thrashing\" due to high CPU context-switching overhead, often making the program run slower than with fewer workers.\n3. **OS Limits:** You may hit the Windows process limit or handle limit, resulting in a `RuntimeError` or `OSError` during process spawning."
+    }
+  },
+  {
+    "query_id": "rag12",
+    "group": "exact_details",
+    "query": "Which encoding should be explicitly specified when opening JSON files in text mode for reading and writing?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_19_json"
+    ],
+    "expected_answer": "Нужно указать encoding='utf-8' как при чтении, так и при записи JSON-файла в текстовом режиме.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "You should explicitly specify **`utf-8`** when opening JSON files. \n\nAccording to the JSON specification (RFC 8259), JSON text exchanged between systems must be encoded using UTF-8. Specifying this encoding ensures cross-platform compatibility and prevents `UnicodeDecodeError` or `UnicodeEncodeError` when the system's default encoding differs from the file's encoding.\n\n**Example:**\n```python\nimport json\n\nwith open('data.json', 'r', encoding='utf-8') as f:\n    data = json.load(f)\n\nwith open('data.json', 'w', encoding='utf-8') as f:\n    json.dump(data, f, ensure_ascii=False)\n```"
+    }
+  },
+  {
+    "query_id": "rag13",
+    "group": "exact_details",
+    "query": "In which Python version was asyncio.TaskGroup added, and does its context manager wait for the tasks when it exits?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency"
+    ],
+    "expected_answer": "asyncio.TaskGroup появился в Python 3.11. При выходе из его асинхронного контекстного менеджера ожидание задач происходит автоматически.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "`asyncio.TaskGroup` was added in **Python 3.11**.\n\nYes, its context manager waits for all tasks added to the group to complete before exiting. If any task fails with an exception, the group cancels all other remaining tasks and raises an `ExceptionGroup` containing all occurred errors."
+    }
+  },
+  {
+    "query_id": "rag14",
+    "group": "unanswerable",
+    "query": "Which string method removes every occurrence of a chosen character, including occurrences in the middle of the string? Show an example.",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В предоставленном корпусе недостаточно информации о методе удаления всех вхождений символа. Документ про strip, lstrip и rstrip описывает удаление с краёв и не обосновывает ответ для середины строки.",
+    "evaluation_note": "Вопрос имеет ответ в Python, но сведения о str.replace отсутствуют в текущем корпусе. Для RAG ожидается признание недостатка источников; baseline можно оценить как правильный, если он предложит s.replace(char, '').",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "In Python, the `.replace()` method is used to remove every occurrence of a chosen character by replacing it with an empty string.\n\n**Example:**\n\n```python\ntext = \"banana\"\n# Remove all occurrences of 'a'\nresult = text.replace(\"a\", \"\")\nprint(result)  # Output: bnn\n```"
+    }
+  },
+  {
+    "query_id": "rag15",
+    "group": "unanswerable",
+    "query": "What Redis host, port and database number are configured for this project's retrieval cache?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В документах нет конфигурации Redis или сведений о таком кэше проекта. Определить адрес, порт и номер базы по этим источникам нельзя; нельзя подставлять стандартный порт как фактическую настройку.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "I do not have access to your project's specific configuration files, environment variables, or source code. Please check your `.env` file, `config.py`, or the settings section of your application to find the `REDIS_HOST`, `REDIS_PORT`, and `REDIS_DB` values."
+    }
+  },
+  {
+    "query_id": "rag16",
+    "group": "unanswerable",
+    "query": "According to benchmarks in the supplied documents, exactly how many times faster is ProcessPoolExecutor than asyncio for multiplying two 1000 by 1000 matrices on an Intel Core i7-12700K?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В корпусе нет такого сравнительного измерения для указанной задачи и процессора. По описаниям API нельзя вычислить точный коэффициент ускорения.",
+    "evaluation_note": "Проверяется отказ придумывать количественный результат по тематически близким документам про конкурентность и вычисления.",
+    "model": "google/gemma-4-31b-it",
+    "temperature": 0,
+    "max_tokens": 400,
+    "baseline": {
+      "answer": "No documents were supplied with your request. Please provide the benchmarks you are referring to so I can give you the exact number."
+    }
+  }
+]

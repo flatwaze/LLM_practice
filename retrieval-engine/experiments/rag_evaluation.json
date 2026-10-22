@@ -1,0 +1,660 @@
+[
+  {
+    "query_id": "rag01",
+    "group": "factual",
+    "query": "Which string method removes whitespace from both ends without removing whitespace inside the string?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_26_string_trimming"
+    ],
+    "expected_answer": "Метод str.strip() без аргумента возвращает строку без начальных и конечных пробельных символов. Пробелы внутри строки он не удаляет.",
+    "rag": {
+      "answer": "The `str.strip()` method returns a copy of the string with leading and trailing characters removed [python_26_string_trimming:0]. If the `chars` argument is omitted or `None`, it defaults to removing whitespace characters, which are defined by `str.isspace()` [python_26_string_trimming:0, python_26_string_trimming:1]. For example, `' spacious '.strip()` results in `'spacious'` [python_26_string_trimming:0, python_26_string_trimming:1].",
+      "sources": [
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 0,
+          "text": "Document ID: python_26_string_trimming Title: Trimming whitespace from strings Source: https://docs.python.org/3.14/library/stdtypes.html#str.strip Source: https://docs.python.org/3.14/library/stdtypes.html#str.lstrip Source: https://docs.python.org/3.14/library/stdtypes.html#str.rstrip License: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/. str.strip(chars=None, /) Return a copy of the string with the leading and trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped. Whitespace characters are defined by str.isspace(). For example: >>> ' spacious '.strip() 'spacious' >>> 'www.example.com'.strip('cmowz.') 'example' The outermost leading and",
+          "score": 0.5220211744308472
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 1,
+          "text": "Whitespace characters are defined by str.isspace(). For example: >>> ' spacious '.strip() 'spacious' >>> 'www.example.com'.strip('cmowz.') 'example' The outermost leading and trailing chars argument values are stripped from the string. Characters are removed from the leading end until reaching a string character that is not contained in the set of characters in chars. A similar action takes place on the trailing end. For example: >>> comment_string = '#....... Section 3.2.1 Issue #32 .......' >>> comment_string.strip('.#! ') 'Section 3.2.1 Issue #32' See also rstrip(). str.lstrip(chars=None, /) Return a copy of the string with leading characters removed. The chars argument is a string",
+          "score": 0.7007781267166138
+        },
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 0,
+          "text": "Document ID: python_26_string_trimming Title: Trimming whitespace from strings Source: https://docs.python.org/3.14/library/stdtypes.html#str.strip Source: https://docs.python.org/3.14/library/stdtypes.html#str.lstrip Source: https://docs.python.org/3.14/library/stdtypes.html#str.rstrip License: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/. str.strip(chars=None, /) Return a copy of the string with the leading and trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped. Whitespace characters are defined by str.isspace(). For example: >>> ' spacious '.strip() 'spacious' >>> 'www.example.com'.strip('cmowz.') 'example' The outermost leading and",
+          "score": 0.5220211744308472
+        },
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 2,
+          "text": "also rstrip(). str.lstrip(chars=None, /) Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped: >>> ' spacious '.lstrip() 'spacious ' >>> 'www.example.com'.lstrip('cmowz.') 'example.com' See str.removeprefix() for a method that will remove a single prefix string rather than all of a set of characters. For example: >>> 'Arthur: three!'.lstrip('Arthur: ') 'ee!' >>> 'Arthur: three!'.removeprefix('Arthur: ') 'three!' str.rstrip(chars=None, /) Return a copy",
+          "score": 0.5076258778572083
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag02",
+    "group": "factual",
+    "query": "Which SciPy function provides a common interface for minimizing a multivariate scalar function with or without constraints?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_27_scipy_optimization"
+    ],
+    "expected_answer": "Для этого предназначена scipy.optimize.minimize: она предоставляет общий интерфейс к алгоритмам минимизации скалярной функции нескольких переменных, включая задачи с ограничениями.",
+    "rag": {
+      "answer": "Based on the provided text, there is no mention of a specific SciPy function that provides a common interface for minimizing a multivariate scalar function with or without constraints. The sources only mention `least_squares` for fitting a function to empirical data and `linprog` for minimizing a linear objective function subject to linear equality and inequality constraints [python_27_scipy_optimization:4].",
+      "sources": [
+        {
+          "document_id": "python_27_scipy_optimization",
+          "chunk_id": 4,
+          "text": "compute this matrix analytically and pass it to least_squares, otherwise, it will be estimated by finite differences, which takes a lot of additional time and can be very inaccurate in hard cases. Function least_squares can be used for fitting a function \\(\\varphi(t; \\mathbf{x})\\) to empirical data \\(\\{(t_i, y_i), i = 0, \\ldots, m-1\\}\\). To do this, one should simply precompute residuals as \\(f_i(\\mathbf{x}) = w_i (\\varphi(t_i; \\mathbf{x}) - y_i)\\), where \\(w_i\\) are weights assigned to each observation. Linear programming (linprog) The function linprog can minimize a linear objective function subject to linear equality and inequality constraints. This kind of problem",
+          "score": 0.47704821825027466
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_27_scipy_optimization",
+          "chunk_id": 1,
+          "text": "the problem of minimizing the Rosenbrock function of \\(N\\) variables: \\[f\\left(\\mathbf{x}\\right)=\\sum_{i=1}^{N-1}100\\left(x_{i+1}-x_{i}^{2}\\right)^{2}+\\left(1-x_{i}\\right)^{2}.\\] The minimum value of this function is 0 which is achieved when \\(x_{i}=1.\\) Note that the Rosenbrock function and its derivatives are included in scipy.optimize. The implementations shown in the following sections provide examples of how to define an objective function as well as its jacobian and hessian functions. Objective functions in scipy.optimize expect a numpy array as their first parameter which is to be optimized and must return a float value. The exact calling signature must be f(x, *args) where x represents a numpy array and args a",
+          "score": 0.5007472634315491
+        },
+        {
+          "document_id": "python_27_scipy_optimization",
+          "chunk_id": 4,
+          "text": "compute this matrix analytically and pass it to least_squares, otherwise, it will be estimated by finite differences, which takes a lot of additional time and can be very inaccurate in hard cases. Function least_squares can be used for fitting a function \\(\\varphi(t; \\mathbf{x})\\) to empirical data \\(\\{(t_i, y_i), i = 0, \\ldots, m-1\\}\\). To do this, one should simply precompute residuals as \\(f_i(\\mathbf{x}) = w_i (\\varphi(t_i; \\mathbf{x}) - y_i)\\), where \\(w_i\\) are weights assigned to each observation. Linear programming (linprog) The function linprog can minimize a linear objective function subject to linear equality and inequality constraints. This kind of problem",
+          "score": 0.47704821825027466
+        },
+        {
+          "document_id": "python_09_parameter_kinds",
+          "chunk_id": 3,
+          "text": "If there is no / in the function definition, there are no positional-only parameters. Parameters following the / may be positional-or-keyword or keyword-only. 4.9.3.3. Keyword-Only Arguments To mark parameters as keyword-only, indicating the parameters must be passed by keyword argument, place an * in the arguments list just before the first keyword-only parameter. 4.9.3.4. Function Examples Consider the following example function definitions paying close attention to the markers / and *: >>> def standard_arg(arg): ... print(arg) ... >>> def pos_only_arg(arg, /): ... print(arg) ... >>> def kwd_only_arg(*, arg): ... print(arg) ... >>> def combined_example(pos_only, /, standard, *, kwd_only): ... print(pos_only,",
+          "score": 0.47120481729507446
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag03",
+    "group": "factual",
+    "query": "How can a Python data-holding class get an automatically generated constructor and readable representation?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_28_dataclasses"
+    ],
+    "expected_answer": "Нужно применить декоратор @dataclass и описать поля аннотациями типов. Декоратор автоматически добавляет методы, в том числе __init__ и __repr__.",
+    "rag": {
+      "answer": "The provided sources do not contain information on how a Python data-holding class can get an automatically generated constructor and readable representation.",
+      "sources": [],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_28_dataclasses",
+          "chunk_id": 3,
+          "text": "way to give the field an initial value. Frozen instances It is not possible to create truly immutable Python objects. However, by passing frozen=True to the @dataclass decorator you can emulate immutability. In that case, dataclasses will add __setattr__() and __delattr__() methods to the class. These methods will raise a FrozenInstanceError when invoked. There is a tiny performance penalty when using frozen=True: __init__() cannot use simple assignment to initialize fields, and must use object.__setattr__().",
+          "score": 0.6240555047988892
+        },
+        {
+          "document_id": "python_23_inheritance",
+          "chunk_id": 4,
+          "text": "class method directly: just call BaseClassName.methodname(self, arguments). This is occasionally useful to clients as well. (Note that this only works if the base class is accessible as BaseClassName in the global scope.) Python has two built-in functions that work with inheritance: Use isinstance() to check an instance’s type: isinstance(obj, int) will be True only if obj.__class__ is int or some class derived from int. Use issubclass() to check class inheritance: issubclass(bool, int) is True since bool is a subclass of int. However, issubclass(float, int) is False since float is not a subclass of int. 9.5.1. Multiple Inheritance Python supports a",
+          "score": 0.5867069363594055
+        },
+        {
+          "document_id": "python_23_inheritance",
+          "chunk_id": 8,
+          "text": "a way that preserves the left-to-right ordering specified in each class, that calls each parent only once, and that is monotonic (meaning that a class can be subclassed without affecting the precedence order of its parents). Taken together, these properties make it possible to design reliable and extensible classes with multiple inheritance. For more detail, see The Python 2.3 Method Resolution Order.",
+          "score": 0.5469816327095032
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag04",
+    "group": "factual",
+    "query": "What is the difference between json.dumps(x) and json.dump(x, f)?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_19_json"
+    ],
+    "expected_answer": "json.dumps(x) возвращает JSON-представление объекта в виде строки. json.dump(x, f) записывает это представление в открытый текстовый файл f.",
+    "rag": {
+      "answer": "Based on the provided text, the difference is as follows:\n\n*   `json.dumps(x)` provides the JSON string representation of an object [python_19_json:2].\n*   `json.dump(x, f)` serializes the object to a text file, where `f` is a text file object opened for writing [python_19_json:3].",
+      "sources": [
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 2,
+          "text": "deserializing. Between serializing and deserializing, the string representing the object may have been stored in a file or data, or sent over a network connection to some distant machine. Note The JSON format is commonly used by modern applications to allow for data exchange. Many programmers are already familiar with it, which makes it a good choice for interoperability. If you have an object x, you can view its JSON string representation with a simple line of code: >>> import json >>> x = [1, 'simple', 'list'] >>> json.dumps(x) '[1, \"simple\", \"list\"]' Another variant of the dumps() function, called dump(),",
+          "score": 0.5514706373214722
+        },
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 3,
+          "text": "json >>> x = [1, 'simple', 'list'] >>> json.dumps(x) '[1, \"simple\", \"list\"]' Another variant of the dumps() function, called dump(), simply serializes the object to a text file. So if f is a text file object opened for writing, we can do this: json.dump(x, f) To decode the object again, if f is a binary file or text file object which has been opened for reading: x = json.load(f) Note JSON files must be encoded in UTF-8. Use encoding=\"utf-8\" when opening JSON file as a text file for both of reading and writing. This simple serialization technique can handle lists",
+          "score": 0.6420849561691284
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 3,
+          "text": "json >>> x = [1, 'simple', 'list'] >>> json.dumps(x) '[1, \"simple\", \"list\"]' Another variant of the dumps() function, called dump(), simply serializes the object to a text file. So if f is a text file object opened for writing, we can do this: json.dump(x, f) To decode the object again, if f is a binary file or text file object which has been opened for reading: x = json.load(f) Note JSON files must be encoded in UTF-8. Use encoding=\"utf-8\" when opening JSON file as a text file for both of reading and writing. This simple serialization technique can handle lists",
+          "score": 0.6420849561691284
+        },
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 2,
+          "text": "deserializing. Between serializing and deserializing, the string representing the object may have been stored in a file or data, or sent over a network connection to some distant machine. Note The JSON format is commonly used by modern applications to allow for data exchange. Many programmers are already familiar with it, which makes it a good choice for interoperability. If you have an object x, you can view its JSON string representation with a simple line of code: >>> import json >>> x = [1, 'simple', 'list'] >>> json.dumps(x) '[1, \"simple\", \"list\"]' Another variant of the dumps() function, called dump(),",
+          "score": 0.5514706373214722
+        },
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 4,
+          "text": "opening JSON file as a text file for both of reading and writing. This simple serialization technique can handle lists and dictionaries, but serializing arbitrary class instances in JSON requires a bit of extra effort. The reference for the json module contains an explanation of this. See also pickle - the pickle module Contrary to JSON, pickle is a protocol which allows the serialization of arbitrarily complex Python objects. As such, it is specific to Python and cannot be used to communicate with applications written in other languages. It is also insecure by default: deserializing pickle data coming from an",
+          "score": 0.4765109419822693
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag05",
+    "group": "factual",
+    "query": "What happens when next() is called again on a generator that previously yielded a value?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_24_generators"
+    ],
+    "expected_answer": "Генератор продолжает выполнение с места предыдущей остановки. Между вызовами сохраняются его локальные переменные и состояние выполнения.",
+    "rag": {
+      "answer": "Based on the provided text, when a generator is called, the local variables and execution state are automatically saved between calls [python_24_generators:1]. When generators terminate, they automatically raise `StopIteration` [python_24_generators:2].",
+      "sources": [
+        {
+          "document_id": "python_24_generators",
+          "chunk_id": 1,
+          "text": "An example shows that generators can be trivially easy to create: def reverse(data): for index in range(len(data)-1, -1, -1): yield data[index] >>> for char in reverse('golf'): ... print(char) ... f l o g Anything that can be done with generators can also be done with class-based iterators as described in the previous section. What makes generators so compact is that the __iter__() and __next__() methods are created automatically. Another key feature is that the local variables and execution state are automatically saved between calls. This made the function easier to write and much more clear than an approach using instance",
+          "score": 0.5335671901702881
+        },
+        {
+          "document_id": "python_24_generators",
+          "chunk_id": 2,
+          "text": "automatically saved between calls. This made the function easier to write and much more clear than an approach using instance variables like self.index and self.data. In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration. In combination, these features make it easy to create iterators with no more effort than writing a regular function.",
+          "score": 0.4916854202747345
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_24_generators",
+          "chunk_id": 1,
+          "text": "An example shows that generators can be trivially easy to create: def reverse(data): for index in range(len(data)-1, -1, -1): yield data[index] >>> for char in reverse('golf'): ... print(char) ... f l o g Anything that can be done with generators can also be done with class-based iterators as described in the previous section. What makes generators so compact is that the __iter__() and __next__() methods are created automatically. Another key feature is that the local variables and execution state are automatically saved between calls. This made the function easier to write and much more clear than an approach using instance",
+          "score": 0.5335671901702881
+        },
+        {
+          "document_id": "python_06_defining_functions",
+          "chunk_id": 8,
+          "text": "the result [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89] This example, as usual, demonstrates some new Python features: The return statement returns with a value from a function. return without an expression argument returns None. Falling off the end of a function also returns None. The statement result.append(a) calls a method of the list object result. A method is a function that ‘belongs’ to an object and is named obj.methodname, where obj is some object (this may be an expression), and methodname is the name of a method that is defined by the object’s type.",
+          "score": 0.4939086437225342
+        },
+        {
+          "document_id": "python_24_generators",
+          "chunk_id": 2,
+          "text": "automatically saved between calls. This made the function easier to write and much more clear than an approach using instance variables like self.index and self.data. In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration. In combination, these features make it easy to create iterators with no more effort than writing a regular function.",
+          "score": 0.4916854202747345
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag06",
+    "group": "factual",
+    "query": "For separate empty lists a and b, how do a.append([1, 2]) and b.extend([1, 2]) differ?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_35_append_extend"
+    ],
+    "expected_answer": "append добавляет переданный список как один элемент, поэтому a станет [[1, 2]]. extend добавляет элементы переданного iterable по отдельности, поэтому b станет [1, 2].",
+    "rag": {
+      "answer": "The provided sources do not contain information regarding the difference between the `append()` and `extend()` methods for lists.",
+      "sources": [],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_03_lists",
+          "chunk_id": 6,
+          "text": "to lists: >>> letters = ['a', 'b', 'c', 'd'] >>> len(letters) 4 It is possible to nest lists (create lists containing other lists), for example: >>> a = ['a', 'b', 'c'] >>> n = [1, 2, 3] >>> x = [a, n] >>> x [['a', 'b', 'c'], [1, 2, 3]] >>> x[0] ['a', 'b', 'c'] >>> x[0][1] 'b'",
+          "score": 0.6708494424819946
+        },
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 9,
+          "text": "show in all rows, which is almost certainly not what you want. The suggested approach is to create a list of the desired length first and then fill in each element with a newly created list: A = [None] * 3 for i in range(3): A[i] = [None] * 2 This generates a list containing 3 different lists of length two. You can also use a list comprehension: w, h = 2, 3 A = [[None] * w for i in range(h)] Or, you can use an extension that provides a matrix datatype; NumPy is the best known. sequence.copy() Added",
+          "score": 0.6312781572341919
+        },
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 8,
+          "text": "3 This looks correct if you print it: >>> A [[None, None], [None, None], [None, None]] But when you assign a value, it shows up in multiple places: >>> A[0][0] = 5 >>> A [[5, None], [5, None], [5, None]] The reason is that replicating a list with * doesn’t create copies, it only creates references to the existing objects. The *3 creates a list containing 3 references to the same list of length two. Changes to one row will show in all rows, which is almost certainly not what you want. The suggested approach is to create a list",
+          "score": 0.6303232312202454
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag07",
+    "group": "explanation_synthesis",
+    "query": "Why do repeated calls to a function with a list default argument share accumulated values, and how can independent lists be created both for function calls and for dataclass instances?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_07_default_arguments",
+      "python_28_dataclasses"
+    ],
+    "expected_answer": "Значение аргумента по умолчанию вычисляется один раз при определении функции, поэтому один изменяемый список используется повторно. В функции можно поставить значение None и создавать список внутри при L is None. Для поля dataclass используется field(default_factory=list): фабрика создаёт отдельный список, когда требуется значение по умолчанию.",
+    "rag": {
+      "answer": "Repeated calls to a function with a list default argument share accumulated values because the default value is evaluated only once, at the point of function definition in the defining scope [python_07_default_arguments:2].\n\nThe provided sources do not contain information on how to create independent lists for function calls or for dataclass instances.",
+      "sources": [
+        {
+          "document_id": "python_07_default_arguments",
+          "chunk_id": 2,
+          "text": "This tests whether or not a sequence contains a certain value. The default values are evaluated at the point of function definition in the defining scope, so that i = 5 def f(arg=i): print(arg) i = 6 f() will print 5. Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls: def f(a, L=[]): L.append(a) return L print(f(1)) print(f(2)) print(f(3)) This will print [1] [1, 2]",
+          "score": 0.5656672716140747
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_06_defining_functions",
+          "chunk_id": 4,
+          "text": "for variables of enclosing functions, named in a nonlocal statement), although they may be referenced. The actual parameters (arguments) to a function call are introduced in the local symbol table of the called function when it is called; thus, arguments are passed using call by value (where the value is always an object reference, not the value of the object). [1] When a function calls another function, or calls itself recursively, a new local symbol table is created for that call. A function definition associates the function name with the function object in the current symbol table. The interpreter recognizes",
+          "score": 0.6012228727340698
+        },
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 5,
+          "text": "to generate an easily diagnosed error. However, there is one class of operations where the same operation sometimes has different behaviors with different types: the augmented assignment operators. For example, += mutates lists but not tuples or ints (a_list += [1, 2, 3] is equivalent to a_list.extend([1, 2, 3]) and mutates a_list, whereas some_tuple += (1, 2, 3) and some_int += 1 create new objects). In other words: If we have a mutable object (such as list, dict, set), we can use some specific operations to mutate it and all the variables that refer to it will see the change.",
+          "score": 0.5861928462982178
+        },
+        {
+          "document_id": "python_07_default_arguments",
+          "chunk_id": 2,
+          "text": "This tests whether or not a sequence contains a certain value. The default values are evaluated at the point of function definition in the defining scope, so that i = 5 def f(arg=i): print(arg) i = 6 f() will print 5. Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls: def f(a, L=[]): L.append(a) return L print(f(1)) print(f(2)) print(f(3)) This will print [1] [1, 2]",
+          "score": 0.5656672716140747
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag08",
+    "group": "explanation_synthesis",
+    "query": "Why does changing one cell of A = [[None] * 2] * 3 affect several rows, and how can three independent rows be created?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_34_list_aliasing_copying"
+    ],
+    "expected_answer": "Умножение внешнего списка повторяет ссылки на один внутренний список, а не создаёт новые строки. Изменение общей строки видно через все три ссылки. Независимые строки можно создать выражением [[None] * 2 for _ in range(3)] или циклом, создающим новый список для каждой строки.",
+    "rag": {
+      "answer": "Changing one cell in `A = [[None] * 2] * 3` affects several rows because replicating a list using the `*` operator does not create copies, but instead creates references to the existing objects [python_34_list_aliasing_copying:8]. In this specific case, `*3` creates a list containing three references to the same list of length two, meaning changes to one row will appear in all rows [python_34_list_aliasing_copying:8].\n\nTo create three independent rows, you can use the following methods:\n*   **Manual filling:** Create a list of the desired length first and then fill each element with a newly created list:\n    `A = [None] * 3`\n    `for i in range(3): A[i] = [None] * 2` [python_34_list_aliasing_copying:9]\n*   **List comprehension:** Use a list comprehension such as `A = [[None] * w for i in range(h)]` (where `w` is width and `h` is height) [python_34_list_aliasing_copying:9].\n*   **External libraries:** Use an extension that provides a matrix datatype, such as NumPy [python_34_list_aliasing_copying:9].",
+      "sources": [
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 8,
+          "text": "3 This looks correct if you print it: >>> A [[None, None], [None, None], [None, None]] But when you assign a value, it shows up in multiple places: >>> A[0][0] = 5 >>> A [[5, None], [5, None], [5, None]] The reason is that replicating a list with * doesn’t create copies, it only creates references to the existing objects. The *3 creates a list containing 3 references to the same list of length two. Changes to one row will show in all rows, which is almost certainly not what you want. The suggested approach is to create a list",
+          "score": 0.5226739645004272
+        },
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 9,
+          "text": "show in all rows, which is almost certainly not what you want. The suggested approach is to create a list of the desired length first and then fill in each element with a newly created list: A = [None] * 3 for i in range(3): A[i] = [None] * 2 This generates a list containing 3 different lists of length two. You can also use a list comprehension: w, h = 2, 3 A = [[None] * w for i in range(h)] Or, you can use an extension that provides a matrix datatype; NumPy is the best known. sequence.copy() Added",
+          "score": 0.4850928485393524
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 8,
+          "text": "3 This looks correct if you print it: >>> A [[None, None], [None, None], [None, None]] But when you assign a value, it shows up in multiple places: >>> A[0][0] = 5 >>> A [[5, None], [5, None], [5, None]] The reason is that replicating a list with * doesn’t create copies, it only creates references to the existing objects. The *3 creates a list containing 3 references to the same list of length two. Changes to one row will show in all rows, which is almost certainly not what you want. The suggested approach is to create a list",
+          "score": 0.5226739645004272
+        },
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 5,
+          "text": "to generate an easily diagnosed error. However, there is one class of operations where the same operation sometimes has different behaviors with different types: the augmented assignment operators. For example, += mutates lists but not tuples or ints (a_list += [1, 2, 3] is equivalent to a_list.extend([1, 2, 3]) and mutates a_list, whereas some_tuple += (1, 2, 3) and some_int += 1 create new objects). In other words: If we have a mutable object (such as list, dict, set), we can use some specific operations to mutate it and all the variables that refer to it will see the change.",
+          "score": 0.492305725812912
+        },
+        {
+          "document_id": "python_34_list_aliasing_copying",
+          "chunk_id": 9,
+          "text": "show in all rows, which is almost certainly not what you want. The suggested approach is to create a list of the desired length first and then fill in each element with a newly created list: A = [None] * 3 for i in range(3): A[i] = [None] * 2 This generates a list containing 3 different lists of length two. You can also use a list comprehension: w, h = 2, 3 A = [[None] * w for i in range(h)] Or, you can use an extension that provides a matrix datatype; NumPy is the best known. sequence.copy() Added",
+          "score": 0.4850928485393524
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag09",
+    "group": "explanation_synthesis",
+    "query": "How do the documented approaches to running several waiting coroutines concurrently and submitting a CPU-intensive callable to background processes differ? Name the APIs and explain what represents the submitted work.",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency",
+      "python_31_background_computation"
+    ],
+    "expected_answer": "Для совместного выполнения корутин их можно запланировать через asyncio.create_task либо TaskGroup; запланированная корутина представлена Task. Для выполнения обычной вычислительной функции в отдельных процессах используется ProcessPoolExecutor.submit, возвращающий concurrent.futures.Future. Результат такой работы получают через future.result(). Это разные механизмы: asyncio управляет корутинами, а ProcessPoolExecutor выполняет функции в процессах.",
+    "rag": {
+      "answer": "Based on the provided text, the approaches differ as follows:\n\n*   **Running Coroutines Concurrently:** This approach leverages structural concurrency to wait for a group of related tasks. The API used is `asyncio.create_task()`, and the submitted work is represented as a **task**. It is noted that a strong reference to the task (such as adding it to a collection) must be saved to prevent the event loop from garbage collecting it mid-execution [python_32_asyncio_concurrency:6].\n*   **Submitting CPU-intensive Callables to Background Processes:** This approach uses the `concurrent.futures.ProcessPoolExecutor` API, which executes calls asynchronously using a pool of processes [python_31_background_computation:3]. The submitted work consists of **functions and arguments** passed via `submit()` or `map()`, which must be picklable; consequently, lambdas or functions defined in a REPL are not expected to work [python_31_background_computation:3].",
+      "sources": [
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 6,
+          "text": "alternative leveraging structural concurrency; it allows for waiting for a group of related tasks with strong safety guarantees. Important Save a reference to the result of this function, to avoid a task disappearing mid-execution. The event loop only keeps weak references to tasks. A task that isn’t referenced elsewhere may get garbage collected at any time, even before it’s done. For reliable “fire-and-forget” background tasks, gather them in a collection: background_tasks = set() for i in range(10): task = asyncio.create_task(some_coro(param=i)) # Add task to the set. This creates a strong reference. background_tasks.add(task) # To prevent keeping references to finished tasks",
+          "score": 0.5507251024246216
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 3,
+          "text": "a ProcessPoolExecutor will result in deadlock. Note that the restrictions on functions and arguments needing to picklable as per multiprocessing.Process apply when using submit() and map() on a ProcessPoolExecutor. A function defined in a REPL or a lambda should not be expected to work. class concurrent.futures.ProcessPoolExecutor(max_workers=None, mp_context=None, initializer=None, initargs=(), max_tasks_per_child=None) An Executor subclass that executes calls asynchronously using a pool of at most max_workers processes. If max_workers is None or not given, it will default to os.process_cpu_count(). If max_workers is less than or equal to 0, then a ValueError will be raised. On Windows, max_workers must be less than or",
+          "score": 0.5492820739746094
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 1,
+          "text": "a coroutine will not schedule it to be executed: >>> main() <coroutine object main at 0x1053bb7c8> To actually run a coroutine, asyncio provides the following mechanisms: The asyncio.run() function to run the top-level entry point “main()” function (see the above example.) Awaiting on a coroutine. The following snippet of code will print “hello” after waiting for 1 second, and then print “world” after waiting for another 2 seconds: import asyncio import time async def say_after(delay, what): await asyncio.sleep(delay) print(what) async def main(): print(f\"started at {time.strftime('%X')}\") await say_after(1, 'hello') await say_after(2, 'world') print(f\"finished at {time.strftime('%X')}\") asyncio.run(main()) Expected output: started at 17:13:52",
+          "score": 0.5528602600097656
+        },
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 6,
+          "text": "alternative leveraging structural concurrency; it allows for waiting for a group of related tasks with strong safety guarantees. Important Save a reference to the result of this function, to avoid a task disappearing mid-execution. The event loop only keeps weak references to tasks. A task that isn’t referenced elsewhere may get garbage collected at any time, even before it’s done. For reliable “fire-and-forget” background tasks, gather them in a collection: background_tasks = set() for i in range(10): task = asyncio.create_task(some_coro(param=i)) # Add task to the set. This creates a strong reference. background_tasks.add(task) # To prevent keeping references to finished tasks",
+          "score": 0.5507251024246216
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 3,
+          "text": "a ProcessPoolExecutor will result in deadlock. Note that the restrictions on functions and arguments needing to picklable as per multiprocessing.Process apply when using submit() and map() on a ProcessPoolExecutor. A function defined in a REPL or a lambda should not be expected to work. class concurrent.futures.ProcessPoolExecutor(max_workers=None, mp_context=None, initializer=None, initargs=(), max_tasks_per_child=None) An Executor subclass that executes calls asynchronously using a pool of at most max_workers processes. If max_workers is None or not given, it will default to os.process_cpu_count(). If max_workers is less than or equal to 0, then a ValueError will be raised. On Windows, max_workers must be less than or",
+          "score": 0.5492820739746094
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag10",
+    "group": "explanation_synthesis",
+    "query": "Why does 'Arthur: three!'.lstrip('Arthur: ') produce 'ee!' rather than 'three!', and which method should remove the exact prefix instead?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_26_string_trimming"
+    ],
+    "expected_answer": "lstrip воспринимает аргумент как набор отдельных символов и удаляет их с начала строки до первого символа вне набора. Поэтому он захватывает также начало слова three и оставляет ee!. Для удаления ровно заданного префикса нужен removeprefix('Arthur: '), который даст three!.",
+    "rag": {
+      "answer": "`'Arthur: three!'.lstrip('Arthur: ')` produces `'ee!'` because the `chars` argument specifies a set of characters to be removed rather than a specific prefix [python_26_string_trimming:3]. To remove the exact prefix instead, the `removeprefix()` method should be used [python_26_string_trimming:3].",
+      "sources": [
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 3,
+          "text": "set of characters. For example: >>> 'Arthur: three!'.lstrip('Arthur: ') 'ee!' >>> 'Arthur: three!'.removeprefix('Arthur: ') 'three!' str.rstrip(chars=None, /) Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a suffix; rather, all combinations of its values are stripped. For example: >>> ' spacious '.rstrip() ' spacious' >>> 'mississippi'.rstrip('ipz') 'mississ' See removesuffix() for a method that will remove a single suffix string rather than all of a set of characters. For example:",
+          "score": 0.6657751798629761
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 3,
+          "text": "set of characters. For example: >>> 'Arthur: three!'.lstrip('Arthur: ') 'ee!' >>> 'Arthur: three!'.removeprefix('Arthur: ') 'three!' str.rstrip(chars=None, /) Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a suffix; rather, all combinations of its values are stripped. For example: >>> ' spacious '.rstrip() ' spacious' >>> 'mississippi'.rstrip('ipz') 'mississ' See removesuffix() for a method that will remove a single suffix string rather than all of a set of characters. For example:",
+          "score": 0.6657751798629761
+        },
+        {
+          "document_id": "python_02_strings",
+          "chunk_id": 4,
+          "text": "number of \\ characters; see the FAQ entry for more information and workarounds. String literals can span multiple lines. One way is using triple-quotes: \"\"\"...\"\"\" or '''...'''. End-of-line characters are automatically included in the string, but it’s possible to prevent this by adding a \\ at the end of the line. In the following example, the initial newline is not included: >>> print(\"\"\"\\ ... Usage: thingy [OPTIONS] ... -h Display this usage message ... -H hostname Hostname to connect to ... \"\"\") Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to >>> Strings can be",
+          "score": 0.4466947913169861
+        },
+        {
+          "document_id": "python_02_strings",
+          "chunk_id": 1,
+          "text": "eggs' >>> \"Paris rabbit got your back :)! Yay!\" # double quotes 'Paris rabbit got your back :)! Yay!' >>> '1975' # digits and numerals enclosed in quotes are also strings '1975' To quote a quote, we need to “escape” it, by preceding it with \\. Alternatively, we can use the other type of quotation marks: >>> 'doesn\\'t' # use \\' to escape the single quote... \"doesn't\" >>> \"doesn't\" # ...or use double quotes instead \"doesn't\" >>> '\"Yes,\" they said.' '\"Yes,\" they said.' >>> \"\\\"Yes,\\\" they said.\" '\"Yes,\" they said.' >>> '\"Isn\\'t,\" they said.' '\"Isn\\'t,\" they said.' In the Python",
+          "score": 0.4149520695209503
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag11",
+    "group": "exact_details",
+    "query": "What is the maximum permitted max_workers value for ProcessPoolExecutor on Windows, and what happens if a larger value is supplied?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_31_background_computation"
+    ],
+    "expected_answer": "На Windows max_workers не должен превышать 61. При передаче большего значения возникает ValueError.",
+    "rag": {
+      "answer": "On Windows, the `max_workers` value must be less than or equal to 61; if a value larger than this is supplied, a `ValueError` will be raised [python_31_background_computation:4].",
+      "sources": [
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 4,
+          "text": "less than or equal to 0, then a ValueError will be raised. On Windows, max_workers must be less than or equal to 61. If it is not then ValueError will be raised. If max_workers is None, then the default chosen will be at most 61, even if more processors are available. mp_context can be a multiprocessing context or None. It will be used to launch the workers. If mp_context is None or not given, the default multiprocessing context is used. See Contexts and start methods. initializer is an optional callable that is called at the start of each worker process;",
+          "score": 0.7795495986938477
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 4,
+          "text": "less than or equal to 0, then a ValueError will be raised. On Windows, max_workers must be less than or equal to 61. If it is not then ValueError will be raised. If max_workers is None, then the default chosen will be at most 61, even if more processors are available. mp_context can be a multiprocessing context or None. It will be used to launch the workers. If mp_context is None or not given, the default multiprocessing context is used. See Contexts and start methods. initializer is an optional callable that is called at the start of each worker process;",
+          "score": 0.7795495986938477
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 6,
+          "text": "a fresh worker process. By default max_tasks_per_child is None which means worker processes will live as long as the pool. When a max is specified, the “spawn” multiprocessing start method will be used by default in absence of a mp_context parameter. This feature is incompatible with the “fork” start method. Changed in version 3.3: When one of the worker processes terminates abruptly, a BrokenProcessPool error is now raised. Previously, behaviour was undefined but operations on the executor or its futures would often freeze or deadlock. Changed in version 3.7: The mp_context argument was added to allow users to control the",
+          "score": 0.5958043336868286
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 9,
+          "text": "executor could hang after a worker process exited upon reaching its max_tasks_per_child limit while tasks remained queued. terminate_workers() Attempt to terminate all living worker processes immediately by calling Process.terminate on each of them. Internally, it will also call Executor.shutdown() to ensure that all other resources associated with the executor are freed. After calling this method the caller should no longer submit tasks to the executor. Added in version 3.14. kill_workers() Attempt to kill all living worker processes immediately by calling Process.kill on each of them. Internally, it will also call Executor.shutdown() to ensure that all other resources associated with the",
+          "score": 0.5674420595169067
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag12",
+    "group": "exact_details",
+    "query": "Which encoding should be explicitly specified when opening JSON files in text mode for reading and writing?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_19_json"
+    ],
+    "expected_answer": "Нужно указать encoding='utf-8' как при чтении, так и при записи JSON-файла в текстовом режиме.",
+    "rag": {
+      "answer": "The provided sources do not contain information regarding which encoding should be explicitly specified when opening JSON files in text mode.",
+      "sources": [],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 4,
+          "text": "opening JSON file as a text file for both of reading and writing. This simple serialization technique can handle lists and dictionaries, but serializing arbitrary class instances in JSON requires a bit of extra effort. The reference for the json module contains an explanation of this. See also pickle - the pickle module Contrary to JSON, pickle is a protocol which allows the serialization of arbitrarily complex Python objects. As such, it is specific to Python and cannot be used to communicate with applications written in other languages. It is also insecure by default: deserializing pickle data coming from an",
+          "score": 0.5768656730651855
+        },
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 2,
+          "text": "deserializing. Between serializing and deserializing, the string representing the object may have been stored in a file or data, or sent over a network connection to some distant machine. Note The JSON format is commonly used by modern applications to allow for data exchange. Many programmers are already familiar with it, which makes it a good choice for interoperability. If you have an object x, you can view its JSON string representation with a simple line of code: >>> import json >>> x = [1, 'simple', 'list'] >>> json.dumps(x) '[1, \"simple\", \"list\"]' Another variant of the dumps() function, called dump(),",
+          "score": 0.4998474717140198
+        },
+        {
+          "document_id": "python_19_json",
+          "chunk_id": 0,
+          "text": "Document ID: python_19_json Source: https://docs.python.org/3.14/tutorial/inputoutput.html#saving-structured-data-with-json Copyright: Python Software Foundation. License: PSF License Version 2. Code examples are additionally licensed under the Zero Clause BSD License. 7.2.2. Saving structured data with json Strings can easily be written to and read from a file. Numbers take a bit more effort, since the read() method only returns strings, which will have to be passed to a function like int(), which takes a string like '123' and returns its numeric value 123. When you want to save more complex data types like nested lists and dictionaries, parsing and serializing by hand becomes complicated. Rather",
+          "score": 0.4738306701183319
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag13",
+    "group": "exact_details",
+    "query": "In which Python version was asyncio.TaskGroup added, and does its context manager wait for the tasks when it exits?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency"
+    ],
+    "expected_answer": "asyncio.TaskGroup появился в Python 3.11. При выходе из его асинхронного контекстного менеджера ожидание задач происходит автоматически.",
+    "rag": {
+      "answer": "`asyncio.TaskGroup` was added in version 3.11 [python_32_asyncio_concurrency:4]. Its context manager awaits the tasks and propagates their exceptions [python_32_asyncio_concurrency:8].",
+      "sources": [
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 4,
+          "text": "should be the same as for the previous version. Added in version 3.11: asyncio.TaskGroup. Creating tasks Source code: Lib/asyncio/tasks.py asyncio.create_task(coro, *, name=None, context=None, eager_start=None, **kwargs) Wrap the coro coroutine into a Task and schedule its execution. Return the Task object. The full function signature is largely the same as that of the Task constructor (or factory) - all of the keyword arguments to this function are passed through to that interface. An optional keyword-only context argument allows specifying a custom contextvars.Context for the coro to run in. The current context copy is created when no context is provided. An optional",
+          "score": 0.5944488048553467
+        },
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 8,
+          "text": "to each task, awaits them and propagates their exceptions: async with asyncio.TaskGroup() as tg: for i in range(10): tg.create_task(some_coro(param=i)) Added in version 3.7. Changed in version 3.8: Added the name parameter. Changed in version 3.11: Added the context parameter. Changed in version 3.14: Added the eager_start parameter by passing on all kwargs. Running tasks concurrently awaitable asyncio.gather(*aws, return_exceptions=False) Run awaitable objects in the aws sequence concurrently. If any awaitable in aws is a coroutine, it is automatically scheduled as a Task. If all awaitables are completed successfully, the result is an aggregate list of returned values. The order of result",
+          "score": 0.6844980120658875
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 8,
+          "text": "to each task, awaits them and propagates their exceptions: async with asyncio.TaskGroup() as tg: for i in range(10): tg.create_task(some_coro(param=i)) Added in version 3.7. Changed in version 3.8: Added the name parameter. Changed in version 3.11: Added the context parameter. Changed in version 3.14: Added the eager_start parameter by passing on all kwargs. Running tasks concurrently awaitable asyncio.gather(*aws, return_exceptions=False) Run awaitable objects in the aws sequence concurrently. If any awaitable in aws is a coroutine, it is automatically scheduled as a Task. If all awaitables are completed successfully, the result is an aggregate list of returned values. The order of result",
+          "score": 0.6844980120658875
+        },
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 5,
+          "text": "contextvars.Context for the coro to run in. The current context copy is created when no context is provided. An optional keyword-only eager_start argument allows specifying if the task should execute eagerly during the call to create_task, or be scheduled later. If eager_start is not passed the mode set by loop.set_task_factory() will be used. The task is executed in the loop returned by get_running_loop(), RuntimeError is raised if there is no running loop in current thread. Note asyncio.TaskGroup.create_task() is a new alternative leveraging structural concurrency; it allows for waiting for a group of related tasks with strong safety guarantees. Important Save",
+          "score": 0.6081119179725647
+        },
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 4,
+          "text": "should be the same as for the previous version. Added in version 3.11: asyncio.TaskGroup. Creating tasks Source code: Lib/asyncio/tasks.py asyncio.create_task(coro, *, name=None, context=None, eager_start=None, **kwargs) Wrap the coro coroutine into a Task and schedule its execution. Return the Task object. The full function signature is largely the same as that of the Task constructor (or factory) - all of the keyword arguments to this function are passed through to that interface. An optional keyword-only context argument allows specifying a custom contextvars.Context for the coro to run in. The current context copy is created when no context is provided. An optional",
+          "score": 0.5944488048553467
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag14",
+    "group": "unanswerable",
+    "query": "Which string method removes every occurrence of a chosen character, including occurrences in the middle of the string? Show an example.",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В предоставленном корпусе недостаточно информации о методе удаления всех вхождений символа. Документ про strip, lstrip и rstrip описывает удаление с краёв и не обосновывает ответ для середины строки.",
+    "evaluation_note": "Вопрос имеет ответ в Python, но сведения о str.replace отсутствуют в текущем корпусе. Для RAG ожидается признание недостатка источников; baseline можно оценить как правильный, если он предложит s.replace(char, '').",
+    "rag": {
+      "answer": "Based on the provided text, there is no information regarding a string method that removes every occurrence of a chosen character, including those in the middle of the string.",
+      "sources": [],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 4,
+          "text": "for a method that will remove a single suffix string rather than all of a set of characters. For example: >>> 'Monty Python'.rstrip(' Python') 'M' >>> 'Monty Python'.removesuffix(' Python') 'Monty' See also strip().",
+          "score": 0.5962114334106445
+        },
+        {
+          "document_id": "python_26_string_trimming",
+          "chunk_id": 3,
+          "text": "set of characters. For example: >>> 'Arthur: three!'.lstrip('Arthur: ') 'ee!' >>> 'Arthur: three!'.removeprefix('Arthur: ') 'three!' str.rstrip(chars=None, /) Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a suffix; rather, all combinations of its values are stripped. For example: >>> ' spacious '.rstrip() ' spacious' >>> 'mississippi'.rstrip('ipz') 'mississ' See removesuffix() for a method that will remove a single suffix string rather than all of a set of characters. For example:",
+          "score": 0.5815494656562805
+        },
+        {
+          "document_id": "python_02_strings",
+          "chunk_id": 14,
+          "text": "also Text Sequence Type — str Strings are examples of sequence types, and support the common operations supported by such types. String Methods Strings support a large number of methods for basic transformations and searching. f-strings String literals that have embedded expressions. Format string syntax Information about string formatting with str.format(). printf-style String Formatting The old formatting operations invoked when strings are the left operand of the % operator are described in more detail here.",
+          "score": 0.534421443939209
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag15",
+    "group": "unanswerable",
+    "query": "What Redis host, port and database number are configured for this project's retrieval cache?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В документах нет конфигурации Redis или сведений о таком кэше проекта. Определить адрес, порт и номер базы по этим источникам нельзя; нельзя подставлять стандартный порт как фактическую настройку.",
+    "rag": {
+      "answer": "I am sorry, but the provided sources do not contain information regarding the Redis host, port, or database number configured for the project's retrieval cache.",
+      "sources": [],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_25_virtual_environments",
+          "chunk_id": 2,
+          "text": "explains why the directory exists. It also prevents clashing with .env environment variable definition files that some tooling supports. Once you’ve created a virtual environment, you may activate it. On Windows, run: tutorial-env\\Scripts\\activate On Unix or MacOS, run: source tutorial-env/bin/activate (This script is written for the bash shell. If you use the csh or fish shells, there are alternate activate.csh and activate.fish scripts you should use instead.) Activating the virtual environment will change your shell’s prompt to show what virtual environment you’re using, and modify the environment so that running python will get you that particular version and installation of",
+          "score": 0.30656373500823975
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 2,
+          "text": "future = executor.submit(pow, 323, 1235) print(future.result()) ProcessPoolExecutor The ProcessPoolExecutor class is an Executor subclass that uses a pool of processes to execute calls asynchronously. ProcessPoolExecutor uses the multiprocessing module, which allows it to side-step the Global Interpreter Lock but also means that only picklable objects can be executed and returned. The __main__ module must be importable by worker subprocesses. This means that ProcessPoolExecutor will not work in the interactive interpreter. Calling Executor or Future methods from a callable submitted to a ProcessPoolExecutor will result in deadlock. Note that the restrictions on functions and arguments needing to picklable as per multiprocessing.Process",
+          "score": 0.30466896295547485
+        },
+        {
+          "document_id": "python_18_file_objects",
+          "chunk_id": 6,
+          "text": "point. whence can be omitted and defaults to 0, using the beginning of the file as the reference point. >>> f = open('workfile', 'rb+') >>> f.write(b'0123456789abcdef') 16 >>> f.seek(5) # Go to the 6th byte in the file 5 >>> f.read(1) b'5' >>> f.seek(-3, 2) # Go to the 3rd byte before the end 13 >>> f.read(1) b'd' In text files (those opened without a b in the mode string), only seeks relative to the beginning of the file are allowed (the exception being seeking to the very file end with seek(0, 2)) and the only valid offset values are",
+          "score": 0.3025538921356201
+        }
+      ],
+      "invalid_citations": []
+    }
+  },
+  {
+    "query_id": "rag16",
+    "group": "unanswerable",
+    "query": "According to benchmarks in the supplied documents, exactly how many times faster is ProcessPoolExecutor than asyncio for multiplying two 1000 by 1000 matrices on an Intel Core i7-12700K?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В корпусе нет такого сравнительного измерения для указанной задачи и процессора. По описаниям API нельзя вычислить точный коэффициент ускорения.",
+    "evaluation_note": "Проверяется отказ придумывать количественный результат по тематически близким документам про конкурентность и вычисления.",
+    "rag": {
+      "answer": "The provided sources do not contain information regarding benchmarks for multiplying matrices or performance comparisons between `ProcessPoolExecutor` and `asyncio` on an Intel Core i7-12700K.",
+      "sources": [],
+      "retrieved_chunks": [
+        {
+          "document_id": "python_32_asyncio_concurrency",
+          "chunk_id": 3,
+          "text": "at {time.strftime('%X')}\") Note that expected output now shows that the snippet runs 1 second faster than before: started at 17:14:32 hello world finished at 17:14:34 The asyncio.TaskGroup class provides a more modern alternative to create_task(). Using this API, the last example becomes: async def main(): async with asyncio.TaskGroup() as tg: task1 = tg.create_task( say_after(1, 'hello')) task2 = tg.create_task( say_after(2, 'world')) print(f\"started at {time.strftime('%X')}\") # The await is implicit when the context manager exits. print(f\"finished at {time.strftime('%X')}\") The timing and output should be the same as for the previous version. Added in version 3.11: asyncio.TaskGroup. Creating tasks Source code: Lib/asyncio/tasks.py asyncio.create_task(coro,",
+          "score": 0.6188321113586426
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 3,
+          "text": "a ProcessPoolExecutor will result in deadlock. Note that the restrictions on functions and arguments needing to picklable as per multiprocessing.Process apply when using submit() and map() on a ProcessPoolExecutor. A function defined in a REPL or a lambda should not be expected to work. class concurrent.futures.ProcessPoolExecutor(max_workers=None, mp_context=None, initializer=None, initargs=(), max_tasks_per_child=None) An Executor subclass that executes calls asynchronously using a pool of at most max_workers processes. If max_workers is None or not given, it will default to os.process_cpu_count(). If max_workers is less than or equal to 0, then a ValueError will be raised. On Windows, max_workers must be less than or",
+          "score": 0.5548717379570007
+        },
+        {
+          "document_id": "python_31_background_computation",
+          "chunk_id": 2,
+          "text": "future = executor.submit(pow, 323, 1235) print(future.result()) ProcessPoolExecutor The ProcessPoolExecutor class is an Executor subclass that uses a pool of processes to execute calls asynchronously. ProcessPoolExecutor uses the multiprocessing module, which allows it to side-step the Global Interpreter Lock but also means that only picklable objects can be executed and returned. The __main__ module must be importable by worker subprocesses. This means that ProcessPoolExecutor will not work in the interactive interpreter. Calling Executor or Future methods from a callable submitted to a ProcessPoolExecutor will result in deadlock. Note that the restrictions on functions and arguments needing to picklable as per multiprocessing.Process",
+          "score": 0.4672854542732239
+        }
+      ],
+      "invalid_citations": []
+    }
+  }
+]

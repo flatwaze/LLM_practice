@@ -1,97 +1,86 @@
-# README is generated with LLM.
+# Minimal RAG
 
-# Retrieval Engine
+README generated with LLM assistance.
 
-Exact semantic search over text documents using NumPy and Sentence Transformers.
+A learning project built in plain Python: retrieve passages from documentation,
+use them to answer a question with citations. No LangChain, vector database
+or agent framework.
 
-## Setup
+The goal is to understand the principles of RAG.
 
-Use Python 3.14. From the project directory in Git Bash:
+## Pipeline
+
+```text
+Indexing:   documents -> overlapping chunks -> embeddings -> in-memory index
+Answering:  question -> top-k search -> context + question -> LLM -> cited answer
+```
+
+| Component | Implementation |
+|---|---|
+| Chunking | Word windows with configurable overlap |
+| Embeddings | `paraphrase-multilingual-MiniLM-L12-v2`, running on CPU |
+| Retrieval | Exact cosine similarity (all vs one) |
+| Prompt | Sources separated from instructions; answer from context or acknowledge missing information |
+| Generation | Gemma 4 31B through OpenRouter |
+| Citations | Match `[document_id:chunk_id]` to passages supplied to the model |
+
+The default configuration uses 100-word chunks, 20-word overlap and top-3
+retrieval. Search can select the best chunks overall or one best chunk per
+document.
+
+`RAGResponse` separates the answer, all retrieved chunks, the chunks actually
+cited, and unknown citation.
+
+## Experiment
+
+The corpus contains 30 documentation excerpts covering Python and scientific
+Python libraries. The test set has 16 questions: 6 factual, 4 explanation or
+synthesis, 3 exact-detail and 3 without an answer in the corpus.
+
+We compared RAG with the same LLM answering without retrieved context.
+Manual review of the 13 questions covered by the corpus found:
+
+| Outcome | RAG | Baseline |
+|---|---:|---:|
+| Main question answered correctly | 6 | 12 |
+| Partial answer | 3 | 0 |
+| Refusal | 4 | 0 |
+| Incorrect answer | 0 | 1 |
+
+Baseline was stronger on familiar Python questions. RAG often retrieved the
+right document but missed the specific passage containing the answer. Under
+its context-only instruction, the model then declined to answer.
+
+RAG did help with one exact detail: baseline incorrectly denied the Windows
+limit of 61 workers for `ProcessPoolExecutor`; RAG found it and answered correctly.
+RAG declined all three questions without corpus answers.
+
+Questions and references: [evaluation set](data/rag_eval_questions.json).
+Saved outputs: [RAG](experiments/rag_evaluation.json),
+[baseline](experiments/baseline_evaluation.json).
+See the [error analysis](experiments/rag_analysis.md) for individual cases.
+
+## Run
+
+Python 3.14; commands below use Bash from the project directory.
+Set `OPENROUTER_API_KEY` in your environment.
 
 ```bash
 python -m venv .venv
 source .venv/Scripts/activate
 python -m pip install -r requirements.txt
+
+python main.py            # RAG evaluation
+python baseline_eval.py   # Baseline evaluation
+python -m pytest -q       # Chunking and retrieval tests
 ```
 
-If `.venv` already exists, start with the activation command.
+## Current limits
 
-## Run
+- The encoder can truncate long chunks.
+- The citation parser skips grouped references such as `[doc:0, doc:1]`.
+- There is no automatic retry, resume or semantic verification of citations.
 
-```bash
-python main.py
-```
-
-Enter a query to receive the three best matching documents with their representative
-chunks and similarity scores. The first run downloads the embedding model from
-Hugging Face; later runs reuse the local cache. Computation runs on CPU.
-
-Edit `CHUNK_SIZE`, `OVERLAP` and `TOP_K` at the top of `main.py` to change the
-settings. Chunk size and overlap are measured in words. The model truncates input
-to its token limit, which is distinct from the word limit used for chunking.
-
-## Tests
-
-```bash
-python -m pytest -q
-python -m pip check
-```
-
-Unit tests use fixed vectors and do not download the model.
-
-## Corpus
-
-`data/documents/` contains 30 English documents assembled from official Python,
-SciPy, NumPy, pandas and scikit-learn documentation. Excerpts retain the original
-text and code; HTML navigation is removed. Some documents combine related
-sections, with every source listed in their headers. Each filename without its
-extension is the document ID.
-
-Sources and checksums are listed in `data/corpus_sources.json`. Python license
-terms are in `data/SOURCE_LICENSE.txt`; additional BSD licenses are in
-`data/licenses/`. Five documents from the original corpus are preserved in
-`data/archive/` and are not indexed by `main.py`.
-
-## Evaluation
-
-`data/eval_questions.json` contains 10 queries with manually selected
-`relevant_document_ids`, alongside the user's original wording. The corpus was
-revised to cover these topics before running the evaluation. This is a small,
-curated benchmark, not a measure of general Python question coverage.
-
-Question 1 concerns leading and trailing whitespace, not whitespace inside a
-string. Question 7 concerns concurrent I/O using async/await. Question 9 concerns
-aliasing a reused mutable list; a shallow copy separates row lists but does not
-recursively copy nested mutable objects. Non-public attributes in question 4 are
-an encapsulation convention, not a security boundary.
-
-Some queries have multiple relevant documents. For each query, Recall@3 is the
-number of relevant documents retrieved in the top three divided by the total
-number of labeled relevant documents. Average these values across the 10 queries.
-
-Run the comparison from the project directory:
-
-```bash
-python -m experiments.eval
-```
-
-The model is loaded once, and a separate index is built for each configuration.
-Per-query retrieved document IDs and Recall@3 values are saved in
-`experiments/results.json`.
-
-| Configuration | Chunk size (words) | Overlap (words) | Mean Recall@3 |
-|---|---:|---:|---:|
-| A | 100 | 20 | 0.85 |
-| B | 250 | 50 | 0.90 |
-
-The difference comes entirely from question q09 about reused lists: configuration
-B retrieves both labeled documents, while A retrieves one of the two. Other
-per-query recall values are unchanged. Questions q01 and q10 retrieve only one
-of their two labeled relevant documents under both configurations.
-
-One hypothesis is that changing chunk boundaries places related explanations of
-list assignment and copying together, or closer to the beginning of a chunk.
-This has not been isolated experimentally. The model accepts at most 128 tokens,
-so a 250-word chunk is not necessarily encoded in full; the improvement cannot
-simply be attributed to retaining all of the larger chunk's context. Ten curated
-queries are insufficient to conclude that configuration B is generally better.
+Earlier retrieval-only experiments remain in `experiments/eval.py` and
+`experiments/results.json`. Corpus provenance is in `data/corpus_sources.json`;
+license notices are in `data/SOURCE_LICENSE.txt` and `data/licenses/`.

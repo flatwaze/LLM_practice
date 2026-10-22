@@ -1,0 +1,132 @@
+[
+  {
+    "query_id": "rag01",
+    "group": "factual",
+    "query": "Which string method removes whitespace from both ends without removing whitespace inside the string?",
+    "answerable": true,
+    "relevant_document_ids": ["python_26_string_trimming"],
+    "expected_answer": "Метод str.strip() без аргумента возвращает строку без начальных и конечных пробельных символов. Пробелы внутри строки он не удаляет."
+  },
+  {
+    "query_id": "rag02",
+    "group": "factual",
+    "query": "Which SciPy function provides a common interface for minimizing a multivariate scalar function with or without constraints?",
+    "answerable": true,
+    "relevant_document_ids": ["python_27_scipy_optimization"],
+    "expected_answer": "Для этого предназначена scipy.optimize.minimize: она предоставляет общий интерфейс к алгоритмам минимизации скалярной функции нескольких переменных, включая задачи с ограничениями."
+  },
+  {
+    "query_id": "rag03",
+    "group": "factual",
+    "query": "How can a Python data-holding class get an automatically generated constructor and readable representation?",
+    "answerable": true,
+    "relevant_document_ids": ["python_28_dataclasses"],
+    "expected_answer": "Нужно применить декоратор @dataclass и описать поля аннотациями типов. Декоратор автоматически добавляет методы, в том числе __init__ и __repr__."
+  },
+  {
+    "query_id": "rag04",
+    "group": "factual",
+    "query": "What is the difference between json.dumps(x) and json.dump(x, f)?",
+    "answerable": true,
+    "relevant_document_ids": ["python_19_json"],
+    "expected_answer": "json.dumps(x) возвращает JSON-представление объекта в виде строки. json.dump(x, f) записывает это представление в открытый текстовый файл f."
+  },
+  {
+    "query_id": "rag05",
+    "group": "factual",
+    "query": "What happens when next() is called again on a generator that previously yielded a value?",
+    "answerable": true,
+    "relevant_document_ids": ["python_24_generators"],
+    "expected_answer": "Генератор продолжает выполнение с места предыдущей остановки. Между вызовами сохраняются его локальные переменные и состояние выполнения."
+  },
+  {
+    "query_id": "rag06",
+    "group": "factual",
+    "query": "For separate empty lists a and b, how do a.append([1, 2]) and b.extend([1, 2]) differ?",
+    "answerable": true,
+    "relevant_document_ids": ["python_35_append_extend"],
+    "expected_answer": "append добавляет переданный список как один элемент, поэтому a станет [[1, 2]]. extend добавляет элементы переданного iterable по отдельности, поэтому b станет [1, 2]."
+  },
+  {
+    "query_id": "rag07",
+    "group": "explanation_synthesis",
+    "query": "Why do repeated calls to a function with a list default argument share accumulated values, and how can independent lists be created both for function calls and for dataclass instances?",
+    "answerable": true,
+    "relevant_document_ids": ["python_07_default_arguments", "python_28_dataclasses"],
+    "expected_answer": "Значение аргумента по умолчанию вычисляется один раз при определении функции, поэтому один изменяемый список используется повторно. В функции можно поставить значение None и создавать список внутри при L is None. Для поля dataclass используется field(default_factory=list): фабрика создаёт отдельный список, когда требуется значение по умолчанию."
+  },
+  {
+    "query_id": "rag08",
+    "group": "explanation_synthesis",
+    "query": "Why does changing one cell of A = [[None] * 2] * 3 affect several rows, and how can three independent rows be created?",
+    "answerable": true,
+    "relevant_document_ids": ["python_34_list_aliasing_copying"],
+    "expected_answer": "Умножение внешнего списка повторяет ссылки на один внутренний список, а не создаёт новые строки. Изменение общей строки видно через все три ссылки. Независимые строки можно создать выражением [[None] * 2 for _ in range(3)] или циклом, создающим новый список для каждой строки."
+  },
+  {
+    "query_id": "rag09",
+    "group": "explanation_synthesis",
+    "query": "How do the documented approaches to running several waiting coroutines concurrently and submitting a CPU-intensive callable to background processes differ? Name the APIs and explain what represents the submitted work.",
+    "answerable": true,
+    "relevant_document_ids": ["python_32_asyncio_concurrency", "python_31_background_computation"],
+    "expected_answer": "Для совместного выполнения корутин их можно запланировать через asyncio.create_task либо TaskGroup; запланированная корутина представлена Task. Для выполнения обычной вычислительной функции в отдельных процессах используется ProcessPoolExecutor.submit, возвращающий concurrent.futures.Future. Результат такой работы получают через future.result(). Это разные механизмы: asyncio управляет корутинами, а ProcessPoolExecutor выполняет функции в процессах."
+  },
+  {
+    "query_id": "rag10",
+    "group": "explanation_synthesis",
+    "query": "Why does 'Arthur: three!'.lstrip('Arthur: ') produce 'ee!' rather than 'three!', and which method should remove the exact prefix instead?",
+    "answerable": true,
+    "relevant_document_ids": ["python_26_string_trimming"],
+    "expected_answer": "lstrip воспринимает аргумент как набор отдельных символов и удаляет их с начала строки до первого символа вне набора. Поэтому он захватывает также начало слова three и оставляет ee!. Для удаления ровно заданного префикса нужен removeprefix('Arthur: '), который даст three!."
+  },
+  {
+    "query_id": "rag11",
+    "group": "exact_details",
+    "query": "What is the maximum permitted max_workers value for ProcessPoolExecutor on Windows, and what happens if a larger value is supplied?",
+    "answerable": true,
+    "relevant_document_ids": ["python_31_background_computation"],
+    "expected_answer": "На Windows max_workers не должен превышать 61. При передаче большего значения возникает ValueError."
+  },
+  {
+    "query_id": "rag12",
+    "group": "exact_details",
+    "query": "Which encoding should be explicitly specified when opening JSON files in text mode for reading and writing?",
+    "answerable": true,
+    "relevant_document_ids": ["python_19_json"],
+    "expected_answer": "Нужно указать encoding='utf-8' как при чтении, так и при записи JSON-файла в текстовом режиме."
+  },
+  {
+    "query_id": "rag13",
+    "group": "exact_details",
+    "query": "In which Python version was asyncio.TaskGroup added, and does its context manager wait for the tasks when it exits?",
+    "answerable": true,
+    "relevant_document_ids": ["python_32_asyncio_concurrency"],
+    "expected_answer": "asyncio.TaskGroup появился в Python 3.11. При выходе из его асинхронного контекстного менеджера ожидание задач происходит автоматически."
+  },
+  {
+    "query_id": "rag14",
+    "group": "unanswerable",
+    "query": "Which string method removes every occurrence of a chosen character, including occurrences in the middle of the string? Show an example.",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В предоставленном корпусе недостаточно информации о методе удаления всех вхождений символа. Документ про strip, lstrip и rstrip описывает удаление с краёв и не обосновывает ответ для середины строки.",
+    "evaluation_note": "Вопрос имеет ответ в Python, но сведения о str.replace отсутствуют в текущем корпусе. Для RAG ожидается признание недостатка источников; baseline можно оценить как правильный, если он предложит s.replace(char, '')."
+  },
+  {
+    "query_id": "rag15",
+    "group": "unanswerable",
+    "query": "What Redis host, port and database number are configured for this project's retrieval cache?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В документах нет конфигурации Redis или сведений о таком кэше проекта. Определить адрес, порт и номер базы по этим источникам нельзя; нельзя подставлять стандартный порт как фактическую настройку."
+  },
+  {
+    "query_id": "rag16",
+    "group": "unanswerable",
+    "query": "According to benchmarks in the supplied documents, exactly how many times faster is ProcessPoolExecutor than asyncio for multiplying two 1000 by 1000 matrices on an Intel Core i7-12700K?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В корпусе нет такого сравнительного измерения для указанной задачи и процессора. По описаниям API нельзя вычислить точный коэффициент ускорения.",
+    "evaluation_note": "Проверяется отказ придумывать количественный результат по тематически близким документам про конкурентность и вычисления."
+  }
+]
