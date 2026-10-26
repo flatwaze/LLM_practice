@@ -1,4 +1,4 @@
-# Minimal RAG
+# Minimal RAG & Agent
 
 README generated with LLM assistance.
 
@@ -6,7 +6,10 @@ A learning project built in plain Python: retrieve passages from documentation,
 use them to answer a question with citations. No LangChain, vector database
 or agent framework.
 
-The goal is to understand the principles of RAG.
+The goal is to understand RAG and a minimal tool-calling agent loop.
+
+[Pipeline](#pipeline) · [Experiment](#experiment) · [Agent](#agent) ·
+[Result files](#result-files) · [Run](#run) · [Current limits](#current-limits)
 
 ## Pipeline
 
@@ -56,9 +59,27 @@ limit of 61 workers for `ProcessPoolExecutor`; RAG found it and answered correct
 RAG declined all three questions without corpus answers.
 
 Questions and references: [evaluation set](data/rag_eval_questions.json).
-Saved outputs: [RAG](experiments/rag_evaluation.json),
-[baseline](experiments/baseline_evaluation.json).
 See the [error analysis](experiments/rag_analysis.md) for individual cases.
+
+## Agent
+
+`SimpleAgent` uses `search_docs(query, top_k)` to retrieve chunks and
+`get_document(document_id)` to read full documents. It can refine searches;
+tool errors return to the model for correction. Limit: 5 model calls per question.
+
+On 16 questions: 42 model calls (2.63/question), 23 searches, 3 document reads;
+no tool errors or limit stops. Opening the full JSON document recovered the
+UTF-8 answer missed by chunk searches. Of 3 unanswerable questions, 2 received
+correct refusals; 1 used outside knowledge. Citation grounding remains unchecked.
+
+## Result files
+
+| JSON | Contents |
+|---|---|
+| [agent_evaluation.json](experiments/agent_evaluation.json) | Agent answers, errors and full message/tool traces |
+| [rag_evaluation.json](experiments/rag_evaluation.json) | Fixed RAG answers, retrieved chunks and citations |
+| [baseline_evaluation.json](experiments/baseline_evaluation.json) | LLM answers without retrieval |
+| [results.json](experiments/results.json) | Earlier retrieval-only experiments |
 
 ## Run
 
@@ -70,7 +91,7 @@ python -m venv .venv
 source .venv/Scripts/activate
 python -m pip install -r requirements.txt
 
-python main.py            # RAG evaluation
+python main.py            # Agent evaluation
 python baseline_eval.py   # Baseline evaluation
 python -m pytest -q       # Chunking and retrieval tests
 ```

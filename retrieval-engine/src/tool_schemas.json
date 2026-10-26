@@ -1,0 +1,46 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "search_docs",
+      "description": "Search the document corpus for relevant text chunks. Use a focused search query; rephrase it and search again if the results are insufficient. Results include document IDs that can be passed to get_document.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A search query describing the information needed."
+          },
+          "top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Maximum number of chunks to return. If omitted, the Python function uses 3."
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_document",
+      "description": "Retrieve a complete document by its document ID. Use this when search results do not provide enough context and the full document may contain the missing information.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The exact document ID, usually obtained from search_docs results."
+          }
+        },
+        "required": ["document_id"],
+        "additionalProperties": false
+      }
+    }
+  }
+]

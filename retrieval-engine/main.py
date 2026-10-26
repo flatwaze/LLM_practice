@@ -1,18 +1,17 @@
 from pathlib import Path
-from dataclasses import asdict
 import requests
 import json
 
 from src.embeddings import EmbeddingModel
 from src.retrieval import ExactRetriever
 from src.llm_client import LLMClient
-from src.rag import RAG
+from src.agent import SimpleAgent
+from src.tools import Tools
 
 
 CHUNK_SIZE = 100
 OVERLAP = 20
-TOP_K = 3
-SEARCH_MODE = "chunks"
+MAX_STEPS = 5
 LLM_MODEL = "google/gemma-4-31b-it"
 
 
@@ -36,58 +35,48 @@ def main():
     with q_path.open(encoding='utf-8') as file:
         questions = json.load(file)
 
-    #Creating RAGPipeline
+    #Creating client
     try:
-        llm_client = LLMClient(model=LLM_MODEL, api_key_env="OPENROUTER_API_KEY")
+        llm_client = LLMClient(
+            model=LLM_MODEL,
+            api_key_env="OPENROUTER_API_KEY",
+            max_tokens=1000,
+        )
     except ValueError as exc:
         print(f"Error: {exc}")
         return
 
-    model = EmbeddingModel()
-    retriever = ExactRetriever(model, documents, chunk_size=CHUNK_SIZE, overlap=OVERLAP)
-    rag = RAG(retriever, llm_client)
-
     #Eval.
     results = []
-    results_path = Path(__file__).resolve().parent / "experiments" / "rag_evaluation.json"
+    results_path = Path(__file__).resolve().parent / "experiments" / "agent_evaluation.json"
     results_path.parent.mkdir(parents=True, exist_ok=True)
 
     with llm_client.session:
+        #Creating agent
+        model = EmbeddingModel()
+        retriever = ExactRetriever(model, documents, chunk_size=CHUNK_SIZE, overlap=OVERLAP)
+        tools = Tools(retriever, documents)
+        agent = SimpleAgent(llm_client, tools, max_steps=MAX_STEPS)
+
         for q in questions:
             print(f"\n{q['query_id']}: {q['query']}")
+            result = {**q, "answer": None, "error": None}
+
             try:
-                response = rag.answer(q["query"], top_k=TOP_K, search_mode=SEARCH_MODE)
+                result["answer"] = agent.run(q["query"])
             except (requests.RequestException, RuntimeError, ValueError) as exc:
+                result["error"] = str(exc)
                 print(f"Error: {exc}")
-                results.append({
-                    **q,
-                    "rag": None,
-                    "error": str(exc)
-                })
             else:
+                print(f"\nAnswer:\n{result['answer']}")
 
-                
-                print(f"\nAnswer:\n{response.answer}")
-                print("\nSources:")
-    
-                for source in response.sources:
-                    print(f"[{source.document_id}:{source.chunk_id}]")
-
-                if response.invalid_citations:
-                    print("\nUnknown citations:", ", ".join(response.invalid_citations))
-
-                #log.
-                results.append({
-                    **q,
-                    "rag": asdict(response)
-                })
-                
-
-                print('-----------------')
-
-
+            #Saving answer, error and agent trace after each question
+            result["trace"] = agent.history.copy()
+            results.append(result)
             with results_path.open("w", encoding="utf-8") as file:
                 json.dump(results, file, ensure_ascii=False, indent=2)
+
+            print('-----------------')
 
 
 if __name__ == "__main__":
