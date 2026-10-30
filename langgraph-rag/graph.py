@@ -6,6 +6,7 @@ from langchain_core.messages import (
 )
 from langchain_core.tools import StructuredTool
 from langgraph.graph import START, END, StateGraph
+from pydantic import ValidationError
 
 class State(TypedDict):
     messages: list
@@ -64,7 +65,10 @@ class SimpleAgent:
             if tool is None:
                 tmp_res = f"Unknown tool: {call['name']}."
             else:
-                tmp_res = tool.invoke(call['args'])
+                try:
+                    tmp_res = tool.invoke(call["args"])
+                except ValidationError as error:
+                    tmp_res = f"Invalid tool arguments: {error}"
             result.append(ToolMessage(content=tmp_res, tool_call_id=call['id']))
             print(f"Tool finished: {call['name']}", flush=True)
 
