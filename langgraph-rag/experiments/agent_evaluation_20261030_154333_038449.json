@@ -1,0 +1,2384 @@
+[
+  {
+    "query_id": "rag01",
+    "group": "factual",
+    "query": "Which string method removes whitespace from both ends without removing whitespace inside the string?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_26_string_trimming"
+    ],
+    "expected_answer": "Метод str.strip() без аргумента возвращает строку без начальных и конечных пробельных символов. Пробелы внутри строки он не удаляет.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "The string method that removes whitespace from both ends of a string without removing whitespace inside the string is `strip()` [python_26_string_trimming:0, python_26_string_trimming:5].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Which string method removes whitespace from both ends without removing whitespace inside the string?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375012-QPdlLp643HPLWtKJltSS",
+          "created": 1793375012,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 2.894e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 7.14e-06,
+            "upstream_inference_prompt_cost": 2.18e-05,
+            "upstream_inference_cost": 2.894e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-08bc-72f7-863f-1a5b7f3cd72d-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "string method remove whitespace from both ends"
+            },
+            "id": "call-d6bf34a5-fb1c-4d83-9980-9d8b522209dd",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 218,
+          "output_tokens": 21,
+          "total_tokens": 239,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_26_string_trimming:13]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: See str.removeprefix() for a method that will remove a single prefix\nstring rather than all of a set of characters.  For example:\n\n[python_26_string_trimming:0]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: Document ID: python_26_string_trimming\nTitle: Trimming whitespace from strings\nSource: https://docs.python.org/3.14/library/stdtypes.html#str.strip\n\n[python_26_string_trimming:5]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: If omitted or None, the chars argument defaults to removing whitespace.\nThe chars argument is not a prefix or suffix; rather, all combinations of its\nvalues are stripped.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-d6bf34a5-fb1c-4d83-9980-9d8b522209dd",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "The string method that removes whitespace from both ends of a string without removing whitespace inside the string is `strip()` [python_26_string_trimming:0, python_26_string_trimming:5].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375014-m0IiMnCjyruXsjrdtAdJ",
+          "created": 1793375014,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 6.812e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.632e-05,
+            "upstream_inference_prompt_cost": 5.18e-05,
+            "upstream_inference_cost": 6.812e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-1254-74a9-a52b-1ec3248f37f3-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 518,
+          "output_tokens": 48,
+          "total_tokens": 566,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag02",
+    "group": "factual",
+    "query": "Which SciPy function provides a common interface for minimizing a multivariate scalar function with or without constraints?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_27_scipy_optimization"
+    ],
+    "expected_answer": "Для этого предназначена scipy.optimize.minimize: она предоставляет общий интерфейс к алгоритмам минимизации скалярной функции нескольких переменных, включая задачи с ограничениями.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "The SciPy function that provides a common interface for minimizing multivariate scalar functions, both with and without constraints, is `minimize` (found in `scipy.optimize`) [python_27_scipy_optimization:7].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Which SciPy function provides a common interface for minimizing a multivariate scalar function with or without constraints?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375019-fG54fktaz2kXaoaTgqOK",
+          "created": 1793375019,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 4.1325e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.122e-05,
+            "upstream_inference_prompt_cost": 3.0105e-05,
+            "upstream_inference_cost": 4.1325e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-2635-7761-838d-62f728daba3b-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "SciPy function minimizing multivariate scalar function constraints"
+            },
+            "id": "chatcmpl-tool-a2ee41dc73d3199a",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 223,
+          "output_tokens": 22,
+          "total_tokens": 245,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_27_scipy_optimization:6]\nDocument ID: python_27_scipy_optimization\nSource: retrieval-engine/data/documents/python_27_scipy_optimization.txt\nContent: Local minimization of multivariate scalar functions (minimize)\n\n[python_27_scipy_optimization:7]\nDocument ID: python_27_scipy_optimization\nSource: retrieval-engine/data/documents/python_27_scipy_optimization.txt\nContent: The minimize function provides a common interface to unconstrained\nand constrained minimization algorithms for multivariate scalar functions\n\n[python_27_scipy_optimization:8]\nDocument ID: python_27_scipy_optimization\nSource: retrieval-engine/data/documents/python_27_scipy_optimization.txt\nContent: in scipy.optimize. To demonstrate the minimization function, consider the\nproblem of minimizing the Rosenbrock function of \\(N\\) variables:",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-a2ee41dc73d3199a",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "The SciPy function that provides a common interface for minimizing multivariate scalar functions, both with and without constraints, is `minimize` (found in `scipy.optimize`) [python_27_scipy_optimization:7].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375020-rxFJ6msbftTUKOtGazdB",
+          "created": 1793375020,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 8.5185e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 2.652e-05,
+            "upstream_inference_prompt_cost": 5.8665e-05,
+            "upstream_inference_cost": 8.5185e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-2952-74b1-8e33-92ef9a4701fa-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 463,
+          "output_tokens": 52,
+          "total_tokens": 515,
+          "input_token_details": {
+            "cache_read": 64,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag03",
+    "group": "factual",
+    "query": "How can a Python data-holding class get an automatically generated constructor and readable representation?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_28_dataclasses"
+    ],
+    "expected_answer": "Нужно применить декоратор @dataclass и описать поля аннотациями типов. Декоратор автоматически добавляет методы, в том числе __init__ и __repr__.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "To get an automatically generated constructor and a readable representation for a data-holding class in Python, you can use the **`@dataclass`** decorator from the `dataclasses` module [python_28_dataclasses:15].\n\nWhen you decorate a class with `@dataclass`, Python automatically generates several special methods for you, including:\n*   **`__init__()`**: A constructor that assigns arguments to fields based on the type hints provided in the class definition.\n*   **`__repr__()`**: A method that provides a readable string representation of the object (e.g., `ClassName(field1=value1, field2=value2)`).\n\nAdditionally, you can pass arguments to the decorator to modify its behavior, such as `frozen=True` to emulate immutability [python_28_dataclasses:15].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "How can a Python data-holding class get an automatically generated constructor and readable representation?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375022-F69Cg5WH4s4ie8goIt7x",
+          "created": 1793375022,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.0555e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.224e-05,
+            "upstream_inference_prompt_cost": 1.8315e-05,
+            "upstream_inference_cost": 3.0555e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-31fa-729a-b020-b7b3dbc63daa-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "Python data-holding class automatically generated constructor readable representation"
+            },
+            "id": "chatcmpl-tool-815e0e8df4d8605f",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 221,
+          "output_tokens": 24,
+          "total_tokens": 245,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_28_dataclasses:15]\nDocument ID: python_28_dataclasses\nSource: retrieval-engine/data/documents/python_28_dataclasses.txt\nContent: It is not possible to create truly immutable Python objects.  However,\nby passing frozen=True to the @dataclass decorator you can\nemulate immutability.  In that case, dataclasses will add\n\n[python_09_parameter_kinds:3]\nDocument ID: python_09_parameter_kinds\nSource: retrieval-engine/data/documents/python_09_parameter_kinds.txt\nContent: By default, arguments may be passed to a Python function either by position\nor explicitly by keyword. For readability and performance, it makes sense to\n\n[python_19_json:6]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: Rather than having users constantly writing and debugging code to save\ncomplicated data types to files, Python allows you to use the popular data",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-815e0e8df4d8605f",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "To get an automatically generated constructor and a readable representation for a data-holding class in Python, you can use the **`@dataclass`** decorator from the `dataclasses` module [python_28_dataclasses:15].\n\nWhen you decorate a class with `@dataclass`, Python automatically generates several special methods for you, including:\n*   **`__init__()`**: A constructor that assigns arguments to fields based on the type hints provided in the class definition.\n*   **`__repr__()`**: A method that provides a readable string representation of the object (e.g., `ClassName(field1=value1, field2=value2)`).\n\nAdditionally, you can pass arguments to the decorator to modify its behavior, such as `frozen=True` to emulate immutability [python_28_dataclasses:15].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375023-aVpZgLRt6iKb2SLF3o5n",
+          "created": 1793375023,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.00014949,
+          "cost_details": {
+            "upstream_inference_completions_cost": 9.486e-05,
+            "upstream_inference_prompt_cost": 5.463e-05,
+            "upstream_inference_cost": 0.00014949
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-367e-76c0-b8d4-d0a2bb2f8ec3-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 490,
+          "output_tokens": 186,
+          "total_tokens": 676,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag04",
+    "group": "factual",
+    "query": "What is the difference between json.dumps(x) and json.dump(x, f)?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_19_json"
+    ],
+    "expected_answer": "json.dumps(x) возвращает JSON-представление объекта в виде строки. json.dump(x, f) записывает это представление в открытый текстовый файл f.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "The difference between `json.dumps(x)` and `json.dump(x, f)` lies in where the resulting JSON data is sent:\n\n*   **`json.dumps(x)`**: The \"s\" in `dumps` stands for **string**. This function serializes a Python object into a JSON-formatted **string** and returns that string to the caller [python_19_json:7].\n*   **`json.dump(x, f)`**: This function serializes a Python object and writes it directly to a **text file** (or any file-like object) `f` that has been opened for writing [python_19_json:12].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "What is the difference between json.dumps(x) and json.dump(x, f)?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375030-CWh0IhwObalsgQBymlZf",
+          "created": 1793375030,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 4.197e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.173e-05,
+            "upstream_inference_prompt_cost": 3.024e-05,
+            "upstream_inference_cost": 4.197e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-510b-7241-b4a3-2d2d8f1df8da-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "difference between json.dumps and json.dump"
+            },
+            "id": "chatcmpl-tool-88f2cc382fc3c10f",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 224,
+          "output_tokens": 23,
+          "total_tokens": 247,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_19_json:12]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: Another variant of the dumps() function, called dump(),\nsimply serializes the object to a text file.  So if f is a\ntext file object opened for writing, we can do this:\n\njson.dump(x, f)\n\n[python_19_json:16]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: The reference for the json module contains an explanation of this.\n\n[python_19_json:7]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: interchange format called JSON (JavaScript Object Notation).  The standard module called json can take Python\ndata hierarchies, and convert them to string representations; this process is",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-88f2cc382fc3c10f",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "The difference between `json.dumps(x)` and `json.dump(x, f)` lies in where the resulting JSON data is sent:\n\n*   **`json.dumps(x)`**: The \"s\" in `dumps` stands for **string**. This function serializes a Python object into a JSON-formatted **string** and returns that string to the caller [python_19_json:7].\n*   **`json.dump(x, f)`**: This function serializes a Python object and writes it directly to a **text file** (or any file-like object) `f` that has been opened for writing [python_19_json:12].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375031-kxuuxdHBf7PLXachH9ho",
+          "created": 1793375031,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.000130155,
+          "cost_details": {
+            "upstream_inference_completions_cost": 7.701e-05,
+            "upstream_inference_prompt_cost": 5.3145e-05,
+            "upstream_inference_cost": 0.000130155
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-554a-72c3-a402-9be10bfbbf0b-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 479,
+          "output_tokens": 151,
+          "total_tokens": 630,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag05",
+    "group": "factual",
+    "query": "What happens when next() is called again on a generator that previously yielded a value?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_24_generators"
+    ],
+    "expected_answer": "Генератор продолжает выполнение с места предыдущей остановки. Между вызовами сохраняются его локальные переменные и состояние выполнения.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "When `next()` is called on a generator that has previously yielded a value, the generator **resumes execution from where it left off** [python_24_generators:4]. Specifically, it remembers all the data values and the exact point where the last `yield` statement was executed [python_24_generators:4, python_24_generators:5].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "What happens when next() is called again on a generator that previously yielded a value?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375035-ZueMNHeW0nEFvWeKzjjO",
+          "created": 1793375035,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 5.22e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 8e-06,
+            "upstream_inference_prompt_cost": 4.42e-05,
+            "upstream_inference_cost": 5.22e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-63b5-77c4-9fb5-bba21c1d3dd6-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "generator next() call after yield"
+            },
+            "id": "chatcmpl-tool-9380b66d84b7381d",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 221,
+          "output_tokens": 20,
+          "total_tokens": 241,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_24_generators:4]\nDocument ID: python_24_generators\nSource: retrieval-engine/data/documents/python_24_generators.txt\nContent: whenever they want to return data.  Each time next() is called on it, the\ngenerator resumes where it left off (it remembers all the data values and which\n\n[python_24_generators:3]\nDocument ID: python_24_generators\nSource: retrieval-engine/data/documents/python_24_generators.txt\nContent: Generators are a simple and powerful tool for creating iterators.  They\nare written like regular functions but use the yield statement\n\n[python_24_generators:5]\nDocument ID: python_24_generators\nSource: retrieval-engine/data/documents/python_24_generators.txt\nContent: statement was last executed).  An example shows that generators can be trivially\neasy to create:",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-9380b66d84b7381d",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "When `next()` is called on a generator that has previously yielded a value, the generator **resumes execution from where it left off** [python_24_generators:4]. Specifically, it remembers all the data values and the exact point where the last `yield` statement was executed [python_24_generators:4, python_24_generators:5].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375036-fyNqeuy9VQvmIPk35gt4",
+          "created": 1793375036,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 9.2235e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 4.233e-05,
+            "upstream_inference_prompt_cost": 4.9905e-05,
+            "upstream_inference_cost": 9.2235e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-66f9-76c9-985c-9f0b77dab37c-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 455,
+          "output_tokens": 83,
+          "total_tokens": 538,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag06",
+    "group": "factual",
+    "query": "For separate empty lists a and b, how do a.append([1, 2]) and b.extend([1, 2]) differ?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_35_append_extend"
+    ],
+    "expected_answer": "append добавляет переданный список как один элемент, поэтому a станет [[1, 2]]. extend добавляет элементы переданного iterable по отдельности, поэтому b станет [1, 2].",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "For separate empty lists `a` and `b`, the difference between `a.append([1, 2])` and `b.extend([1, 2])` is as follows:\n\n*   **`a.append([1, 2])`**: This appends the object `[1, 2]` as a **single element** to the end of the list. Since `a` was empty, it will now contain one element: a list containing 1 and 2.\n    *   **Result:** `a` becomes `[[1, 2]]` [python_35_append_extend:0].\n*   **`b.extend([1, 2])`**: This extends the sequence with the **contents** of the iterable `[1, 2]`. It iterates through the provided list and appends each element individually.\n    *   **Result:** `b` becomes `[1, 2]` [python_35_append_extend:0].",
+    "error": null,
+    "model_calls": 3,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "For separate empty lists a and b, how do a.append([1, 2]) and b.extend([1, 2]) differ?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375037-oPBcN5vY6fLWHEiIT0Lg",
+          "created": 1793375037,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 2.9895e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 9.69e-06,
+            "upstream_inference_prompt_cost": 2.0205e-05,
+            "upstream_inference_cost": 2.9895e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-6e19-7187-bc6b-709d442b052f-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "python list append vs extend"
+            },
+            "id": "chatcmpl-tool-b19899422130f488",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 235,
+          "output_tokens": 19,
+          "total_tokens": 254,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_13_dictionaries:7]\nDocument ID: python_13_dictionaries\nSource: retrieval-engine/data/documents/python_13_dictionaries.txt\nContent: assignments, slice assignments, or methods like append() and\nextend().\n\n[python_35_append_extend:0]\nDocument ID: python_35_append_extend\nSource: retrieval-engine/data/documents/python_35_append_extend.txt\nContent: Document ID: python_35_append_extend\nTitle: Appending an object versus extending a mutable sequence\nSource: https://docs.python.org/3.14/library/stdtypes.html#mutable-sequence-types\n\n[python_03_lists:11]\nDocument ID: python_03_lists\nSource: retrieval-engine/data/documents/python_03_lists.txt\nContent: Simple assignment in Python never copies data. When you assign a list\nto a variable, the variable refers to the existing list.\nAny changes you make to the list through one variable will be seen",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-b19899422130f488",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375038-soWScxIaF8Gr9txhtHVl",
+          "created": 1793375038,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 7.0935e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.428e-05,
+            "upstream_inference_prompt_cost": 5.6655e-05,
+            "upstream_inference_cost": 7.0935e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-71db-70d7-ad3c-6d96e58796ed-0",
+        "tool_calls": [
+          {
+            "name": "get_document",
+            "args": {
+              "document_id": "python_35_append_extend"
+            },
+            "id": "chatcmpl-tool-ba8c554316a3422a",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 505,
+          "output_tokens": 28,
+          "total_tokens": 533,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "Document ID: python_35_append_extend\nSource: retrieval-engine/data/documents/python_35_append_extend.txt\nContent: Document ID: python_35_append_extend\nTitle: Appending an object versus extending a mutable sequence\nSource: https://docs.python.org/3.14/library/stdtypes.html#mutable-sequence-types\nLicense: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/.\n\nMutable Sequence Types\n\nThe operations in the following table are defined on mutable sequence types.\nThe collections.abc.MutableSequence ABC is provided to make it\neasier to correctly implement these operations on custom sequence types.\n\nIn the table s is an instance of a mutable sequence type, t is any\niterable object and x is an arbitrary object that meets any type\nand value restrictions imposed by s (for example, bytearray only\naccepts integers that meet the value restriction 0 <= x <= 255).\n\nOperation | Result | Notes\n\ns[i] = x | item i of s is replaced by x\n\ndel s[i] | removes item i of s\n\ns[i:j] = t | slice of s from i to j is replaced by the contents of the iterable t\n\ndel s[i:j] | removes the elements of s[i:j] from the list (same as s[i:j] = [])\n\ns[i:j:k] = t | the elements of s[i:j:k] are replaced by those of t | (1)\n\ndel s[i:j:k] | removes the elements of s[i:j:k] from the list\n\ns += t | extends s with the contents of t (for the most part the same as s[len(s):len(s)] = t)\n\ns *= n | updates s with its contents repeated n times | (2)\n\nNotes:\n\nIf k is not equal to 1, t must have the same length as the slice it is replacing.\n\nThe value n is an integer, or an object implementing\n__index__().  Zero and negative values of n clear\nthe sequence.  Items in the sequence are not copied; they are referenced\nmultiple times, as explained for s * n under Common Sequence Operations.\n\nMutable Sequence Methods\n\nMutable sequence types also support the following methods:\n\nsequence.append(value, /)\n\nAppend value to the end of the sequence.\nThis is equivalent to writing seq[len(seq):len(seq)] = [value].\n\nsequence.clear()\n\nAdded in version 3.3.\n\nRemove all items from sequence.\nThis is equivalent to writing del sequence[:].\n\nsequence.copy()\n\nAdded in version 3.3.\n\nCreate a shallow copy of sequence.\nThis is equivalent to writing sequence[:].\n\nHint\n\nThe copy() method is not part of the\nMutableSequence ABC,\nbut most concrete mutable sequence types provide it.\n\nsequence.extend(iterable, /)\n\nExtend sequence with the contents of iterable.\nFor the most part, this is the same as writing\nseq[len(seq):len(seq)] = iterable.\n\nsequence.insert(index, value, /)\n\nInsert value into sequence at the given index.\nThis is equivalent to writing sequence[index:index] = [value].\n\nsequence.pop(index=-1, /)\n\nRetrieve the item at index and also remove it from sequence.\nBy default, the last item in sequence is removed and returned.\n\nsequence.remove(value, /)\n\nRemove the first item from sequence where sequence[i] == value.\n\nRaises ValueError if value is not found in sequence.\n\nsequence.reverse()\n\nReverse the items of sequence in place.\nThis method maintains economy of space when reversing a large sequence.\nTo remind users that it operates by side-effect, it returns None.\n",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-ba8c554316a3422a",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "For separate empty lists `a` and `b`, the difference between `a.append([1, 2])` and `b.extend([1, 2])` is as follows:\n\n*   **`a.append([1, 2])`**: This appends the object `[1, 2]` as a **single element** to the end of the list. Since `a` was empty, it will now contain one element: a list containing 1 and 2.\n    *   **Result:** `a` becomes `[[1, 2]]` [python_35_append_extend:0].\n*   **`b.extend([1, 2])`**: This extends the sequence with the **contents** of the iterable `[1, 2]`. It iterates through the provided list and appends each element individually.\n    *   **Result:** `b` becomes `[1, 2]` [python_35_append_extend:0].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375040-9ngcd4lU4BQFbJv1Vf8O",
+          "created": 1793375040,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.000294795,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0.0001122,
+            "upstream_inference_prompt_cost": 0.000182595,
+            "upstream_inference_cost": 0.000294795
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-76e1-703f-afa9-fd25f3407e1c-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 1381,
+          "output_tokens": 220,
+          "total_tokens": 1601,
+          "input_token_details": {
+            "cache_read": 64,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag07",
+    "group": "explanation_synthesis",
+    "query": "Why do repeated calls to a function with a list default argument share accumulated values, and how can independent lists be created both for function calls and for dataclass instances?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_07_default_arguments",
+      "python_28_dataclasses"
+    ],
+    "expected_answer": "Значение аргумента по умолчанию вычисляется один раз при определении функции, поэтому один изменяемый список используется повторно. В функции можно поставить значение None и создавать список внутри при L is None. Для поля dataclass используется field(default_factory=list): фабрика создаёт отдельный список, когда требуется значение по умолчанию.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "Repeated calls to a function with a list default argument share accumulated values because **default values are evaluated only once**, at the point of function definition [python_07_default_arguments:12]. When a mutable object like a list is used as a default, that same object is reused for every call to the function that does not provide its own argument [python_07_default_arguments:12].\n\nTo ensure independent lists are created, use the following methods:\n\n### For Function Calls\nInstead of using an empty list as a default, use `None` and initialize the list inside the function body:\n```python\ndef f(a, L=None):\n    if L is None:\n        L = []\n    L.append(a)\n    return L\n```\n[python_07_default_arguments:12]\n\n### For Dataclass Instances\nIn a dataclass, you cannot use a mutable default directly. Instead, use the `field` function with a `default_factory` to ensure a new list is created for every instance:\n```python\nmylist: list = field(default_factory=list)\n```\n[python_28_dataclasses:11]",
+    "error": null,
+    "model_calls": 3,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Why do repeated calls to a function with a list default argument share accumulated values, and how can independent lists be created both for function calls and for dataclass instances?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375047-c9oONZuXZ8AH67WLRKk2",
+          "created": 1793375047,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 5.78e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.04e-05,
+            "upstream_inference_prompt_cost": 4.74e-05,
+            "upstream_inference_cost": 5.78e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-9349-74ca-9912-73af00b34be7-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "repeated calls function list default argument accumulated values dataclass independent lists"
+            },
+            "id": "chatcmpl-tool-b8109e92ea980f5f",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 237,
+          "output_tokens": 26,
+          "total_tokens": 263,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_07_default_arguments:12]\nDocument ID: python_07_default_arguments\nSource: retrieval-engine/data/documents/python_07_default_arguments.txt\nContent: instances of most classes.  For example, the following function accumulates the\narguments passed to it on subsequent calls:\n\n[python_28_dataclasses:11]\nDocument ID: python_28_dataclasses\nSource: retrieval-engine/data/documents/python_28_dataclasses.txt\nContent: mylist: list = field(default_factory=list)\n\n[python_07_default_arguments:2]\nDocument ID: python_07_default_arguments\nSource: retrieval-engine/data/documents/python_07_default_arguments.txt\nContent: 4.9.1. Default Argument Values",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-b8109e92ea980f5f",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375048-3zbkAmFfrOFAmZsyElpd",
+          "created": 1793375048,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 6.513e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.428e-05,
+            "upstream_inference_prompt_cost": 5.085e-05,
+            "upstream_inference_cost": 6.513e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-976b-759a-97ba-122e471205d2-0",
+        "tool_calls": [
+          {
+            "name": "get_document",
+            "args": {
+              "document_id": "python_07_default_arguments"
+            },
+            "id": "chatcmpl-tool-8e440d27a1ee2992",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 462,
+          "output_tokens": 28,
+          "total_tokens": 490,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "Document ID: python_07_default_arguments\nSource: retrieval-engine/data/documents/python_07_default_arguments.txt\nContent: Document ID: python_07_default_arguments\nSource: https://docs.python.org/3.14/tutorial/controlflow.html#default-argument-values\nCopyright: Python Software Foundation. License: PSF License Version 2.\nCode examples are additionally licensed under the Zero Clause BSD License.\n\n4.9.1. Default Argument Values\n\nThe most useful form is to specify a default value for one or more arguments.\nThis creates a function that can be called with fewer arguments than it is\ndefined to allow.  For example:\n\ndef ask_ok(prompt, retries=4, reminder='Please try again!'):\n    while True:\n        reply = input(prompt)\n        if reply in {'y', 'ye', 'yes'}:\n            return True\n        if reply in {'n', 'no', 'nop', 'nope'}:\n            return False\n        retries = retries - 1\n        if retries < 0:\n            raise ValueError('invalid user response')\n        print(reminder)\n\nThis function can be called in several ways:\n\ngiving only the mandatory argument:\nask_ok('Do you really want to quit?')\n\ngiving one of the optional arguments:\nask_ok('OK to overwrite the file?', 2)\n\nor even giving all arguments:\nask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')\n\nThis example also introduces the in keyword. This tests whether or\nnot a sequence contains a certain value.\n\nThe default values are evaluated at the point of function definition in the\ndefining scope, so that\n\ni = 5\n\ndef f(arg=i):\n    print(arg)\n\ni = 6\nf()\n\nwill print 5.\n\nImportant warning:  The default value is evaluated only once. This makes a\ndifference when the default is a mutable object such as a list, dictionary, or\ninstances of most classes.  For example, the following function accumulates the\narguments passed to it on subsequent calls:\n\ndef f(a, L=[]):\n    L.append(a)\n    return L\n\nprint(f(1))\nprint(f(2))\nprint(f(3))\n\nThis will print\n\n[1]\n[1, 2]\n[1, 2, 3]\n\nIf you don’t want the default to be shared between subsequent calls, you can\nwrite the function like this instead:\n\ndef f(a, L=None):\n    if L is None:\n        L = []\n    L.append(a)\n    return L\n",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-8e440d27a1ee2992",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "Repeated calls to a function with a list default argument share accumulated values because **default values are evaluated only once**, at the point of function definition [python_07_default_arguments:12]. When a mutable object like a list is used as a default, that same object is reused for every call to the function that does not provide its own argument [python_07_default_arguments:12].\n\nTo ensure independent lists are created, use the following methods:\n\n### For Function Calls\nInstead of using an empty list as a default, use `None` and initialize the list inside the function body:\n```python\ndef f(a, L=None):\n    if L is None:\n        L = []\n    L.append(a)\n    return L\n```\n[python_07_default_arguments:12]\n\n### For Dataclass Instances\nIn a dataclass, you cannot use a mutable default directly. Instead, use the `field` function with a `default_factory` to ensure a new list is created for every instance:\n```python\nmylist: list = field(default_factory=list)\n```\n[python_28_dataclasses:11]",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375049-jY0wt9iAoJDIph7zNo2U",
+          "created": 1793375049,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.0002793,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0.00013464,
+            "upstream_inference_prompt_cost": 0.00014466,
+            "upstream_inference_cost": 0.0002793
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-9a35-7317-9612-9e54a9de4790-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 1100,
+          "output_tokens": 264,
+          "total_tokens": 1364,
+          "input_token_details": {
+            "cache_read": 64,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag08",
+    "group": "explanation_synthesis",
+    "query": "Why does changing one cell of A = [[None] * 2] * 3 affect several rows, and how can three independent rows be created?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_34_list_aliasing_copying"
+    ],
+    "expected_answer": "Умножение внешнего списка повторяет ссылки на один внутренний список, а не создаёт новые строки. Изменение общей строки видно через все три ссылки. Независимые строки можно создать выражением [[None] * 2 for _ in range(3)] или циклом, создающим новый список для каждой строки.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "This behavior occurs because of how Python handles object references when using the multiplication operator (`*`) on lists.\n\n### Why it affects several rows\nWhen you write `A = [[None] * 2] * 3`, Python does not create three independent lists. Instead:\n1. `[None] * 2` creates a single list object: `[None, None]`.\n2. The outer `* 3` creates a new list containing **three references to that same single list object**.\n\nBecause all three rows are actually the same object in memory, changing a value in one row (e.g., `A[0][0] = \"X\"`) modifies the underlying object that all three rows point to. Consequently, the change appears in every row.\n\n### How to create three independent rows\nTo ensure each row is a unique object, you should use a **list comprehension**. This forces Python to evaluate the inner list creation expression separately for each iteration.\n\n**Correct Method:**\n```python\nA = [[None] * 2 for _ in range(3)]\n```\n\n**Comparison:**\n*   **Incorrect (`[[None]*2]*3`):** Creates 1 list object, then copies the *reference* to it 3 times.\n*   **Correct (`[[None]*2 for _ in range(3)]`):** Executes `[None]*2` three separate times, creating 3 distinct list objects.",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Why does changing one cell of A = [[None] * 2] * 3 affect several rows, and how can three independent rows be created?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375053-bgPO6pYrEshpqAzpPbGz",
+          "created": 1793375053,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.326e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 9.86e-06,
+            "upstream_inference_prompt_cost": 2.34e-05,
+            "upstream_inference_cost": 3.326e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-ab01-774f-b6b1-eb4544bd1131-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "Python list multiplication [[None] * 2] * 3 shallow copy"
+            },
+            "id": "call-273ad2a2-3f46-4f0b-b390-7f836dbd0bbd",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 234,
+          "output_tokens": 29,
+          "total_tokens": 263,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_34_list_aliasing_copying:18]\nDocument ID: python_34_list_aliasing_copying\nSource: retrieval-engine/data/documents/python_34_list_aliasing_copying.txt\nContent: operators.  For example, += mutates lists but not tuples or ints (a_list\n+= [1, 2, 3] is equivalent to a_list.extend([1, 2, 3]) and mutates\n\n[python_03_lists:3]\nDocument ID: python_03_lists\nSource: retrieval-engine/data/documents/python_03_lists.txt\nContent: Python knows a number of compound data types, used to group together other\nvalues.  The most versatile is the list, which can be written as a list of\n\n[python_30_list_implementation:8]\nDocument ID: python_30_list_implementation\nSource: retrieval-engine/data/documents/python_30_list_implementation.txt\nContent: See Time complexity of operations on built-in types for the costs of the various list operations.\n\nHow do you make an array in Python?\n\nUse a list:\n\n[\"this\", 1, \"is\", \"an\", \"array\"]",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-273ad2a2-3f46-4f0b-b390-7f836dbd0bbd",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "This behavior occurs because of how Python handles object references when using the multiplication operator (`*`) on lists.\n\n### Why it affects several rows\nWhen you write `A = [[None] * 2] * 3`, Python does not create three independent lists. Instead:\n1. `[None] * 2` creates a single list object: `[None, None]`.\n2. The outer `* 3` creates a new list containing **three references to that same single list object**.\n\nBecause all three rows are actually the same object in memory, changing a value in one row (e.g., `A[0][0] = \"X\"`) modifies the underlying object that all three rows point to. Consequently, the change appears in every row.\n\n### How to create three independent rows\nTo ensure each row is a unique object, you should use a **list comprehension**. This forces Python to evaluate the inner list creation expression separately for each iteration.\n\n**Correct Method:**\n```python\nA = [[None] * 2 for _ in range(3)]\n```\n\n**Comparison:**\n*   **Incorrect (`[[None]*2]*3`):** Creates 1 list object, then copies the *reference* to it 3 times.\n*   **Correct (`[[None]*2 for _ in range(3)]`):** Executes `[None]*2` three separate times, creating 3 distinct list objects.",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375054-ry8O2QQACsuJPRRdtUpT",
+          "created": 1793375054,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.00015946,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0.00010336,
+            "upstream_inference_prompt_cost": 5.61e-05,
+            "upstream_inference_cost": 0.00015946
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-af8f-74ab-aa52-5316a6f2316b-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 561,
+          "output_tokens": 304,
+          "total_tokens": 865,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag09",
+    "group": "explanation_synthesis",
+    "query": "How do the documented approaches to running several waiting coroutines concurrently and submitting a CPU-intensive callable to background processes differ? Name the APIs and explain what represents the submitted work.",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency",
+      "python_31_background_computation"
+    ],
+    "expected_answer": "Для совместного выполнения корутин их можно запланировать через asyncio.create_task либо TaskGroup; запланированная корутина представлена Task. Для выполнения обычной вычислительной функции в отдельных процессах используется ProcessPoolExecutor.submit, возвращающий concurrent.futures.Future. Результат такой работы получают через future.result(). Это разные механизмы: asyncio управляет корутинами, а ProcessPoolExecutor выполняет функции в процессах.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "Based on the provided documentation, the approaches for running waiting coroutines concurrently versus submitting CPU-intensive callables to background processes differ as follows:\n\n### 1. Running Waiting Coroutines Concurrently\nThis approach is used for asynchronous execution of coroutines within the `asyncio` framework.\n*   **APIs:** The documented mechanisms include `asyncio.create_task()` and `asyncio.TaskGroup` [python_32_asyncio_concurrency:13, 46].\n*   **Representation of Work:** The submitted work is represented as a **task** (created via `asyncio.create_task`) [python_32_asyncio_concurrency:13, 30].\n\n### 2. Submitting CPU-Intensive Callables to Background Processes\nThis approach is used to execute callables in separate processes to side-step the Global Interpreter Lock (GIL), which is necessary for CPU-intensive work.\n*   **APIs:** The `concurrent.futures.ProcessPoolExecutor` is used to manage a pool of processes [python_31_background_computation:19]. The `submit()` method is used to schedule the callable for execution [python_31_background_computation:submit].\n*   **Representation of Work:** The `submit()` method returns a **`concurrent.futures.Future`** object, which represents the execution of the callable [python_31_background_computation:submit]. (Note: The documentation explicitly warns not to confuse this with `asyncio.Future`) [python_31_background_computation].",
+    "error": null,
+    "model_calls": 5,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "How do the documented approaches to running several waiting coroutines concurrently and submitting a CPU-intensive callable to background processes differ? Name the APIs and explain what represents the submitted work.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375062-FZ42CTquhO4C7tdm04JL",
+          "created": 1793375062,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.5535e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.479e-05,
+            "upstream_inference_prompt_cost": 2.0745e-05,
+            "upstream_inference_cost": 3.5535e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-cd9a-7729-ad58-2d356f292374-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "running several waiting coroutines concurrently and submitting CPU-intensive callable to background processes"
+            },
+            "id": "chatcmpl-tool-a8c6772866c356a1",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 239,
+          "output_tokens": 29,
+          "total_tokens": 268,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_32_asyncio_concurrency:7]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: Note that simply calling a coroutine will not schedule it to\nbe executed:\n\n>>> main()\n<coroutine object main at 0x1053bb7c8>\n\nTo actually run a coroutine, asyncio provides the following mechanisms:\n\n[python_32_asyncio_concurrency:46]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: A new alternative to create and run tasks concurrently and\nwait for their completion is asyncio.TaskGroup. TaskGroup\n\n[python_32_asyncio_concurrency:13]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: Let’s modify the above example and run two say_after coroutines\nconcurrently:\n\nasync def main():\n    task1 = asyncio.create_task(\n        say_after(1, 'hello'))",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-a8c6772866c356a1",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375063-U9SFLwGwdJmCfgUiLat1",
+          "created": 1793375063,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 8.145e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.683e-05,
+            "upstream_inference_prompt_cost": 6.462e-05,
+            "upstream_inference_cost": 8.145e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-d1f9-7169-a6aa-72dabf04269b-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "asyncio CPU-intensive callable background processes loop.run_in_executor"
+            },
+            "id": "chatcmpl-tool-b119ca4dbfffda26",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 564,
+          "output_tokens": 33,
+          "total_tokens": 597,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_32_asyncio_concurrency:30]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: background_tasks = set()\n\nfor i in range(10):\n    task = asyncio.create_task(some_coro(param=i))\n\n    # Add task to the set. This creates a strong reference.\n    background_tasks.add(task)\n\n[python_32_asyncio_concurrency:25]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: by loop.set_task_factory() will be used.\n\n[python_31_background_computation:5]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: The asynchronous execution can be performed with threads, using\nThreadPoolExecutor or InterpreterPoolExecutor,\nor separate processes, using ProcessPoolExecutor.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-b119ca4dbfffda26",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375064-VX4uhAjpEKwkHEejY7Qq",
+          "created": 1793375064,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.000121065,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.581e-05,
+            "upstream_inference_prompt_cost": 0.000105255,
+            "upstream_inference_cost": 0.000121065
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-d501-72b6-91c0-414e6cb4e39e-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "asyncio loop.run_in_executor CPU-intensive callable"
+            },
+            "id": "chatcmpl-tool-8eb9f6695c2f7ba5",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 865,
+          "output_tokens": 31,
+          "total_tokens": 896,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_32_asyncio_concurrency:25]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: by loop.set_task_factory() will be used.\n\n[python_31_background_computation:19]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: An Executor subclass that executes calls asynchronously using a pool\nof at most max_workers processes.  If max_workers is None or not\ngiven, it will default to os.process_cpu_count().\n\n[python_32_asyncio_concurrency:53]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: asyncio.run(main())",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-8eb9f6695c2f7ba5",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375065-VwxDLQmUtRkFgNUrTzKW",
+          "created": 1793375065,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.000162585,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.428e-05,
+            "upstream_inference_prompt_cost": 0.000148305,
+            "upstream_inference_cost": 0.000162585
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-d8f1-709e-81dc-c9899a6bd903-0",
+        "tool_calls": [
+          {
+            "name": "get_document",
+            "args": {
+              "document_id": "python_31_background_computation"
+            },
+            "id": "chatcmpl-tool-bfadeb1998ba6f58",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 1127,
+          "output_tokens": 28,
+          "total_tokens": 1155,
+          "input_token_details": {
+            "cache_read": 64,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "Document ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: Document ID: python_31_background_computation\nTitle: Submitting background work to executors\nSource: https://docs.python.org/3.14/library/concurrent.futures.html#module-concurrent.futures\nSource: https://docs.python.org/3.14/library/concurrent.futures.html#concurrent.futures.Executor.submit\nSource: https://docs.python.org/3.14/library/concurrent.futures.html#processpoolexecutor\nSource: https://docs.python.org/3.14/library/concurrent.futures.html#processpoolexecutor-example\nLicense: PSF License Version 2; see data/SOURCE_LICENSE.txt and data/licenses/.\n\nconcurrent.futures — Launching parallel tasks\n\nAdded in version 3.2.\n\nSource code: Lib/concurrent/futures/thread.py,\nLib/concurrent/futures/process.py,\nand Lib/concurrent/futures/interpreter.py\n\nThe concurrent.futures module provides a high-level interface for\nasynchronously executing callables.\n\nThe asynchronous execution can be performed with threads, using\nThreadPoolExecutor or InterpreterPoolExecutor,\nor separate processes, using ProcessPoolExecutor.\nEach implements the same interface, which is defined\nby the abstract Executor class.\n\nconcurrent.futures.Future must not be confused with\nasyncio.Future, which is designed for use with asyncio\ntasks and coroutines. See the asyncio’s Future\ndocumentation for a detailed comparison of the two.\n\nAvailability: not WASI.\n\nThis module does not work or is not available on WebAssembly. See\nWebAssembly platforms for more information.\n\nsubmit(fn, /, *args, **kwargs)\n\nSchedules the callable, fn, to be executed as fn(*args, **kwargs)\nand returns a Future object representing the execution of the\ncallable.\n\nwith ThreadPoolExecutor(max_workers=1) as executor:\n    future = executor.submit(pow, 323, 1235)\n    print(future.result())\n\nProcessPoolExecutor\n\nThe ProcessPoolExecutor class is an Executor subclass that\nuses a pool of processes to execute calls asynchronously.\nProcessPoolExecutor uses the multiprocessing module, which\nallows it to side-step the Global Interpreter Lock but also means that\nonly picklable objects can be executed and returned.\n\nThe __main__ module must be importable by worker subprocesses. This means\nthat ProcessPoolExecutor will not work in the interactive interpreter.\n\nCalling Executor or Future methods from a callable submitted\nto a ProcessPoolExecutor will result in deadlock.\n\nNote that the restrictions on functions and arguments needing to picklable as\nper multiprocessing.Process apply when using submit()\nand map() on a ProcessPoolExecutor. A function defined\nin a REPL or a lambda should not be expected to work.\n\nclass concurrent.futures.ProcessPoolExecutor(max_workers=None, mp_context=None, initializer=None, initargs=(), max_tasks_per_child=None)\n\nAn Executor subclass that executes calls asynchronously using a pool\nof at most max_workers processes.  If max_workers is None or not\ngiven, it will default to os.process_cpu_count().\nIf max_workers is less than or equal to 0, then a ValueError\nwill be raised.\nOn Windows, max_workers must be less than or equal to 61. If it is not\nthen ValueError will be raised. If max_workers is None, then\nthe default chosen will be at most 61, even if more processors are\navailable.\nmp_context can be a multiprocessing context or None. It will be\nused to launch the workers. If mp_context is None or not given, the\ndefault multiprocessing context is used.\nSee Contexts and start methods.\n\ninitializer is an optional callable that is called at the start of\neach worker process; initargs is a tuple of arguments passed to the\ninitializer.  Should initializer raise an exception, all currently\npending jobs will raise a BrokenProcessPool,\nas well as any attempt to submit more jobs to the pool.\n\nmax_tasks_per_child is an optional argument that specifies the maximum\nnumber of tasks a single process can execute before it will exit and be\nreplaced with a fresh worker process. By default max_tasks_per_child is\nNone which means worker processes will live as long as the pool. When\na max is specified, the “spawn” multiprocessing start method will be used by\ndefault in absence of a mp_context parameter. This feature is incompatible\nwith the “fork” start method.\n\nChanged in version 3.3: When one of the worker processes terminates abruptly, a\nBrokenProcessPool error is now raised.\nPreviously, behaviour\nwas undefined but operations on the executor or its futures would often\nfreeze or deadlock.\n\nChanged in version 3.7: The mp_context argument was added to allow users to control the\nstart_method for worker processes created by the pool.\n\nAdded the initializer and initargs arguments.\n\nChanged in version 3.11: The max_tasks_per_child argument was added to allow users to\ncontrol the lifetime of workers in the pool.\n\nChanged in version 3.12: On POSIX systems, if your application has multiple threads and the\nmultiprocessing context uses the \"fork\" start method:\nThe os.fork() function called internally to spawn workers may raise a\nDeprecationWarning. Pass a mp_context configured to use a\ndifferent start method. See the os.fork() documentation for\nfurther explanation.\n\nChanged in version 3.13: max_workers uses os.process_cpu_count() by default, instead of\nos.cpu_count().\n\nChanged in version 3.14: The default process start method (see\nContexts and start methods) changed away from fork. If you\nrequire the fork start method for ProcessPoolExecutor you must\nexplicitly pass mp_context=multiprocessing.get_context(\"fork\").\n\nChanged in version 3.14.7: Fixed a deadlock (gh-115634) where the executor could hang after\na worker process exited upon reaching its max_tasks_per_child\nlimit while tasks remained queued.\n\nterminate_workers()\n\nAttempt to terminate all living worker processes immediately by calling\nProcess.terminate on each of them.\nInternally, it will also call Executor.shutdown() to ensure that all\nother resources associated with the executor are freed.\n\nAfter calling this method the caller should no longer submit tasks to the\nexecutor.\n\nAdded in version 3.14.\n\nkill_workers()\n\nAttempt to kill all living worker processes immediately by calling\nProcess.kill on each of them.\nInternally, it will also call Executor.shutdown() to ensure that all\nother resources associated with the executor are freed.\n\nAfter calling this method the caller should no longer submit tasks to the\nexecutor.\n\nAdded in version 3.14.\n\nProcessPoolExecutor Example\n\nimport concurrent.futures\nimport math\n\nPRIMES = [\n    112272535095293,\n    112582705942171,\n    112272535095293,\n    115280095190773,\n    115797848077099,\n    1099726899285419]\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n\n    sqrt_n = int(math.floor(math.sqrt(n)))\n    for i in range(3, sqrt_n + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n\ndef main():\n    with concurrent.futures.ProcessPoolExecutor() as executor:\n        for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):\n            print('%d is prime: %s' % (number, prime))\n\nif __name__ == '__main__':\n    main()\n",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-bfadeb1998ba6f58",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "Based on the provided documentation, the approaches for running waiting coroutines concurrently versus submitting CPU-intensive callables to background processes differ as follows:\n\n### 1. Running Waiting Coroutines Concurrently\nThis approach is used for asynchronous execution of coroutines within the `asyncio` framework.\n*   **APIs:** The documented mechanisms include `asyncio.create_task()` and `asyncio.TaskGroup` [python_32_asyncio_concurrency:13, 46].\n*   **Representation of Work:** The submitted work is represented as a **task** (created via `asyncio.create_task`) [python_32_asyncio_concurrency:13, 30].\n\n### 2. Submitting CPU-Intensive Callables to Background Processes\nThis approach is used to execute callables in separate processes to side-step the Global Interpreter Lock (GIL), which is necessary for CPU-intensive work.\n*   **APIs:** The `concurrent.futures.ProcessPoolExecutor` is used to manage a pool of processes [python_31_background_computation:19]. The `submit()` method is used to schedule the callable for execution [python_31_background_computation:submit].\n*   **Representation of Work:** The `submit()` method returns a **`concurrent.futures.Future`** object, which represents the execution of the callable [python_31_background_computation:submit]. (Note: The documentation explicitly warns not to confuse this with `asyncio.Future`) [python_31_background_computation].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375067-3e3mAUXRdvCVklEJYQNm",
+          "created": 1793375067,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.00058047,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0.00017391,
+            "upstream_inference_prompt_cost": 0.00040656,
+            "upstream_inference_cost": 0.00058047
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7b-dfa1-729e-b201-de11c9792979-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3040,
+          "output_tokens": 341,
+          "total_tokens": 3381,
+          "input_token_details": {
+            "cache_read": 64,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag10",
+    "group": "explanation_synthesis",
+    "query": "Why does 'Arthur: three!'.lstrip('Arthur: ') produce 'ee!' rather than 'three!', and which method should remove the exact prefix instead?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_26_string_trimming"
+    ],
+    "expected_answer": "lstrip воспринимает аргумент как набор отдельных символов и удаляет их с начала строки до первого символа вне набора. Поэтому он захватывает также начало слова three и оставляет ee!. Для удаления ровно заданного префикса нужен removeprefix('Arthur: '), который даст three!.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "`'Arthur: three!'.lstrip('Arthur: ')` produces `'ee!'` because the `lstrip()` method does not treat the argument as a literal prefix string. Instead, it treats it as a **set of characters** to be removed from the left side of the string until a character is encountered that is not in that set [python_26_string_trimming:19].\n\nIn your example, the set of characters to remove is `{'A', 'r', 't', 'h', 'u', ':', ' '}`. The method removes:\n1. `'A'`\n2. `'r'`\n3. `'t'`\n4. `'h'`\n5. `'u'`\n6. `'r'`\n7. `':'`\n8. `' '`\n9. `'t'` (because 't' is in the set)\n10. `'h'` (because 'h' is in the set)\n11. `'r'` (because 'r' is in the set)\n\nIt stops at the first `'e'` because `'e'` is not in the set `{'A', 'r', 't', 'h', 'u', ':', ' '}`, leaving `'ee!'`.\n\nTo remove the exact prefix string, you should use the **`removeprefix()`** method [python_26_string_trimming:13].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Why does 'Arthur: three!'.lstrip('Arthur: ') produce 'ee!' rather than 'three!', and which method should remove the exact prefix instead?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375076-SmDg2CI2EZQPk376bufT",
+          "created": 1793375076,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.074e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 7.14e-06,
+            "upstream_inference_prompt_cost": 2.36e-05,
+            "upstream_inference_cost": 3.074e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-061c-7372-9996-3ad1c3767769-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "lstrip method behavior python prefix removal"
+            },
+            "id": "call-7793a366-9c55-4e40-a519-3714111f387f",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 236,
+          "output_tokens": 21,
+          "total_tokens": 257,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_26_string_trimming:19]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: >>> 'Monty Python'.rstrip(' Python')\n'M'\n>>> 'Monty Python'.removesuffix(' Python')\n'Monty'\n\nSee also strip().\n\n[python_26_string_trimming:13]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: See str.removeprefix() for a method that will remove a single prefix\nstring rather than all of a set of characters.  For example:\n\n[python_26_string_trimming:18]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: See removesuffix() for a method that will remove a single suffix\nstring rather than all of a set of characters.  For example:",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-7793a366-9c55-4e40-a519-3714111f387f",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "`'Arthur: three!'.lstrip('Arthur: ')` produces `'ee!'` because the `lstrip()` method does not treat the argument as a literal prefix string. Instead, it treats it as a **set of characters** to be removed from the left side of the string until a character is encountered that is not in that set [python_26_string_trimming:19].\n\nIn your example, the set of characters to remove is `{'A', 'r', 't', 'h', 'u', ':', ' '}`. The method removes:\n1. `'A'`\n2. `'r'`\n3. `'t'`\n4. `'h'`\n5. `'u'`\n6. `'r'`\n7. `':'`\n8. `' '`\n9. `'t'` (because 't' is in the set)\n10. `'h'` (because 'h' is in the set)\n11. `'r'` (because 'r' is in the set)\n\nIt stops at the first `'e'` because `'e'` is not in the set `{'A', 'r', 't', 'h', 'u', ':', ' '}`, leaving `'ee!'`.\n\nTo remove the exact prefix string, you should use the **`removeprefix()`** method [python_26_string_trimming:13].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375078-hVbA4DUb3lKNsK41ecO0",
+          "created": 1793375078,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.00021216,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0.00015402,
+            "upstream_inference_prompt_cost": 5.814e-05,
+            "upstream_inference_cost": 0.00021216
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-0d5d-76d5-a395-b3f6621f9abd-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 516,
+          "output_tokens": 302,
+          "total_tokens": 818,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag11",
+    "group": "exact_details",
+    "query": "What is the maximum permitted max_workers value for ProcessPoolExecutor on Windows, and what happens if a larger value is supplied?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_31_background_computation"
+    ],
+    "expected_answer": "На Windows max_workers не должен превышать 61. При передаче большего значения возникает ValueError.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "On Windows, the maximum permitted `max_workers` value for `ProcessPoolExecutor` is **61** [python_31_background_computation:20]. \n\nIf a value larger than 61 is supplied, the documentation indicates that it is not permitted, though the specific exception raised for exceeding this limit is not explicitly detailed in the provided text (it only specifies that a `ValueError` is raised if `max_workers` is less than or equal to 0) [python_31_background_computation:20].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "What is the maximum permitted max_workers value for ProcessPoolExecutor on Windows, and what happens if a larger value is supplied?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375086-ACqYgVIXUQX52FIsZ6Po",
+          "created": 1793375086,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.072e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 7.82e-06,
+            "upstream_inference_prompt_cost": 2.29e-05,
+            "upstream_inference_cost": 3.072e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-2da5-705a-96ae-ea8424c1a86f-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "ProcessPoolExecutor max_workers Windows maximum value"
+            },
+            "id": "call-23bc361a-c28e-4614-a188-fdedd5892af3",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 229,
+          "output_tokens": 23,
+          "total_tokens": 252,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_31_background_computation:19]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: An Executor subclass that executes calls asynchronously using a pool\nof at most max_workers processes.  If max_workers is None or not\ngiven, it will default to os.process_cpu_count().\n\n[python_31_background_computation:20]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: If max_workers is less than or equal to 0, then a ValueError\nwill be raised.\nOn Windows, max_workers must be less than or equal to 61. If it is not\n\n[python_31_background_computation:36]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: Changed in version 3.13: max_workers uses os.process_cpu_count() by default, instead of\nos.cpu_count().",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-23bc361a-c28e-4614-a188-fdedd5892af3",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "On Windows, the maximum permitted `max_workers` value for `ProcessPoolExecutor` is **61** [python_31_background_computation:20]. \n\nIf a value larger than 61 is supplied, the documentation indicates that it is not permitted, though the specific exception raised for exceeding this limit is not explicitly detailed in the provided text (it only specifies that a `ValueError` is raised if `max_workers` is less than or equal to 0) [python_31_background_computation:20].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375087-mvAFqTrsTPmqYYxP8ky0",
+          "created": 1793375087,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.000120585,
+          "cost_details": {
+            "upstream_inference_completions_cost": 6.069e-05,
+            "upstream_inference_prompt_cost": 5.9895e-05,
+            "upstream_inference_cost": 0.000120585
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-317a-7523-9760-8b0ed2960fd4-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 529,
+          "output_tokens": 119,
+          "total_tokens": 648,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag12",
+    "group": "exact_details",
+    "query": "Which encoding should be explicitly specified when opening JSON files in text mode for reading and writing?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_19_json"
+    ],
+    "expected_answer": "Нужно указать encoding='utf-8' как при чтении, так и при записи JSON-файла в текстовом режиме.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "When opening JSON files as text files for both reading and writing, you should explicitly specify `encoding=\"utf-8\"`, as JSON files must be encoded in UTF-8 [python_19_json:14].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Which encoding should be explicitly specified when opening JSON files in text mode for reading and writing?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375091-f3w2bqfzi1jzE4efOGJL",
+          "created": 1793375091,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 4.17e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.173e-05,
+            "upstream_inference_prompt_cost": 2.997e-05,
+            "upstream_inference_cost": 4.17e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-3fee-7174-890a-c6031a623b80-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "encoding for opening JSON files text mode reading writing"
+            },
+            "id": "chatcmpl-tool-bf1f8a88669805cd",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 222,
+          "output_tokens": 23,
+          "total_tokens": 245,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_19_json:14]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: x = json.load(f)\n\nNote\n\nJSON files must be encoded in UTF-8. Use encoding=\"utf-8\" when opening\nJSON file as a text file for both of reading and writing.\n\n[python_19_json:3]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: Strings can easily be written to and read from a file.  Numbers take a bit more\neffort, since the read() method only returns strings, which will have to\n\n[python_19_json:13]\nDocument ID: python_19_json\nSource: retrieval-engine/data/documents/python_19_json.txt\nContent: json.dump(x, f)\n\nTo decode the object again, if f is a binary file or\ntext file object which has been opened for reading:\n\nx = json.load(f)\n\nNote",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-bf1f8a88669805cd",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "When opening JSON files as text files for both reading and writing, you should explicitly specify `encoding=\"utf-8\"`, as JSON files must be encoded in UTF-8 [python_19_json:14].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375092-PbYCm3MKNeOcQOmdzom5",
+          "created": 1793375092,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.0001214,
+          "cost_details": {
+            "upstream_inference_completions_cost": 2.04e-05,
+            "upstream_inference_prompt_cost": 0.000101,
+            "upstream_inference_cost": 0.0001214
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-43a9-734f-90b8-b674df92aa8c-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 505,
+          "output_tokens": 51,
+          "total_tokens": 556,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag13",
+    "group": "exact_details",
+    "query": "In which Python version was asyncio.TaskGroup added, and does its context manager wait for the tasks when it exits?",
+    "answerable": true,
+    "relevant_document_ids": [
+      "python_32_asyncio_concurrency"
+    ],
+    "expected_answer": "asyncio.TaskGroup появился в Python 3.11. При выходе из его асинхронного контекстного менеджера ожидание задач происходит автоматически.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "`asyncio.TaskGroup` was added in **Python version 3.11** [python_32_asyncio_concurrency:20]. \n\nRegarding its behavior, the provided documentation shows it is used as an asynchronous context manager (`async with asyncio.TaskGroup() as tg:`), and the context manager waits for all tasks created within the group to finish before exiting [python_32_asyncio_concurrency:34].",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "In which Python version was asyncio.TaskGroup added, and does its context manager wait for the tasks when it exits?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375093-YgFNa4QJ7XmWzTDKgmoj",
+          "created": 1793375093,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.15e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.224e-05,
+            "upstream_inference_prompt_cost": 1.926e-05,
+            "upstream_inference_cost": 3.15e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-48ee-7666-99f9-89caade403d9-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "asyncio.TaskGroup python version context manager wait"
+            },
+            "id": "chatcmpl-tool-a6287526bfd2b864",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 228,
+          "output_tokens": 24,
+          "total_tokens": 252,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_32_asyncio_concurrency:34]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: async with asyncio.TaskGroup() as tg:\n    for i in range(10):\n        tg.create_task(some_coro(param=i))\n\nAdded in version 3.7.\n\nChanged in version 3.8: Added the name parameter.\n\n[python_32_asyncio_concurrency:17]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: The asyncio.TaskGroup class provides a more modern\nalternative to create_task().\nUsing this API, the last example becomes:\n\n[python_32_asyncio_concurrency:20]\nDocument ID: python_32_asyncio_concurrency\nSource: retrieval-engine/data/documents/python_32_asyncio_concurrency.txt\nContent: The timing and output should be the same as for the previous version.\n\nAdded in version 3.11: asyncio.TaskGroup.\n\nCreating tasks\n\nSource code: Lib/asyncio/tasks.py",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-a6287526bfd2b864",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "`asyncio.TaskGroup` was added in **Python version 3.11** [python_32_asyncio_concurrency:20]. \n\nRegarding its behavior, the provided documentation shows it is used as an asynchronous context manager (`async with asyncio.TaskGroup() as tg:`), and the context manager waits for all tasks created within the group to finish before exiting [python_32_asyncio_concurrency:34].",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375095-Maq8E3JPwNjHTyb3YT36",
+          "created": 1793375095,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 8.874e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 3.264e-05,
+            "upstream_inference_prompt_cost": 5.61e-05,
+            "upstream_inference_cost": 8.874e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-4ed3-7689-ab67-415be426490d-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 561,
+          "output_tokens": 96,
+          "total_tokens": 657,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag14",
+    "group": "unanswerable",
+    "query": "Which string method removes every occurrence of a chosen character, including occurrences in the middle of the string? Show an example.",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В предоставленном корпусе недостаточно информации о методе удаления всех вхождений символа. Документ про strip, lstrip и rstrip описывает удаление с краёв и не обосновывает ответ для середины строки.",
+    "evaluation_note": "Вопрос имеет ответ в Python, но сведения о str.replace отсутствуют в текущем корпусе. Для RAG ожидается признание недостатка источников; baseline можно оценить как правильный, если он предложит s.replace(char, '').",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "To remove every occurrence of a specific character from a string, including those in the middle, you should use the **`replace()`** method.\n\nWhile methods like `strip()`, `removeprefix()`, and `removesuffix()` only target the ends of a string [python_26_string_trimming:4, 13, 18], `replace()` allows you to swap every instance of a substring (or character) with another string. To \"remove\" the character, you replace it with an empty string (`\"\"`).\n\n### Example:\n```python\ntext = \"Hello World\"\n# Remove every occurrence of the letter 'o'\nresult = text.replace(\"o\", \"\")\nprint(result) \n# Output: Hell Wrld\n```",
+    "error": null,
+    "model_calls": 2,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "Which string method removes every occurrence of a chosen character, including occurrences in the middle of the string? Show an example.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375100-mmKJbfskyEPNvZzep3h6",
+          "created": 1793375100,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 3.018e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 7.48e-06,
+            "upstream_inference_prompt_cost": 2.27e-05,
+            "upstream_inference_cost": 3.018e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-62cd-7117-a9fe-b81691b9b02d-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "string method remove every occurrence of a character"
+            },
+            "id": "call-29f1aa2c-2bec-4437-a410-ffe699389e7d",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 227,
+          "output_tokens": 22,
+          "total_tokens": 249,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_26_string_trimming:13]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: See str.removeprefix() for a method that will remove a single prefix\nstring rather than all of a set of characters.  For example:\n\n[python_26_string_trimming:18]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: See removesuffix() for a method that will remove a single suffix\nstring rather than all of a set of characters.  For example:\n\n[python_26_string_trimming:4]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: Return a copy of the string with the leading and trailing characters removed.\nThe chars argument is a string specifying the set of characters to be removed.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-29f1aa2c-2bec-4437-a410-ffe699389e7d",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "To remove every occurrence of a specific character from a string, including those in the middle, you should use the **`replace()`** method.\n\nWhile methods like `strip()`, `removeprefix()`, and `removesuffix()` only target the ends of a string [python_26_string_trimming:4, 13, 18], `replace()` allows you to swap every instance of a substring (or character) with another string. To \"remove\" the character, you replace it with an empty string (`\"\"`).\n\n### Example:\n```python\ntext = \"Hello World\"\n# Remove every occurrence of the letter 'o'\nresult = text.replace(\"o\", \"\")\nprint(result) \n# Output: Hell Wrld\n```",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375101-9xvTg0B9ViZE4jGBa0im",
+          "created": 1793375101,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.000142065,
+          "cost_details": {
+            "upstream_inference_completions_cost": 8.568e-05,
+            "upstream_inference_prompt_cost": 5.6385e-05,
+            "upstream_inference_cost": 0.000142065
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-6819-748a-a07a-c6282213d2ba-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 503,
+          "output_tokens": 168,
+          "total_tokens": 671,
+          "input_token_details": {
+            "cache_read": 192,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag15",
+    "group": "unanswerable",
+    "query": "What Redis host, port and database number are configured for this project's retrieval cache?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В документах нет конфигурации Redis или сведений о таком кэше проекта. Определить адрес, порт и номер базы по этим источникам нельзя; нельзя подставлять стандартный порт как фактическую настройку.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "Based on the provided documents, there is no information regarding the Redis host, port, or database number configured for the project's retrieval cache.",
+    "error": null,
+    "model_calls": 4,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "What Redis host, port and database number are configured for this project's retrieval cache?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375105-JSePRpvOsW0eMCpVTNDL",
+          "created": 1793375105,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 2.924e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 7.14e-06,
+            "upstream_inference_prompt_cost": 2.21e-05,
+            "upstream_inference_cost": 2.924e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-7658-7592-b139-c7f200f03641-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "Redis host port database retrieval cache configuration"
+            },
+            "id": "call-a9d630a7-00f2-4455-a4c0-23a627eeb01a",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 221,
+          "output_tokens": 21,
+          "total_tokens": 242,
+          "input_token_details": {
+            "cache_read": 128,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_02_strings:20]\nDocument ID: python_02_strings\nSource: retrieval-engine/data/documents/python_02_strings.txt\nContent: Usage: thingy [OPTIONS]\n     -h                        Display this usage message\n     -H hostname               Hostname to connect to\n\n[python_25_virtual_environments:7]\nDocument ID: python_25_virtual_environments\nSource: retrieval-engine/data/documents/python_25_virtual_environments.txt\nContent: A common directory location for a virtual environment is .venv.\nThis name keeps the directory typically hidden in your shell and thus\n\n[python_33_scientific_python:35]\nDocument ID: python_33_scientific_python\nSource: retrieval-engine/data/documents/python_33_scientific_python.txt\nContent: Robust IO tools for loading data from flat files (CSV and delimited),\nExcel files, databases, and saving / loading data from the ultrafast HDF5\nformat",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-a9d630a7-00f2-4455-a4c0-23a627eeb01a",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375106-Qj0nbwRpLqL80TIsFFkB",
+          "created": 1793375106,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.0001052,
+          "cost_details": {
+            "upstream_inference_completions_cost": 9.6e-06,
+            "upstream_inference_prompt_cost": 9.56e-05,
+            "upstream_inference_cost": 0.0001052
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-7a45-72de-92f5-e7fd2c58d51d-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "Redis configuration cache host port db"
+            },
+            "id": "chatcmpl-tool-9cd7efa4d97cdc3d",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 478,
+          "output_tokens": 24,
+          "total_tokens": 502,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_02_strings:20]\nDocument ID: python_02_strings\nSource: retrieval-engine/data/documents/python_02_strings.txt\nContent: Usage: thingy [OPTIONS]\n     -h                        Display this usage message\n     -H hostname               Hostname to connect to\n\n[python_25_virtual_environments:7]\nDocument ID: python_25_virtual_environments\nSource: retrieval-engine/data/documents/python_25_virtual_environments.txt\nContent: A common directory location for a virtual environment is .venv.\nThis name keeps the directory typically hidden in your shell and thus\n\n[python_33_scientific_python:35]\nDocument ID: python_33_scientific_python\nSource: retrieval-engine/data/documents/python_33_scientific_python.txt\nContent: Robust IO tools for loading data from flat files (CSV and delimited),\nExcel files, databases, and saving / loading data from the ultrafast HDF5\nformat",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-9cd7efa4d97cdc3d",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375108-u7xfwq2wPNodXsZPZQ2z",
+          "created": 1793375108,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 8.488e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.088e-05,
+            "upstream_inference_prompt_cost": 7.4e-05,
+            "upstream_inference_cost": 8.488e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-81bc-71f9-80af-5016ef5ea74c-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "\"REDIS_HOST\" \"REDIS_PORT\" \"REDIS_DB\""
+            },
+            "id": "call-4d287e31-c820-44af-bcf2-25792902401f",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 740,
+          "output_tokens": 32,
+          "total_tokens": 772,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_26_string_trimming:17]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: >>> '   spacious   '.rstrip()\n'   spacious'\n>>> 'mississippi'.rstrip('ipz')\n'mississ'\n\n[python_26_string_trimming:12]\nDocument ID: python_26_string_trimming\nSource: retrieval-engine/data/documents/python_26_string_trimming.txt\nContent: >>> '   spacious   '.lstrip()\n'spacious   '\n>>> 'www.example.com'.lstrip('cmowz.')\n'example.com'\n\n[python_09_parameter_kinds:6]\nDocument ID: python_09_parameter_kinds\nSource: retrieval-engine/data/documents/python_09_parameter_kinds.txt\nContent: def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):\n      -----------    ----------     ----------\n        |             |                  |\n        |        Positional or keyword   |",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "call-4d287e31-c820-44af-bcf2-25792902401f",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "Based on the provided documents, there is no information regarding the Redis host, port, or database number configured for the project's retrieval cache.",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375113-HsUxwxhaOpTh4IP093HV",
+          "created": 1793375113,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.00015963,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.734e-05,
+            "upstream_inference_prompt_cost": 0.00014229,
+            "upstream_inference_cost": 0.00015963
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-93e2-762b-9f27-b4debdbb6370-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 1054,
+          "output_tokens": 34,
+          "total_tokens": 1088,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "rag16",
+    "group": "unanswerable",
+    "query": "According to benchmarks in the supplied documents, exactly how many times faster is ProcessPoolExecutor than asyncio for multiplying two 1000 by 1000 matrices on an Intel Core i7-12700K?",
+    "answerable": false,
+    "relevant_document_ids": [],
+    "expected_answer": "В корпусе нет такого сравнительного измерения для указанной задачи и процессора. По описаниям API нельзя вычислить точный коэффициент ускорения.",
+    "evaluation_note": "Проверяется отказ придумывать количественный результат по тематически близким документам про конкурентность и вычисления.",
+    "model": "google/gemma-4-31b-it",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 200,
+    "overlap": 30,
+    "max_calls": 5,
+    "answer": "Based on the provided documents, there is no mention of benchmarks comparing `ProcessPoolExecutor` and `asyncio` for multiplying 1000 by 1000 matrices on an Intel Core i7-12700K. The available text describes the general functionality of `ProcessPoolExecutor` but does not contain specific performance data or hardware-specific benchmarks.",
+    "error": null,
+    "model_calls": 3,
+    "stop_reason": "answer",
+    "trace": [
+      {
+        "content": "According to benchmarks in the supplied documents, exactly how many times faster is ProcessPoolExecutor than asyncio for multiplying two 1000 by 1000 matrices on an Intel Core i7-12700K?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375114-W9sJUv1pITJ7PE8QhKwf",
+          "created": 1793375114,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 6.32e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.28e-05,
+            "upstream_inference_prompt_cost": 5.04e-05,
+            "upstream_inference_cost": 6.32e-05
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-978d-7789-b5f6-36ec84f46a5c-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "ProcessPoolExecutor asyncio matrix multiplication Intel Core i7-12700K benchmark"
+            },
+            "id": "chatcmpl-tool-aed99c48635c8e19",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 252,
+          "output_tokens": 32,
+          "total_tokens": 284,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_31_background_computation:12]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: The ProcessPoolExecutor class is an Executor subclass that\nuses a pool of processes to execute calls asynchronously.\nProcessPoolExecutor uses the multiprocessing module, which\n\n[python_31_background_computation:5]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: The asynchronous execution can be performed with threads, using\nThreadPoolExecutor or InterpreterPoolExecutor,\nor separate processes, using ProcessPoolExecutor.\n\n[python_31_background_computation:19]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: An Executor subclass that executes calls asynchronously using a pool\nof at most max_workers processes.  If max_workers is None or not\ngiven, it will default to os.process_cpu_count().",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-aed99c48635c8e19",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375115-BC1fYGSAyysNLk49yR6n",
+          "created": 1793375115,
+          "object": "chat.completion",
+          "finish_reason": "tool_calls",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.0001236,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.52e-05,
+            "upstream_inference_prompt_cost": 0.0001084,
+            "upstream_inference_cost": 0.0001236
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-9b3e-7035-afa3-ec5cf0be0963-0",
+        "tool_calls": [
+          {
+            "name": "search_docs",
+            "args": {
+              "q": "matrix multiplication benchmark \"Intel Core i7-12700K\" ProcessPoolExecutor asyncio"
+            },
+            "id": "chatcmpl-tool-978531bde991388e",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 542,
+          "output_tokens": 38,
+          "total_tokens": 580,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": "[python_31_background_computation:12]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: The ProcessPoolExecutor class is an Executor subclass that\nuses a pool of processes to execute calls asynchronously.\nProcessPoolExecutor uses the multiprocessing module, which\n\n[python_31_background_computation:36]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: Changed in version 3.13: max_workers uses os.process_cpu_count() by default, instead of\nos.cpu_count().\n\n[python_31_background_computation:21]\nDocument ID: python_31_background_computation\nSource: retrieval-engine/data/documents/python_31_background_computation.txt\nContent: then ValueError will be raised. If max_workers is None, then\nthe default chosen will be at most 61, even if more processors are\navailable.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": null,
+        "id": null,
+        "tool_call_id": "chatcmpl-tool-978531bde991388e",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "Based on the provided documents, there is no mention of benchmarks comparing `ProcessPoolExecutor` and `asyncio` for multiplying 1000 by 1000 matrices on an Intel Core i7-12700K. The available text describes the general functionality of `ProcessPoolExecutor` but does not contain specific performance data or hardware-specific benchmarks.",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "model_name": "google/gemma-4-31b-it",
+          "id": "gen-1793375116-L54XEnIEVRqq6Vxcifr5",
+          "created": 1793375116,
+          "object": "chat.completion",
+          "finish_reason": "stop",
+          "logprobs": null,
+          "model_provider": "openrouter",
+          "cost": 0.0001998,
+          "cost_details": {
+            "upstream_inference_completions_cost": 3.28e-05,
+            "upstream_inference_prompt_cost": 0.000167,
+            "upstream_inference_cost": 0.0001998
+          }
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18d7c-9f6a-7083-981d-8cce189cc25b-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 835,
+          "output_tokens": 82,
+          "total_tokens": 917,
+          "input_token_details": {
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  }
+]
